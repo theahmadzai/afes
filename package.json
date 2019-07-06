@@ -21,5 +21,22 @@
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17"
+    },
+    "eslintIgnore": [
+        "!.*.js",
+        "vendor",
+        "public"
+    ],
+    "stylelintIgnore": [
+        "vendor",
+        "public"
+    ],
+    "browserslist": {
+        "development": [
+            "last 2 versions"
+        ],
+        "production": [
+            "last 4 versions"
+        ]
     }
 }
