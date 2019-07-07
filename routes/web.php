@@ -13,4 +13,8 @@
 
 Auth::routes();
 
-Route::get('/', 'PageController@home');
+Route::get('/', 'PageController@index');
+Route::get('/about', 'PageController@about');
+Route::get('/contact', 'PageController@contact');
+Route::get('/gallery', 'PageController@gallery');
+Route::get('/blog', 'PageController@blog');
