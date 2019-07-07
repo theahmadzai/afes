@@ -8,11 +8,16 @@ class PageController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
-    public function home()
+    public function index()
     {
-        return view('home');
+        return view('pages.index');
+    }
+
+    public function about()
+    {
+        return view('pages.about.chairman-message.blade.php');
     }
 }
