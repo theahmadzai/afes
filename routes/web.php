@@ -14,7 +14,10 @@
 Auth::routes();
 
 Route::get('/', 'PageController@index');
-Route::get('/about', 'PageController@about');
 Route::get('/contact', 'PageController@contact');
 Route::get('/gallery', 'PageController@gallery');
 Route::get('/blog', 'PageController@blog');
+Route::get('/about', 'PageController@about');
+Route::get('/about/organizational-strategy', 'PageController@about1');
+Route::get('/about/chairman-message', 'PageController@about2');
+Route::get('/about/statutes-and-by-laws', 'PageController@about3');
