@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Chairman\'s Message')
+@section('title', 'Statutes And By-Laws')
 
 @section('content')
 <div class="container">
-    Chairman's Message
+    Statutes And By-Laws
 </div>
 @endsection
