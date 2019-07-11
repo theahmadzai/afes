@@ -6,3 +6,9 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.courosel-img-fix {
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
