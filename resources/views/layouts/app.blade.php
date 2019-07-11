@@ -8,7 +8,7 @@
 
     <title>@yield('title') | {{ config('app.name', 'AFES') }}</title>
 
-    <link rel="icon" href="/img/FaviconLogo.png">
+    <link rel="icon" href="/img/logo.png">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -20,7 +20,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="/img/logo.png" alt="{{ config('app.name', 'Laravel') }} Logo" width="64" height="64">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -35,6 +35,30 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">Home</a>
+                        </li>
+                         <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{ url('/about') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ url('/about/chairman-message') }}">Chairman's Message</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url('/about/organizational-strategy') }}">Organizational Strategy</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url('/about/board-of-directors') }}">Board Of Directors</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url('/about/statutes-and-by-laws') }}">Statutes And By-Laws</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/gallery') }}">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/contact') }}">Contact Us</a>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -68,7 +92,7 @@
             </div>
         </nav>
 
-        <main class="m-4">
+        <main>
             @yield('content')
         </main>
     </div>
