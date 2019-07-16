@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container my-5">
-    <div class="row">
+    <div class="row text-justify">
         <div class="col">
             <p>Billions of dollars are spent in Afghanistan; donors are putting a lot of efforts and money without scrutinizing project implementations and disseminating results to public and wider development community. Afghanistan lacks a government wide Monitoring and Evaluation policy, there is also inconsistency in monitoring and evaluation practices across different government ministries. Donor projects that are implemented off budget implements monitoring and evaluation standards to a higher degree, while this is then decreased when referred to the on-budget projects of donors.</p>
             <p>Lack of streamlined evaluations across government entities is one of the biggest challenge that need to be addressed, there is lesser degree of trust on government from the donor agencies due to the fact that government is unable to justify donor funding and ensure accountability and transparency. Results of successful projects are rarely disseminated to wider development community and the public, lessons learned are not documented to take them forward in the future projects for improvements.</p>
@@ -32,51 +32,51 @@
         <tbody>
             <tr>
                 <th scope="row">Capacity building of CSOs on Monitoring, Evaluation and Research</th>
-                <td>AfES will reach out to potential CSOs to train them on Monitoring, Evaluation and Research. These trainings will be in the form of on-the-job training to build the human capacity of CSOs in evaluations so that they will contribute to the achievement of Sustainable Development in Afghanistan by having an oversight role on the government and donors.</td>
+                <td class="text-justify">AfES will reach out to potential CSOs to train them on Monitoring, Evaluation and Research. These trainings will be in the form of on-the-job training to build the human capacity of CSOs in evaluations so that they will contribute to the achievement of Sustainable Development in Afghanistan by having an oversight role on the government and donors.</td>
             </tr>
             <tr>
                 <th scope="row">Institutionalization of Monitoring and Evaluation</th>
-                <td>It is very important to institutionalize Monitoring and Evaluation, AfES intends to institutionalize M&E through working with government, donors and CSOs in order to develop, and subsequently implement coherent monitoring and evaluation policies and systems.</td>
+                <td class="text-justify">It is very important to institutionalize Monitoring and Evaluation, AfES intends to institutionalize M&E through working with government, donors and CSOs in order to develop, and subsequently implement coherent monitoring and evaluation policies and systems.</td>
             </tr>
             <tr>
                 <th scope="row">Promoting Evaluation as a profession</th>
-                <td>AfES will work with universities and educational institutions in Afghanistan and the region to encourage youth and emerging evaluators in order to enter the field of evaluation, and make their careers paths in the field of Evaluation. Moreover, AfES will also provide capacity building training to Youth and Emerging Evaluators (YEEs).</td>
+                <td class="text-justify">AfES will work with universities and educational institutions in Afghanistan and the region to encourage youth and emerging evaluators in order to enter the field of evaluation, and make their careers paths in the field of Evaluation. Moreover, AfES will also provide capacity building training to Youth and Emerging Evaluators (YEEs).</td>
             </tr>
             <tr>
                 <th scope="row">Research</th>
-                <td>Research provides insights and evidence for policy making and evidence-based decision making. AfES will focus on research as one of its main components in order to create bases of evidence for sustainable development and policy making in Afghanistan.</td>
+                <td class="text-justify">Research provides insights and evidence for policy making and evidence-based decision making. AfES will focus on research as one of its main components in order to create bases of evidence for sustainable development and policy making in Afghanistan.</td>
             </tr>
             <tr>
                 <th scope="row">Networking and Establishment of M&E Forums</th>
-                <td>AfES intends to establish networking among evaluators, universities and educational institutions in order to create demand for use and practice of evaluation, and share knowledge and best practices across different stakeholders, this will also create an enabling environment for use of evaluation data.</td>
+                <td class="text-justify">AfES intends to establish networking among evaluators, universities and educational institutions in order to create demand for use and practice of evaluation, and share knowledge and best practices across different stakeholders, this will also create an enabling environment for use of evaluation data.</td>
             </tr>
             <tr>
                 <th scope="row">Identification of policy interventions</th>
-                <td>AfES should work with partners, stakeholders, government institutions and CSOs to promote the global evaluation agenda, and the sustainable development goals in order to ensure that appetite for embedding evaluation in the development agenda is strengthened and the culture of evaluation is cultivated among development agencies and the government.</td>
+                <td class="text-justify">AfES should work with partners, stakeholders, government institutions and CSOs to promote the global evaluation agenda, and the sustainable development goals in order to ensure that appetite for embedding evaluation in the development agenda is strengthened and the culture of evaluation is cultivated among development agencies and the government.</td>
             </tr>
             <tr>
                 <th scope="row">Promoting the agenda of SDGs and Global Evaluation Agenda</th>
-                <td>AfES should work with partners, stakeholders, government institutions and CSOs to promote the global evaluation agenda, and the sustainable development goals in order to ensure that appetite for embedding evaluation in the development agenda is strengthened and the culture of evaluation is cultivated among development agencies and the government.</td>
+                <td class="text-justify">AfES should work with partners, stakeholders, government institutions and CSOs to promote the global evaluation agenda, and the sustainable development goals in order to ensure that appetite for embedding evaluation in the development agenda is strengthened and the culture of evaluation is cultivated among development agencies and the government.</td>
             </tr>
             <tr>
                 <th scope="row">Awareness Raising</th>
-                <td>AfES will also develop and implement awareness rising on Sustainable Development Goals, Evaluation and the principles for evaluations. This will enhance enabling environment and create a space for increased use and practice of evaluation in general.</td>
+                <td class="text-justify">AfES will also develop and implement awareness rising on Sustainable Development Goals, Evaluation and the principles for evaluations. This will enhance enabling environment and create a space for increased use and practice of evaluation in general.</td>
             </tr>
             <tr>
                 <th scope="row">Publications</th>
-                <td>AfES will also work on publications of newsletters, and other products that are related to evaluations. These will include study reports, evaluation reports and publications of specific evaluations that will be conducted by AfES.</td>
+                <td class="text-justify">AfES will also work on publications of newsletters, and other products that are related to evaluations. These will include study reports, evaluation reports and publications of specific evaluations that will be conducted by AfES.</td>
             </tr>
             <tr>
                 <th scope="row">Regional Cooperation</th>
-                <td>It is understood that there have already been enough progress in standardizing evaluation; therefore, it is vital to learn from others in the region. AfES will work with regional evaluation societies for sharing lessons learned and learning from others, activities will include joint conferences in Afghanistan, South Asia and Central Asia. Study tours and joined projects will also be implemented to strengthen and enhance regional cooperation</td>
+                <td class="text-justify">It is understood that there have already been enough progress in standardizing evaluation; therefore, it is vital to learn from others in the region. AfES will work with regional evaluation societies for sharing lessons learned and learning from others, activities will include joint conferences in Afghanistan, South Asia and Central Asia. Study tours and joined projects will also be implemented to strengthen and enhance regional cooperation</td>
             </tr>
             <tr>
                 <th scope="row">Institutional Development of AfES</th>
-                <td>AfES is a newly established evaluation society, one of the major objectives will remain to further develop AfES in terms of institutional development, and these will include development of policies, by-laws and charters for AfES.</td>
+                <td class="text-justify">AfES is a newly established evaluation society, one of the major objectives will remain to further develop AfES in terms of institutional development, and these will include development of policies, by-laws and charters for AfES.</td>
             </tr>
             <tr>
                 <th scope="row">Localizing and Streamlining Evaluation in Afghanistan</th>
-                <td>Major materials and methodologies in English are primarily available in English Language, it is very important to make them available in local languages, as well as modify them according to the needs and cultures, as well as adopt them based on situations. AfES will work to provide materials and methodologies in evaluation in local languages of Pashto and Dari. Moreover, those approaches that need to be adopted and modified will be streamlined in collaboration with the government, CSOs and development agencies in Afghanistan.</td>
+                <td class="text-justify">Major materials and methodologies in English are primarily available in English Language, it is very important to make them available in local languages, as well as modify them according to the needs and cultures, as well as adopt them based on situations. AfES will work to provide materials and methodologies in evaluation in local languages of Pashto and Dari. Moreover, those approaches that need to be adopted and modified will be streamlined in collaboration with the government, CSOs and development agencies in Afghanistan.</td>
             </tr>
         </tbody>
     </table>
