@@ -91,5 +91,68 @@
         <h3 class="display-5 text-center">Potential Stakeholders and Sponsors</h3>
         <p class="lead">We at AfES understand that we cannot be successful without significant technical and financial assistance from government, members, CSOs, development agencies and donors. Therefore, we have identified potential stakeholders and sponsors in order to implement our strategy. These are identified as following:</p>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <p>Government of Afghanistan is a major stakeholder for AfES; the government is also identified as a potential beneficiary apart from being one of the major stakeholders. We intend to work closely with selected government agencies in order to promote our agenda of evaluation in Afghanistan.</p>
+            <b>Government of Afghanistan</b>
+        </div>
+        <div class="col">
+            <p>Afghan Ministry of Economy is one of the key ministries responsible to coordinate development and economic development activities in Afghanistan, and is also responsible to have an oversight role on the activities of NGOs, development agencies and government funded development projects. Ministry of Economy is a potential ministry that can take ownership of a Government Wide Monitoring and Evaluation Policy.</p>
+            <b>Ministry of Economy</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>All other governmental ministries, as well as independent directorates within the Afghan government are the subsequent agencies that should develop agency wide Monitoring and Evaluation systems, policies and implement them coherently. AfES will rollout projects to gradually cultivate M&E culture in all other government ministries and independent directorates.</p>
+            <b>Other Ministries</b>
+        </div>
+        <div class="col">
+            <p>IOCE as the founder of EvalPartners, the global movement to promote evaluation is one of the key stakeholders in promoting and strengthening the evaluation function worldwide. AfES is a registered and contributing member to IOCE, we therefore intend to work closely with IOCE, seek their technical advice and expertise in our interventions.</p>
+            <b>International Organization for Cooperation in Evaluation (IOCE)</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>UNICEF as the founder of EvalPartners is also a key stakeholder that can potentially provide technical and financial support for the implementation of AfES strategy. AfES will closely work with UNICEF Afghanistan to seek their technical advice, and support AfES in securing funding from other potential sponsors who are willing to support the strengthening of evaluation function.</p>
+            <b>UNICEF</b>
+        </div>
+        <div class="col">
+            <p>CSOs play a key role in development, they are considered as a bridge between the government and the general public, as well as an oversight community on all development and non development related issues. AfES will closely work with CSOs to build their human and institutional capacities in Evaluations.</p>
+            <b>Civil Society Organizations (CSOs)</b>
+        </div>
+    </div>
+
+    <div class="row my-5">
+        <div class="col">
+            <h3 class="display-5 text-center">Challenges, Opportunities and Assumptions</h3>
+            <p>There are many challenges on the way to Sustainable Development in Afghanistan, Afghanistan as one of the poorest countries with lack of good governance, insecurity and poor economy and human development is facing many challenges to go forward and improve the current situation. AfES also understands that this ambitious strategy that we intend to implement will face a lot of challenges, and certain assumptions are also made that have vital role in successful implementation of this strategy.</p>
+
+            <h3>Challenges</h3>
+            <ul>
+                <li><b>Insecurity:</b> One of the major challenges is insecurity in Afghanistan, when conducting quality evaluations, it is imperative to have physical accessibility to people and communities where interventions are taking place.</li>
+                <li><b>Poor Statistics:</b> Statistics provide insights and data for evaluations, as well as they serve as an important factor in planning and designing development interventions, this remains as a challenge in Afghanistan.</li>
+                <li><b>Lack of capacity in Evaluations:</b> Government officials lack necessary capacities in evaluation, this hampers our plans to convince them implement evaluation standards. CSOs also lack technical understanding and importance of Evaluations; however AfES intends to build human and institutional capacities of governmental officials as well as of CSOs in Afghanistan.</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h2 class="display-5 text-center">Potential Projects and Interventions</h2>
+            <p>AfES will implement projects and interventions in line with the strategic objectives and the strategic objectives are aligned with the Global Evaluation Agenda and the Sustainable Development Goals. The following Strategic Objectives (SOs) will be achieved through various interventions and projects that has been detailed in this section.</p>
+
+            <p>To achieve the above stated strategic objectives, we intend to implement the following projects and interventions:</p>
+            <ul>
+                <li>Capacity building of CSOs and Governmental official on Monitoring and Evaluation</li>
+                <li>Organizing workshops, events and conferences in support of SDGs and Global Evaluation Agenda</li>
+                <li>Networking and establishment of forums to support and strengthen the evaluation functions</li>
+                <li>Sharing of knowledge and experiences with/from regional VOPEs, evaluation communities of practices and regional evaluation societies.</li>
+                <li>Conducting research and evaluations in Afghanistan that will focus on assessing the progress towards implementation of SDGs,</li>
+                <li>Develop evaluation policies for governmental ministries and independent directorates,</li>
+                <li>Raise awareness on importance of evaluation in evidence-based policy making</li>
+                <li>Working with donors, partners and stakeholders to promote the evaluation agenda in Afghanistan,</li>
+                <li>Work with universities, educational institutions and network in Afghanistan and in the region to professionalize the profession of evaluation, build capacity of Emerging evaluators, and standardize Evaluation in Afghanistan, and</li>
+                <li>Develop institutional policies, by-laws, procedures and regulations for Afghan Evaluation Society in order to strengthen the organization.</li>
+            </ul>
+        </div>
+    </div>
 </div>
 @endsection
