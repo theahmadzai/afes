@@ -3,6 +3,12 @@
 @section('title', 'Chairman\'s Message')
 
 @section('content')
+<nav aria-label="breadcrumb container">
+    <ol class="breadcrumb align-items-center justify-content-center p-5">
+        <li class="breadcrumb-item"><a href="#">About Us</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Chairman's Message</li>
+    </ol>
+</nav>
 <div class="container my-5">
     <div class="row text-justify">
         <div class="col">
