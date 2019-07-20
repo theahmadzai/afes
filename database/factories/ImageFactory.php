@@ -13,7 +13,7 @@ $factory->define(Image::class, function (Faker $faker) {
 
     return [
         'caption' => $faker->sentence(6),
-        'filename' => 'placeholder.jpg',
+        'filename' => 'default/image.png',
         'imageable_id' => factory($imageableType)->create()->id,
         'imageable_type' => $imageableType
     ];
