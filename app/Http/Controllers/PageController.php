@@ -23,7 +23,10 @@ class PageController extends Controller
 
     public function gallery()
     {
-        return view('pages.gallery');
+        return view('pages.gallery', [
+            'categories' => \App\Category::all(),
+            'items' => \App\GalleryItem::all()
+        ]);
     }
 
     public function blog()
