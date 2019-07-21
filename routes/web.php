@@ -22,3 +22,7 @@ Route::get('/about/chairman-message', 'PageController@about_chairmanMessage');
 Route::get('/about/organizational-strategy', 'PageController@about_organizationalStrategy');
 Route::get('/about/board-of-directors', 'PageController@about_boardOfDirectors');
 Route::get('/about/statutes-and-by-laws', 'PageController@about_statutesAndByLaws');
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/', 'AdminController@index');
+});
