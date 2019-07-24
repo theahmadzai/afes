@@ -49,12 +49,12 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": [
-        {
+    "repositories": {
+        "laravel/nova": {
             "type": "path",
-            "url": "./nova"
+            "url": "./vendor/nova"
         }
-    ],
+    },
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
