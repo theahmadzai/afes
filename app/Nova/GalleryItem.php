@@ -3,6 +3,9 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -29,8 +32,14 @@ class GalleryItem extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'image.caption'
     ];
+
+    public static $with = [
+        'Image'
+    ];
+
+    public static $group = 'Images';
 
     /**
      * Get the fields displayed by the resource.
@@ -42,7 +51,10 @@ class GalleryItem extends Resource
     {
         return [
             ID::make()->sortable(),
-            MorphOne::make('Image')
+            Text::make('Caption', 'image.caption'),
+            Image::make('Image', 'image.filename')->disk('public')->path('images'),
+            BelongsTo::make('Category'),
+            MorphOne::make('Image'),
         ];
     }
 

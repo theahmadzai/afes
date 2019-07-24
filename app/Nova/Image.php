@@ -5,6 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Image as ImageField;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\MorphTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -31,8 +32,10 @@ class Image extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'caption'
     ];
+
+    public static $group = 'Images';
 
     /**
      * Get the fields displayed by the resource.
@@ -45,10 +48,13 @@ class Image extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Caption'),
-            ImageField::make('Image', 'filename'),
-            MorphTo::make('Imageable')->types([
-                GalleryItem::class
+            ImageField::make('Image', 'filename')->disk('public')->path('images'),
+            MorphTo::make('For', 'imageable')->types([
+                GalleryItem::class,
+                CarouselItem::class,
+                Post::class,
             ]),
+            DateTime::make('Last Updated', 'updated_at')->onlyOnDetail(),
         ];
     }
 
@@ -60,7 +66,10 @@ class Image extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            new Metrics\TotalImages,
+            (new Metrics\ImagesPerDay)->width('2/3'),
+        ];
     }
 
     /**
