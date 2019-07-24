@@ -21,7 +21,7 @@
         <div class="row">
             @foreach($chunk as $item)
                 <div class="col">
-                    <img src="{{ $item->image->filename }}" class="img-fluid my-3">
+                    <img src="{{ asset('storage/'.$item->image->filename) }}" class="img-fluid my-3">
                 </div>
             @endforeach
         </div>
