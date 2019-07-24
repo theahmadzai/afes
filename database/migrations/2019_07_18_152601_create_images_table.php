@@ -17,8 +17,7 @@ class CreateImagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('caption')->nullable();
             $table->string('filename');
-            $table->unsignedBigInteger('imageable_id');
-            $table->string('imageable_type');
+            $table->morphs('imageable');
             $table->timestamps();
             $table->softDeletes();
         });
