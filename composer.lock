@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae141890a0b04091ac35ea9375ecc9d1",
+    "content-hash": "b33351bec45e34ad2ee22a1150ab270f",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -816,7 +816,7 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "./nova",
+                "url": "./vendor/nova",
                 "reference": "44b2d572e7dfff707439ada0b0e9c0c608a88ae9"
             },
             "require": {
