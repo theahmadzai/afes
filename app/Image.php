@@ -15,11 +15,6 @@ class Image extends Model
         return $this->morphTo();
     }
 
-    public function getFilenameAttribute($value)
-    {
-        return Storage::url($value ?? 'default/image.png');
-    }
-
     public function thumbnail()
     {
         if (!$this->getOriginal('image')) {
