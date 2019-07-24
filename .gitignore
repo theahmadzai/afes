@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/nova
 .idea
 .vscode
 .vagrant
