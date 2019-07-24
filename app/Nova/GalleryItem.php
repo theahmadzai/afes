@@ -3,20 +3,18 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Image as ImageField;
-use Laravel\Nova\Fields\MorphTo;
+use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Image extends Resource
+class GalleryItem extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Image';
+    public static $model = 'App\GalleryItem';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -44,11 +42,7 @@ class Image extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Caption'),
-            ImageField::make('Image', 'filename'),
-            MorphTo::make('Imageable')->types([
-                GalleryItem::class
-            ]),
+            MorphOne::make('Image')
         ];
     }
 
@@ -94,5 +88,10 @@ class Image extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    public static function label()
+    {
+        return "Gallery Images";
     }
 }
