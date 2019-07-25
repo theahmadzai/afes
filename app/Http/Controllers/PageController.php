@@ -6,28 +6,6 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function index()
-    {
-        return view('pages.index');
-    }
-
-    public function contact()
-    {
-        return view('pages.contact');
-    }
-
-    public function gallery()
-    {
-        return view('pages.gallery', [
-            'categories' => \App\Category::all(),
-            'items' => \App\GalleryItem::all()
-        ]);
-    }
-
-    public function blog()
-    {
-        return view('pages.blog');
-    }
 
     public function about()
     {
