@@ -13,10 +13,11 @@
 
 Auth::routes();
 
-Route::get('/', 'PageController@index');
-Route::get('/contact', 'PageController@contact');
-Route::get('/gallery', 'PageController@gallery');
-Route::get('/blog', 'PageController@blog');
+Route::get('/', 'HomeController@index');
+Route::get('/contact', 'ContactController@index');
+Route::get('/gallery', 'GalleryController@index');
+Route::get('/blog', 'BlogController@index');
+Route::get('/blog/{post}', 'BlogController@post');
 Route::get('/about', 'PageController@about');
 Route::get('/about/chairman-message', 'PageController@about_chairmanMessage');
 Route::get('/about/organizational-strategy', 'PageController@about_organizationalStrategy');
