@@ -10,13 +10,9 @@ class Post extends Model
         'published_at' => 'datetime',
     ];
 
-    public static function boot()
+    public function getRouteKeyName()
     {
-        parent::boot();
-
-        static::creating(function ($post) {
-            $post->user_id = auth()->user()->id;
-        });
+        return 'slug';
     }
 
     public function tags()
