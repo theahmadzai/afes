@@ -9,11 +9,15 @@ use App\GalleryItem;
 
 class GalleryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $galleryItems = !empty($request->category)
+                        ? GalleryItem::where('category_id', $request->category)
+                        : new GalleryItem;
+
         return View::make('pages.gallery', [
             'categories' => Category::all(),
-            'items' => GalleryItem::all(),
+            'items' => $galleryItems->paginate(8),
         ]);
     }
 }
