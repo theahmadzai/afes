@@ -31,4 +31,9 @@ class PageController extends Controller
     {
         return view('pages.about.statutes-and-by-laws');
     }
+
+    public function donate()
+    {
+        return view('pages.donate');
+    }
 }
