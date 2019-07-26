@@ -59,6 +59,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/contact') }}">Contact Us</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/donate') }}">Donate</a>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -134,8 +137,9 @@
         </footer>
     </div>
 
-    <script src="{{ asset('js/app.js') }}"></script>
-
     @stack('scripts')
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

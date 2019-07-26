@@ -68,6 +68,14 @@
                 </div>
                 <!--Grid row-->
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form">
+                            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                        </div>
+                    </div>
+                </div>
+
             </form>
 
             <div class="text-center text-md-left">

@@ -1,5 +1,3 @@
-window._ = require('lodash');
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -53,3 +51,13 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/**
+ * Set ReCaptcha
+ */
+
+ grecaptcha.ready(function() {
+    grecaptcha.execute("6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk", {action: 'homepage'}).then(function(token) {
+        document.getElementById('g-recaptcha-response').value = token;
+    });
+});
