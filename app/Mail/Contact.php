@@ -31,6 +31,9 @@ class Contact extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.contact');
+        return $this->to('info@afghanevaluation.af', 'AFES Admin')
+            ->from($this->message->email, $this->message->name)
+            ->subject($this->message->subject)
+            ->markdown('emails.contact');
     }
 }
