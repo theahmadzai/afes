@@ -15,7 +15,8 @@
 
         <!--Grid column-->
         <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+            <form id="contact-form" name="contact-form" action="{{ url('contact') }}" method="POST">
+                @csrf
 
                 <!--Grid row-->
                 <div class="row">
@@ -59,7 +60,7 @@
                     <div class="col-md-12">
 
                         <div class="md-form">
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                            <textarea type="text" id="message" name="body" rows="2" class="form-control md-textarea"></textarea>
                             <label for="message">Your message</label>
                         </div>
 
