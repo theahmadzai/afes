@@ -15,6 +15,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('/contact', 'ContactController@index');
+Route::post('/contact', 'ContactController@mail');
 Route::get('/gallery', 'GalleryController@index');
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{post}', 'BlogController@post');
