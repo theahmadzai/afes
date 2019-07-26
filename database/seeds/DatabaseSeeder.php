@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             CarouselItemsTableSeeder::class,
             GalleryItemsTableSeeder::class,
             TagsTableSeeder::class,
-            PostsTableSeeder::class
+            PostsTableSeeder::class,
+            MessagesTableSeeder::class,
         ]);
     }
 }
