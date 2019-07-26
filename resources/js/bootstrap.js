@@ -55,9 +55,13 @@ if (token) {
 /**
  * Set ReCaptcha
  */
-
- grecaptcha.ready(function() {
-    grecaptcha.execute("6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk", {action: 'homepage'}).then(function(token) {
-        document.getElementById('g-recaptcha-response').value = token;
+if (typeof grecaptcha !== 'undefined') {
+    grecaptcha.ready(() => {
+        grecaptcha.execute('6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk', { action: 'homepage' }).then((token) => {
+            var recaptcha = document.getElementById('g-recaptcha-response');
+            if(recaptcha) {
+                recaptcha.value = token;
+            }
+        });
     });
-});
+}

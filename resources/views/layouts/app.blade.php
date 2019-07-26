@@ -11,9 +11,9 @@
     <link rel="icon" href="/img/logo.png">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     @stack('styles')
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
     <div id="app">
@@ -138,8 +138,6 @@
     </div>
 
     @stack('scripts')
-
-    <script src="https://www.google.com/recaptcha/api.js?render=6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

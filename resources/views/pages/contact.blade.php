@@ -107,3 +107,7 @@
 
 </div>
 @endsection
+
+@push('scripts')
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk"></script>
+@endpush
