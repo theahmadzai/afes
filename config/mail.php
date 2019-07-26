@@ -56,8 +56,24 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'admin@afghanevaluation.af'),
+        'name' => env('MAIL_FROM_NAME', 'Afghan Evaluation Society'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Global "Reply to" Address
+    |--------------------------------------------------------------------------
+    |
+    | You may wish for all e-mails sent to your application to be received on
+    | the same address. Here, you may specify a name and address that is
+    | used globally for all e-mails that are sent to your application.
+    |
+    */
+
+    'reply_to' => [
+        'address' => env('MAIL_REPLY_ADDRESS', 'info@afghanevaluation.af'),
+        'name' => env('MAIL_REPLY_NAME', 'Afghan Evaluation Society'),
     ],
 
     /*
