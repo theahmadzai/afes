@@ -25,9 +25,9 @@ class Message extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'subject' => 'required',
-            'body' => 'required',
+            'body' => 'required|min:100',
         ];
     }
 }
