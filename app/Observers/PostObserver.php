@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Post;
-use Illuminate\Support\Facades\Auth
+use Illuminate\Support\Facades\Auth;
 
 class PostObserver
 {
