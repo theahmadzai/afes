@@ -23,7 +23,7 @@ class Publish extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        foreach($models as $model) {
+        foreach ($models as $model) {
             $model->forceFill(['is_published' => true])->save();
 
             $this->markAsFinished($model);
