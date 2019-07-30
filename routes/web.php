@@ -19,6 +19,7 @@ Route::post('/contact', 'ContactController@mail');
 Route::get('/gallery', 'GalleryController@index');
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{post}', 'BlogController@post');
+Route::get('/membership', 'MembershipController@index');
 Route::get('/about', 'PageController@about');
 Route::get('/about/chairman-message', 'PageController@about_chairmanMessage');
 Route::get('/about/organizational-strategy', 'PageController@about_organizationalStrategy');
