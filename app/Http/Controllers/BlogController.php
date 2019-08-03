@@ -11,7 +11,7 @@ class BlogController extends Controller
     public function index()
     {
         return View::make('pages.blog', [
-            'posts' => Post::paginate(5),
+            'posts' => Post::published()->paginate(5),
         ]);
     }
 
