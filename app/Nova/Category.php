@@ -30,7 +30,7 @@ class Category extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title'
+        'id', 'name', 'slug'
     ];
 
     public static $group = 'Images';

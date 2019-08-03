@@ -30,7 +30,7 @@ class Tag extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name'
+        'id', 'name', 'slug',
     ];
 
     /**
@@ -43,7 +43,8 @@ class Tag extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name'),
+            Text::make('Name')->sortable(),
+            Text::make('Slug')->sortable(),
             MorphToMany::make('Posts')
         ];
     }
