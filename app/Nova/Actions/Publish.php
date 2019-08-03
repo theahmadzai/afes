@@ -24,7 +24,7 @@ class Publish extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-            $model->forceFill(['is_published' => true])->save();
+            $model->forceFill(['is_published' => true, 'published_at' => now()])->save();
 
             $this->markAsFinished($model);
         }
