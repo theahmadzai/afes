@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             TagsTableSeeder::class,
             PostsTableSeeder::class,
             MessagesTableSeeder::class,
+            JobsTableSeeder::class,
         ]);
     }
 }
