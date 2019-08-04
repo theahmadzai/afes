@@ -32,10 +32,8 @@ class Image extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'caption'
+        'id', 'caption',
     ];
-
-    public static $group = 'Images';
 
     /**
      * Get the fields displayed by the resource.

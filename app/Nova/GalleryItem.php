@@ -32,14 +32,12 @@ class GalleryItem extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'image.caption'
+        'id',
     ];
 
     public static $with = [
-        'Image'
+        'Image',
     ];
-
-    public static $group = 'Images';
 
     /**
      * Get the fields displayed by the resource.

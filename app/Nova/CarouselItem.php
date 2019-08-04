@@ -36,10 +36,8 @@ class CarouselItem extends Resource
     ];
 
     public static $with = [
-        'Image'
+        'Image',
     ];
-
-    public static $group = 'Images';
 
     /**
      * Get the fields displayed by the resource.

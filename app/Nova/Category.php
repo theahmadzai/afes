@@ -30,10 +30,8 @@ class Category extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'slug'
+        'id', 'name', 'slug',
     ];
-
-    public static $group = 'Images';
 
     /**
      * Get the fields displayed by the resource.
