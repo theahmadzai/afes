@@ -57,6 +57,9 @@
                             <a class="nav-link" href="{{ url('/membership') }}">Membership</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/jobs') }}">Jobs</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ url('/gallery') }}">Gallery</a>
                         </li>
                         <li class="nav-item">
