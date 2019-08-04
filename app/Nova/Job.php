@@ -77,8 +77,8 @@ class Job extends Resource
                 '5 > Years' => '5 > Years'
             ])->hideFromIndex(),
             Status::make('Status')->loadingWhen(['Open'])->failedWhen(['Closed'])->exceptOnForms(),
-            DateTime::make('Date Posted')->onlyOnDetail(),
-            DateTime::make('Closing Date')->hideFromIndex(),
+            DateTime::make('Posted At')->onlyOnDetail(),
+            DateTime::make('Closing At')->hideFromIndex(),
         ];
     }
 

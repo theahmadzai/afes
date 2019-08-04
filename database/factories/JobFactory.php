@@ -21,7 +21,7 @@ $factory->define(Job::class, function (Faker $faker) {
         'work_type' => $faker->randomElement(['Part-Time', 'Full-Time']),
         'experience' => $faker->randomElement(['Fresh', '1-2 Years', '3-4 Years', '5 > Years']),
         'status' => $faker->randomElement(['Open', 'Closed']),
-        'date_posted' => now()->subDays(random_int(1, 60)),
-        'closing_date' => now()->subDays(random_int(60, 180)),
+        'posted_at' => now()->subDays(random_int(1, 60)),
+        'closing_at' => now()->subDays(random_int(60, 180)),
     ];
 });
