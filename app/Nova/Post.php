@@ -53,7 +53,7 @@ class Post extends Resource
             Boolean::make('Is Published')->exceptOnForms(),
             BelongsTo::make('User')->hideWhenCreating()->hideWhenUpdating(),
             MorphOne::make('Image'),
-            DateTime::make('Published At')->rules('date')->onlyOnDetail(),
+            DateTime::make('Published At')->onlyOnDetail(),
             MorphToMany::make('Tags'),
         ];
     }
