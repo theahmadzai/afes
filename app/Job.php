@@ -3,11 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Job extends Model
 {
     protected $casts = [
-        'date_posted' => 'datetime',
-        'closing_date' => 'datetime',
+        'posted_at' => 'datetime',
+        'closing_at' => 'datetime',
     ];
+
+    public function scopeOpen(Builder $query)
+    {
+        return $query->where('status', 'Open');
+    }
 }
