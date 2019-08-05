@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\{
+    ContactController,
+    GalleryController,
+    PostController,
+    MembershipController,
+    JobController,
+};
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,19 +19,34 @@
 |
 */
 
+/**
+ * Laravel Routes
+ */
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
-Route::get('/contact', 'ContactController@index');
-Route::post('/contact', 'ContactController@mail');
-Route::get('/gallery', 'GalleryController@index');
-Route::get('/blog', 'BlogController@index');
-Route::get('/blog/{post}', 'BlogController@post');
-Route::get('/membership', 'MembershipController@index');
-Route::get('/jobs', 'JobController@index');
-Route::get('/about', 'PageController@about');
-Route::get('/about/chairman-message', 'PageController@about_chairmanMessage');
-Route::get('/about/organizational-strategy', 'PageController@about_organizationalStrategy');
-Route::get('/about/board-of-directors', 'PageController@about_boardOfDirectors');
-Route::get('/about/statutes-and-by-laws', 'PageController@about_statutesAndByLaws');
-Route::get('/donate', 'PageController@donate');
+/**
+ * Controller Routes
+ */
+Route::get('/', HomeController::class);
+Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact', [ContactController::class, 'mail']);
+Route::get('/gallery', [GalleryController::class, 'index']);
+Route::get('/blog', [PostController::class, 'index']);
+Route::get('/blog/{post}', [PostController::class, 'show']);
+Route::get('/membership', [MembershipController::class, 'index']);
+Route::get('/jobs', [JobController::class, 'index']);
+Route::get('/jobs/{title}', [JobController::class, 'show']);
+
+/**
+ * View Routes
+ */
+Route::view('/about/chairman-message', 'about.chairman-message');
+Route::view('/about/organizational-strategy', 'about.organizational-strategy');
+Route::view('/about/board-of-directors', 'about.board-of-directors');
+Route::view('/about/statutes-and-by-laws', 'about.statutes-and-by-laws');
+Route::view('/donate', 'donate');
+
+/**
+ * Redirect Routes
+ */
+Route::redirect('/about', 'about/chairman-message');
