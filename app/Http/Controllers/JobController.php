@@ -10,8 +10,15 @@ class JobController extends Controller
 {
     public function index()
     {
-        return View::make('pages.jobs', [
+        return View::make('jobs.index', [
             'jobs' => Job::open()->paginate(5),
+        ]);
+    }
+
+    public function show(Job $job)
+    {
+        return View::make('jobs.show', [
+            'post' => $post,
         ]);
     }
 }

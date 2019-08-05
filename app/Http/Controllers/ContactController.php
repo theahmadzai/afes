@@ -13,7 +13,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return View::make('pages.contact');
+        return View::make('contact.index');
     }
 
     public function mail(MessageRequest $request)

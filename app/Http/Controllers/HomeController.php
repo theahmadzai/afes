@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
-        return View::make('pages.home');
+        return View::make('home.index');
     }
 }

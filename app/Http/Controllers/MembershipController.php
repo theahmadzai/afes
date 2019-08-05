@@ -9,6 +9,6 @@ class MembershipController extends Controller
 {
     public function index()
     {
-        return View::make('pages.membership');
+        return View::make('membership.index');
     }
 }

@@ -15,7 +15,7 @@ class GalleryController extends Controller
                         ? GalleryItem::where('category_id', $request->category)
                         : new GalleryItem;
 
-        return View::make('pages.gallery', [
+        return View::make('gallery.index', [
             'categories' => Category::all(),
             'items' => $galleryItems->paginate(8),
         ]);
