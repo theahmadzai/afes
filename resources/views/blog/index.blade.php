@@ -9,7 +9,7 @@
 
         <div class="row border rounded no-gutters overflow-hidden shadow-sm my-3">
             <div class="col-auto d-none d-lg-block">
-                <img class="bd-placeholder-img" width="250" height="250" src="{{ $post->file->getImage() }}"></img>
+                <img class="bd-placeholder-img" width="250" height="250" src="{{ optional($post->file)->thumbnail }}"></img>
             </div>
 
             <div class="col p-4 d-flex flex-column position-static">

@@ -21,7 +21,7 @@
         <div class="row">
             @foreach($chunk as $item)
                 <div class="col-3">
-                    <img src="{{ $item->file->getImage() }}" class="img-fluid my-3">
+                    <img src="{{ optional($item->file)->thumbnail }}" class="img-fluid my-3">
                 </div>
             @endforeach
         </div>

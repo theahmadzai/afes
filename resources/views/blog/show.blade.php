@@ -7,7 +7,7 @@
 
     <div class="row mb-4">
         <div class="col-3">
-            <img src="{{ $post->file->getImage() }}" alt="{{ $post->title }}" class="img-fluid">
+            <img src="{{ optional($post->file)->image }}" alt="{{ $post->title }}" class="img-fluid">
         </div>
 
         <div class="col">
