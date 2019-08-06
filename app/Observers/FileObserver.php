@@ -3,17 +3,19 @@
 namespace App\Observers;
 
 use App\File;
+use Storage;
 
 class FileObserver
 {
-    public function creating(File $file)
+    public function created(File $file)
     {
-        if ($file->fileable === 'App\Image') {
+
+        // if ($file->fileable === 'App\Image') {
             $file->createThumbnail(200, 200);
-        }
+        // }
     }
 
-    public function updating(File $file)
+    public function updated(File $file)
     {
         if ($file->fileable === 'App\Image') {
             $file->createThumbnail(200, 200);

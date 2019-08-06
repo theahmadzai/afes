@@ -14,9 +14,9 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $tags = Tag::all();
-
         Post::flushEventListeners();
+
+        $tags = Tag::all();
 
         factory(Post::class, 20)->create()->each(function ($post) use ($tags) {
             $post->file()->save(factory(File::class)->make());

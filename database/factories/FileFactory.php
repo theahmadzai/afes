@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(File::class, function (Faker $faker) {
     return [
-        'filename' => 'image.png',
+        'filename' => 'files/default.png',
     ];
 });

@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Invokeables\Thumbnail;
 
 class Image extends Resource
 {
@@ -35,10 +36,6 @@ class Image extends Resource
         'id', 'caption',
     ];
 
-    public static $with = [
-        'file',
-    ];
-
     /**
      * Get the fields displayed by the resource.
      *
@@ -50,9 +47,7 @@ class Image extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Caption'),
-            Avatar::make('Image', function() {
-                return 'images/' . $this->file->filename;
-            })->path('images')->onlyOnIndex(),
+            Avatar::make('Image', 'file')->thumbnail(new Thumbnail)->onlyOnIndex(),
             BelongsTo::make('Category'),
             MorphOne::make('File'),
         ];

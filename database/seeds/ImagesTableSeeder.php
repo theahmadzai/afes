@@ -13,6 +13,8 @@ class ImagesTableSeeder extends Seeder
      */
     public function run()
     {
+        File::flushEventListeners();
+
         factory(Image::class, 10)->create()->each(function ($image) {
             $image->file()->save(factory(File::class)->make());
         });

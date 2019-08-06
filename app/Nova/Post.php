@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\MorphOne;
 use Laravel\Nova\Fields\MorphToMany;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Invokeables\Thumbnail;
 
 class Post extends Resource
 {
@@ -39,10 +40,6 @@ class Post extends Resource
         'id', 'title',
     ];
 
-    public static $with = [
-        'file',
-    ];
-
     /**
      * Get the fields displayed by the resource.
      *
@@ -56,7 +53,7 @@ class Post extends Resource
             Text::make('Title'),
             Trix::make('Body'),
             Boolean::make('Is Published')->exceptOnForms(),
-            Avatar::make('Image', 'file.filename')->disk('public')->path('files')->onlyOnIndex(),
+            Avatar::make('Image', 'file')->thumbnail(new Thumbnail)->onlyOnIndex(),
             DateTime::make('Published At')->onlyOnDetail(),
             BelongsTo::make('User')->hideWhenCreating()->hideWhenUpdating(),
             MorphOne::make('File'),

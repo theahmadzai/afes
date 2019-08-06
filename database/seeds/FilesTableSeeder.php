@@ -12,6 +12,8 @@ class FilesTableSeeder extends Seeder
      */
     public function run()
     {
+        File::flushEventListeners();
+
         factory(File::class, 10)->create();
     }
 }

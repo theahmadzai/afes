@@ -45,13 +45,13 @@ class File extends Resource
     {
         return [
             ID::make()->sortable(),
-            FileField::make('File', 'filename')->disk('public')->path('images'),
+            FileField::make('File', 'filename')->disk('public')->path('files'),
             MorphTo::make('For', 'fileable')->types([
                 Image::class,
                 Slide::class,
                 Post::class,
                 // Application::class,
-            ]),
+            ])->searchable(),
             DateTime::make('Created At')->onlyOnDetail(),
         ];
     }
