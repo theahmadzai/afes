@@ -12,7 +12,7 @@
             <div class="mb-1 text-muted">{{ $job->posted_at->diffForHumans() }}</div>
             <div class="mb-1 text-muted">{{ $job->closing_at->diffForHumans() }}</div>
             <p class="card-text mb-auto">{{ str_limit($job->job_profile, 200) }}</p>
-            <a href="{{ url('jobs/' . $job->id) }}" class="stretched-link">View</a>
+            <a href="{{ url('jobs/' . $job->id) }}">View</a>
         </div>
 
     @endforeach
