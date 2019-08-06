@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Post;
 use App\Tag;
-use App\Image;
+use App\File;
 
 class PostsTableSeeder extends Seeder
 {
@@ -19,7 +19,7 @@ class PostsTableSeeder extends Seeder
         Post::flushEventListeners();
 
         factory(Post::class, 20)->create()->each(function ($post) use ($tags) {
-            $post->image()->save(factory(Image::class)->make());
+            $post->file()->save(factory(File::class)->make());
             $post->tags()->attach(
                 $tags->random(rand(1, 3))->pluck('id')->toArray()
             );

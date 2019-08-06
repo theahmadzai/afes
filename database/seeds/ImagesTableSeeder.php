@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Image;
+use App\File;
 
 class ImagesTableSeeder extends Seeder
 {
@@ -12,6 +13,8 @@ class ImagesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Image::class, 20)->create();
+        factory(Image::class, 10)->create()->each(function ($image) {
+            $image->file()->save(factory(File::class)->make());
+        });
     }
 }
