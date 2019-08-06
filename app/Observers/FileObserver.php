@@ -2,23 +2,21 @@
 
 namespace App\Observers;
 
+use App\Traits\Thumbnail;
 use App\File;
 use Storage;
 
 class FileObserver
 {
+    use Thumbnail;
+
     public function created(File $file)
     {
-
-        // if ($file->fileable === 'App\Image') {
-            $file->createThumbnail(200, 200);
-        // }
+        static::createThumbnail($file, 200, 200);
     }
 
     public function updated(File $file)
     {
-        if ($file->fileable === 'App\Image') {
-            $file->createThumbnail(200, 200);
-        }
+        static::createThumbnail($file, 200, 200);
     }
 }
