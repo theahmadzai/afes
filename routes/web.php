@@ -35,7 +35,7 @@ Route::get('/blog', [PostController::class, 'index']);
 Route::get('/blog/{post}', [PostController::class, 'show']);
 Route::get('/membership', [MembershipController::class, 'index']);
 Route::get('/jobs', [JobController::class, 'index']);
-Route::get('/jobs/{title}', [JobController::class, 'show']);
+Route::get('/jobs/{job}', [JobController::class, 'show']);
 
 /**
  * View Routes
