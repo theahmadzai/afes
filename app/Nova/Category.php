@@ -45,7 +45,7 @@ class Category extends Resource
             ID::make()->sortable(),
             Text::make('Name')->sortable(),
             Text::make('Slug')->sortable(),
-            HasMany::make('GalleryItems')
+            HasMany::make('Images')
         ];
     }
 

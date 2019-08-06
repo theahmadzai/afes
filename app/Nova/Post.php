@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\MorphOne;
 use Laravel\Nova\Fields\MorphToMany;
@@ -35,7 +36,11 @@ class Post extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title'
+        'id', 'title',
+    ];
+
+    public static $with = [
+        'file',
     ];
 
     /**
@@ -51,9 +56,10 @@ class Post extends Resource
             Text::make('Title'),
             Trix::make('Body'),
             Boolean::make('Is Published')->exceptOnForms(),
-            BelongsTo::make('User')->hideWhenCreating()->hideWhenUpdating(),
-            MorphOne::make('Image'),
+            Avatar::make('Image', 'file.filename')->disk('public')->path('files')->onlyOnIndex(),
             DateTime::make('Published At')->onlyOnDetail(),
+            BelongsTo::make('User')->hideWhenCreating()->hideWhenUpdating(),
+            MorphOne::make('File'),
             MorphToMany::make('Tags'),
         ];
     }

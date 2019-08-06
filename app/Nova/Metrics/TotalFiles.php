@@ -3,9 +3,10 @@
 namespace App\Nova\Metrics;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Metrics\Trend;
+use Laravel\Nova\Metrics\Value;
+use App\File;
 
-class ImagesPerDay extends Trend
+class TotalFiles extends Value
 {
     /**
      * Calculate the value of the metric.
@@ -15,7 +16,7 @@ class ImagesPerDay extends Trend
      */
     public function calculate(Request $request)
     {
-        return $this->countByDays($request, \App\Image::class);
+        return $this->count($request, File::class);
     }
 
     /**
@@ -28,7 +29,10 @@ class ImagesPerDay extends Trend
         return [
             30 => '30 Days',
             60 => '60 Days',
-            90 => '90 Days',
+            365 => '365 Days',
+            'MTD' => 'Month To Date',
+            'QTD' => 'Quarter To Date',
+            'YTD' => 'Year To Date',
         ];
     }
 
@@ -49,6 +53,6 @@ class ImagesPerDay extends Trend
      */
     public function uriKey()
     {
-        return 'images-per-day';
+        return 'total-files';
     }
 }
