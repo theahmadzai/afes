@@ -10,11 +10,6 @@ class Application extends Model
         'date_of_birth' => 'datetime',
     ];
 
-    public function image()
-    {
-        return $this->morphOne(Image::class, 'imageable');
-    }
-
     public function file()
     {
         return $this->morphOne(File::class, 'fileable');

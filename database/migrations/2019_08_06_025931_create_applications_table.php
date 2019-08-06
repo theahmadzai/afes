@@ -26,7 +26,7 @@ class CreateApplicationsTable extends Migration
             $table->string('contact_number');
             $table->string('email');
             $table->text('about_us')->nullable();
-            $table->boolean('clearify');
+            $table->enum('status', ['Accepted', 'Pending', 'Rejected']);
             $table->timestamps();
         });
     }
