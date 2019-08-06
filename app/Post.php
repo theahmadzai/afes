@@ -21,9 +21,9 @@ class Post extends Model
         return $this->morphToMany(Tag::class, 'taggable');
     }
 
-    public function image()
+    public function file()
     {
-        return $this->morphOne(Image::class, 'imageable');
+        return $this->morphOne(File::class, 'fileable');
     }
 
     public function user()
