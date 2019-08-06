@@ -7,7 +7,7 @@
 
     <div class="row mb-4">
         <div class="col-3">
-            <img src="{{ asset('storage/' . $post->image->filename) }}" alt="{{ $post->image->caption }}" class="img-fluid">
+            <img src="{{ $post->file->getImage() }}" alt="{{ $post->title }}" class="img-fluid">
         </div>
 
         <div class="col">
