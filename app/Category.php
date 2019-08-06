@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    public function galleryItems()
+    public function images()
     {
-        return $this->hasMany(GalleryItem::class);
+        return $this->hasMany(Image::class);
     }
 }
