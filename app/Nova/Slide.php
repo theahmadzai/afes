@@ -4,27 +4,27 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Avatar;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class GalleryItem extends Resource
+class Slide extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\GalleryItem';
+    public static $model = 'App\Slide';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'caption';
 
     /**
      * The columns that should be searched.
@@ -32,11 +32,11 @@ class GalleryItem extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'caption',
     ];
 
     public static $with = [
-        'Image',
+        'file',
     ];
 
     /**
@@ -49,10 +49,10 @@ class GalleryItem extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Caption', 'image.caption'),
-            Image::make('Image', 'image.filename')->disk('public')->path('images'),
-            BelongsTo::make('Category'),
-            MorphOne::make('Image'),
+            Text::make('Caption'),
+            Textarea::make('Description'),
+            Avatar::make('Image', 'file.filename')->disk('public')->path('files')->onlyOnIndex(),
+            MorphOne::make('File'),
         ];
     }
 
@@ -98,10 +98,5 @@ class GalleryItem extends Resource
     public function actions(Request $request)
     {
         return [];
-    }
-
-    public static function label()
-    {
-        return "Gallery Images";
     }
 }

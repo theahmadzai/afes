@@ -4,9 +4,9 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Image as ImageField;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\MorphTo;
+use Laravel\Nova\Fields\Avatar;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -24,7 +24,7 @@ class Image extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'caption';
 
     /**
      * The columns that should be searched.
@@ -33,6 +33,10 @@ class Image extends Resource
      */
     public static $search = [
         'id', 'caption',
+    ];
+
+    public static $with = [
+        'file',
     ];
 
     /**
@@ -46,13 +50,11 @@ class Image extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Caption'),
-            ImageField::make('Image', 'filename')->disk('public')->path('images'),
-            MorphTo::make('For', 'imageable')->types([
-                GalleryItem::class,
-                CarouselItem::class,
-                Post::class,
-            ]),
-            DateTime::make('Last Updated', 'updated_at')->onlyOnDetail(),
+            Avatar::make('Image', function() {
+                return 'images/' . $this->file->filename;
+            })->path('images')->onlyOnIndex(),
+            BelongsTo::make('Category'),
+            MorphOne::make('File'),
         ];
     }
 
@@ -64,10 +66,7 @@ class Image extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            new Metrics\TotalImages,
-            (new Metrics\ImagesPerDay)->width('2/3'),
-        ];
+        return [];
     }
 
     /**
