@@ -13,7 +13,6 @@ use Laravel\Nova\Fields\MorphOne;
 use Laravel\Nova\Fields\MorphToMany;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use App\Nova\Invokeables\Thumbnail;
 
 class Post extends Resource
 {
@@ -53,7 +52,7 @@ class Post extends Resource
             Text::make('Title'),
             Trix::make('Body'),
             Boolean::make('Is Published')->exceptOnForms(),
-            Avatar::make('Image', 'file')->thumbnail(new Thumbnail)->onlyOnIndex(),
+            Avatar::make('Image', 'file.filename')->onlyOnIndex(),
             DateTime::make('Published At')->onlyOnDetail(),
             BelongsTo::make('User')->hideWhenCreating()->hideWhenUpdating(),
             MorphOne::make('File'),

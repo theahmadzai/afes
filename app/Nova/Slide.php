@@ -9,7 +9,6 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use App\Nova\Invokeables\Thumbnail;
 
 class Slide extends Resource
 {
@@ -48,7 +47,7 @@ class Slide extends Resource
             ID::make()->sortable(),
             Text::make('Caption'),
             Textarea::make('Description'),
-            Avatar::make('Image', 'file')->thumbnail(new Thumbnail)->onlyOnIndex(),
+            Avatar::make('Image', 'file.filename')->onlyOnIndex(),
             MorphOne::make('File'),
         ];
     }
