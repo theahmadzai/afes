@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
-use App\Post;
-use App\Observers\PostObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Observers\PostObserver;
+use App\Observers\FileObserver;
+use App\Post;
+use App\File;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         Post::observe(PostObserver::class);
+        File::observe(FileObserver::class);
     }
 }
