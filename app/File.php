@@ -4,11 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\Imageify;
 
 class File extends Model
 {
-    use SoftDeletes, Imageify;
+    use SoftDeletes;
+
+    public function getThumbnailAttribute()
+    {
+        Storage::disk('public')->url('thumbnails/' . basename($this->filename));
+    }
 
     public function fileable()
     {
