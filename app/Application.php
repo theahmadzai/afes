@@ -14,4 +14,9 @@ class Application extends Model
     {
         return $this->morphOne(File::class, 'fileable');
     }
+
+    public function job()
+    {
+        return $this->belongsTo(Job::class);
+    }
 }

@@ -8,8 +8,11 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Status;
+use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Actions\AcceptApplication;
+use App\Nova\Actions\RejectApplication;
 
 class Application extends Resource
 {
@@ -67,6 +70,7 @@ class Application extends Resource
             Text::make('Email')->hideFromIndex(),
             Trix::make('About Us'),
             Status::make('Status')->loadingWhen(['Pending'])->failedWhen(['Rejected'])->exceptOnForms(),
+            BelongsTo::make('Job'),
         ];
     }
 
@@ -111,6 +115,9 @@ class Application extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new AcceptApplication,
+            new RejectApplication
+        ];
     }
 }

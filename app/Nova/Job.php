@@ -10,8 +10,10 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Status;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\HasMany;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Actions\CloseJob;
 
 class Job extends Resource
 {
@@ -79,6 +81,7 @@ class Job extends Resource
             Status::make('Status')->loadingWhen(['Open'])->failedWhen(['Closed'])->exceptOnForms(),
             DateTime::make('Posted At')->onlyOnDetail(),
             DateTime::make('Closing At')->hideFromIndex(),
+            HasMany::make('Applications'),
         ];
     }
 
@@ -124,7 +127,7 @@ class Job extends Resource
     public function actions(Request $request)
     {
         return [
-            new Actions\CloseJob,
+            new CloseJob,
         ];
     }
 }

@@ -13,6 +13,8 @@ use Laravel\Nova\Fields\MorphOne;
 use Laravel\Nova\Fields\MorphToMany;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Actions\Publish;
+use App\Nova\Filters\PublishedPosts;
 
 class Post extends Resource
 {
@@ -80,7 +82,7 @@ class Post extends Resource
     public function filters(Request $request)
     {
         return [
-            new Filters\PublishedPosts,
+            new PublishedPosts,
         ];
     }
 
@@ -104,7 +106,7 @@ class Post extends Resource
     public function actions(Request $request)
     {
         return [
-            new Actions\Publish,
+            new Publish,
         ];
     }
 }

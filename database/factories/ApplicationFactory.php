@@ -4,6 +4,7 @@
 
 use App\Application;
 use Faker\Generator as Faker;
+use App\Job;
 
 $factory->define(Application::class, function (Faker $faker) {
     return [
@@ -19,5 +20,6 @@ $factory->define(Application::class, function (Faker $faker) {
         'email' => $faker->email,
         'about_us' => $faker->realText(200),
         'status' => $faker->randomElement(['Accepted', 'Pending', 'Rejected']),
+        'job_id' => $faker->randomElement(Job::pluck('id')->toArray()),
     ];
 });

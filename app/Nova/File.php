@@ -9,6 +9,8 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\MorphTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Metrics\FilesPerDay;
+use App\Nova\Metrics\TotalFiles;
 
 class File extends Resource
 {
@@ -65,8 +67,8 @@ class File extends Resource
     public function cards(Request $request)
     {
         return [
-            new Metrics\TotalFiles,
-            (new Metrics\FilesPerDay)->width('2/3'),
+            new TotalFiles,
+            new FilesPerDay,
         ];
     }
 

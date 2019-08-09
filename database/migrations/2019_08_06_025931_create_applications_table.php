@@ -27,6 +27,8 @@ class CreateApplicationsTable extends Migration
             $table->string('email');
             $table->text('about_us')->nullable();
             $table->enum('status', ['Accepted', 'Pending', 'Rejected']);
+            $table->unsignedBigInteger('job_id')->unsigned();
+            $table->foreign('job_id')->references('id')->on('jobs');
             $table->timestamps();
         });
     }
