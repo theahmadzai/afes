@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::directive('recaptcha', function () {
-            return '<input type="hidden" id="g-recaptcha-response" name="recaptcha">';
+            return '<input type="hidden" id="g-recaptcha-response" name="_recaptcha">';
         });
     }
 }
