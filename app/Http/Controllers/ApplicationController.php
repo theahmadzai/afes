@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Requests\ApplicationRequest;
+use App\Http\Requests\StoreApplication;
 use App\Application;
 use App\Job;
 
@@ -16,7 +16,7 @@ class ApplicationController extends Controller
         return View::make('jobs.apply');
     }
 
-    public function store(ApplicationRequest $request, Job $job)
+    public function store(StoreApplication $request, Job $job)
     {
         $job->applications()->create($request->validated());
 
