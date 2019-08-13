@@ -20,9 +20,6 @@ class ApplicationController extends Controller
     {
         $job->applications()->create($request->validated());
 
-        return View::make('flash.success', [
-            'header' => 'Application Sent',
-            'body' => 'Your application has been received successfuly and will be reviwed in few days please wait for our notification!',
-        ]);
+        return View::make('flash.success');
     }
 }
