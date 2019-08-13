@@ -5,88 +5,48 @@
 @section('content')
 <div class="container my-5">
 
-    <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
-    <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-        a matter of hours to help you.</p>
+    <h1 class="font-weight-bold text-center my-5">Send us a Message</h1>
 
     <div class="row">
 
-        <!--Grid column-->
-        <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="{{ url('contact') }}" method="POST">
-                @csrf
+        <form method="POST" action="{{ url()->current() }}" class="col-md-8">
+            @csrf
+            @recaptcha
 
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="name" name="name" class="form-control">
-                            <label for="name" class="">Your name</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control">
-                            <label for="email" class="">Your email</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <input type="text" id="subject" name="subject" class="form-control">
-                            <label for="subject" class="">Subject</label>
-                        </div>
-                    </div>
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-12">
-
-                        <div class="md-form">
-                            <textarea type="text" id="message" name="body" rows="2" class="form-control md-textarea"></textarea>
-                            <label for="message">Your message</label>
-                        </div>
-
-                    </div>
-                </div>
-                <!--Grid row-->
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form">
-                            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-                        </div>
-                    </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Full Name</label>
+                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Your Name">
+                    @error('name')<span class="invalid-feedback">{{ $message }}</span>@enderror
                 </div>
 
-            </form>
-
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                <div class="form-group col-md-6">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email Address">
+                    @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                </div>
             </div>
-            <div class="status"></div>
-        </div>
-        <!--Grid column-->
 
-        <!--Grid column-->
-        <div class="col-md-3 text-center">
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" id="subject" class="form-control @error('subject') is-invalid @enderror" value="{{ old('subject') }}" placeholder="Subject">
+                @error('subject')<span class="invalid-feedback">{{ $message }}</span>@enderror
+            </div>
+
+            <div class="form-group">
+                <label for="body">Your Message</label>
+                <textarea name="body" id="body" rows="3" class="form-control @error('body') is-invalid @enderror" placeholder="Message Text">{{ old('body') }}</textarea>
+                @error('body')<span class="invalid-feedback">{{ $message }}</span>@enderror
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Send Message</Button>
+            </div>
+        </form>
+
+
+
+        <div class="col-md-4 text-center bg-dark text-white p-5">
             <ul class="list-unstyled mb-0">
                 <li><i class="fas fa-map-marker-alt fa-2x"></i>
                     <p>House# 236, Behind District 4 Municipality Office, 5 th Street, 40-Meter Road, Kulola Pushta Kabul, Afghanistan 1001</p>
@@ -101,7 +61,6 @@
                 </li>
             </ul>
         </div>
-        <!--Grid column-->
 
     </div>
 
