@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Blade;
 use App\Observers\PostObserver;
 use App\Observers\FileObserver;
 use App\Post;
@@ -37,6 +38,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer('flash.success', function($view) {
             $view->with('header', 'Application Sent!');
             $view->with('body', 'Your application has been received successfuly and will be reviwed in few days please wait for our notification!');
+        });
+
+        Blade::directive('recaptcha', function () {
+            return '<input type="hidden" id="g-recaptcha-response" name="recaptcha">';
         });
     }
 }
