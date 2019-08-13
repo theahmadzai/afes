@@ -10,6 +10,9 @@ class Message extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name', 'email', 'subject', 'body'
+        'name',
+        'email',
+        'subject',
+        'body'
     ];
 }
