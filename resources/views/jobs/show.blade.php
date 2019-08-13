@@ -13,7 +13,7 @@
     <p class="card-text mb-auto">{{ $job->tools }}</p>
     <p class="card-text mb-auto">{{ $job->department }}</p>
     <p class="card-text mb-auto">{{ $job->gender }}</p>
-    <a class="btn btn-primary" href="{{ url()->current() }}">Apply</a>
+    <a class="btn btn-primary" href="{{ url()->current() }}/apply">Apply</a>
 
 </div>
 @endsection
