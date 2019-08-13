@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Application extends Model
 {
+    protected $guarded = [];
+
     protected $casts = [
-        'date_of_birth' => 'datetime',
+        'birth_date' => 'date',
     ];
 
     public function file()
