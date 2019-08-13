@@ -24,7 +24,7 @@ class Application extends Resource
     public static $model = 'App\Application';
 
     /**
-     * The single value that should be used to represent the resource when being displayed.
+     * The Single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
@@ -56,11 +56,11 @@ class Application extends Resource
                 'Female' => 'Female',
             ])->hideFromIndex(),
             Select::make('Marital Status')->options([
-                'SINGLE' => 'SINGLE',
-                'MARRIED' => 'MARRIED',
-                'WIDOWED' => 'WIDOWED',
-                'SEPARATED' => 'SEPARATED',
-                'DIVORCED' => 'DIVORCED',
+                'Single' => 'Single',
+                'Married' => 'Married',
+                'Widowed' => 'Widowed',
+                'Separated' => 'Separated',
+                'Divorced' => 'Divorced',
             ])->hideFromIndex(),
             Date::make('Birth Date')->hideFromIndex(),
             Text::make('Cnic')->hideFromIndex(),
