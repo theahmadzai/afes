@@ -29,7 +29,7 @@ class SendMessage extends FormRequest
             'email' => 'required|email',
             'subject' => 'required|between:5,255',
             'body' => 'required|min:100,2000',
-            'recaptcha' => new ReCaptcha,
+            '_recaptcha' => new ReCaptcha,
         ];
     }
 }

@@ -36,7 +36,8 @@ class StoreApplication extends FormRequest
             'contact_number' => 'required',
             'email' => 'required',
             'about_us' => 'nullable|max:500',
-            'recaptcha' => new ReCaptcha,
+            'clearify' => 'accepted',
+            '_recaptcha' => new ReCaptcha,
         ];
     }
 }
