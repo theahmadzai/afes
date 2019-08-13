@@ -18,15 +18,15 @@ class CreateApplicationsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->enum('gender', ['Male', 'Female']);
-            $table->enum('marital_status', ['SINGLE', 'MARRIED', 'WIDOWED', 'SEPARATED', 'DIVORCED']);
-            $table->datetime('date_of_birth');
+            $table->enum('marital_status', ['Single', 'Married', 'Widowed', 'Separated', 'Divorced']);
+            $table->date('birth_date');
             $table->string('cnic');
             $table->string('city');
             $table->string('address');
             $table->string('contact_number');
             $table->string('email');
             $table->text('about_us')->nullable();
-            $table->enum('status', ['Accepted', 'Pending', 'Rejected']);
+            $table->enum('status', ['Accepted', 'Pending', 'Rejected'])->default('Pending');
             $table->unsignedBigInteger('job_id')->unsigned();
             $table->foreign('job_id')->references('id')->on('jobs');
             $table->timestamps();
