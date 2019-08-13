@@ -5,7 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Status;
 use Laravel\Nova\Fields\BelongsTo;
@@ -62,7 +62,7 @@ class Application extends Resource
                 'SEPARATED' => 'SEPARATED',
                 'DIVORCED' => 'DIVORCED',
             ])->hideFromIndex(),
-            DateTime::make('Date Of Birth')->hideFromIndex(),
+            Date::make('Birth Date')->hideFromIndex(),
             Text::make('Cnic')->hideFromIndex(),
             Text::make('City')->hideFromIndex(),
             Text::make('Address')->hideFromIndex(),
