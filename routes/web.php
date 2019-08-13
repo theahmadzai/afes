@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     PostController,
     MembershipController,
     JobController,
+    ApplicationController,
 };
 
 /*
@@ -36,6 +37,8 @@ Route::get('/blog/{post}', [PostController::class, 'show']);
 Route::get('/membership', [MembershipController::class, 'index']);
 Route::get('/jobs', [JobController::class, 'index']);
 Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::get('/jobs/{job}/apply', [ApplicationController::class, 'create']);
+Route::post('/jobs/{job}/apply', [ApplicationController::class, 'store']);
 
 /**
  * View Routes
