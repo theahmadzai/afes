@@ -25,10 +25,10 @@ class Message extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|between:3,50',
             'email' => 'required|email',
-            'subject' => 'required',
-            'body' => 'required|min:100',
+            'subject' => 'required|between,5,255',
+            'body' => 'required|min:100,2000',
             'g-recaptcha-response' => new ReCaptcha,
         ];
     }
