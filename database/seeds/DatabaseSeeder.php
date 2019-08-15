@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             MessagesTableSeeder::class,
             JobsTableSeeder::class,
             ApplicationsTableSeeder::class,
+            SubscribersTableSeeder::class,
         ]);
     }
 }
