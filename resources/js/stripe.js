@@ -1,36 +1,39 @@
-console.log('Stripe');
-(function (stripe) {
-    var key = 'pk_test_WCJgzUr95cAKQetKPojWsQJ3001MZPlMq7';
-    var checkoutButton = document.getElementById('checkout-button-plan_FcykeBCl5kHM5g');
+if (typeof Stripe === 'undefined') {
+    window.Stripe = undefined;
+}
 
-    if (typeof stripe === 'undefined') {
-        console.error('Cannot find Stripe API.');
+(function (stripe) {
+    if (stripe === undefined) {
         return;
     }
-    console.log('Clicked');
 
-    stripe = stripe(key);
+    stripe = stripe('pk_test_WCJgzUr95cAKQetKPojWsQJ3001MZPlMq7');
 
-    checkoutButton.addEventListener('click', function () {
+    /**
+     * Settings
+     */
+    let student = document.getElementById('checkout-button-plan_Fd3E3WHL2lQhYl');
+    let professional = document.getElementById('checkout-button-plan_Fd3Fdc2M1zaKmG');
+
+    let checkout = function() {
+        let successUrl = 'http://127.0.0.1:8000/membership/success';
+        let cancelUrl = 'http://127.0.0.1:8000/membership/cancel';
+        let displayError = document.getElementById('error-message');
 
         stripe.redirectToCheckout({
-            items: [{ plan: 'plan_FcykeBCl5kHM5g', quantity: 1 }],
-
-            // Do not rely on the redirect to the successUrl for fulfilling
-            // purchases, customers may not always reach the success_url after
-            // a successful payment.
-            // Instead use one of the strategies described in
-            // https://stripe.com/docs/payments/checkout/fulfillment
-            successUrl: 'http://127.0.0.1:8000/membership/success',
-            cancelUrl: 'http://127.0.0.1:8000/membership/cancel',
-        }).then(function (result) {
+            items: [{ plan: this.plan, quantity: 1 }],
+            successUrl,
+            cancelUrl,
+        }).then((result) => {
             if (result.error) {
                 // If `redirectToCheckout` fails due to a browser or network
                 // error, display the localized error message to your customer.
-                var displayError = document.getElementById('error-message');
                 displayError.textContent = result.error.message;
             }
         });
+    };
 
-    });
+    student.addEventListener('click', checkout.bind({ plan: 'plan_Fd3E3WHL2lQhYl' }));
+    professional.addEventListener('click', checkout.bind({ plan: 'plan_Fd3Fdc2M1zaKmG' }));
+
 }(Stripe));
