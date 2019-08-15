@@ -39,5 +39,16 @@
         </tbody>
     </table>
 
+    <div id="error-message"></div>
+
+    <button
+        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+        id="checkout-button-plan_FcykeBCl5kHM5g"
+        role="link">Checkout</button>
+
 </div>
 @endsection
+
+@push('scripts')
+    <script src="https://js.stripe.com/v3/"></script>
+@endpush
