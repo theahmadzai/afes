@@ -52,13 +52,14 @@ if (token) {
 //     encrypted: true
 // });
 
-/**
- * Load ReCaptcha
- */
-require('./recaptcha');
-console.log('Test')
+document.addEventListener('DOMContentLoaded', () => {
+    /**
+     * Load ReCaptcha
+     */
+    require('./recaptcha');
 
-/**
- * Load Stripe
- */
-require('./stripe');
+    /**
+     * Load Stripe
+     */
+    require('./stripe');
+});

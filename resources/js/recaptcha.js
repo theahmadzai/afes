@@ -1,10 +1,18 @@
+if (typeof grecaptcha === 'undefined') {
+    window.grecaptcha = undefined;
+}
+
 (function (grecaptcha) {
 
-    var key = '6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk';
-    var element = document.getElementById('g-recaptcha-response');
+    let key = '6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk';
+    let element = document.getElementById('g-recaptcha-response');
 
-    if (!element || typeof grecaptcha === 'undefined') {
-        console.error('Cannot find Google ReCaptcha API or Element.');
+    if (grecaptcha === undefined) {
+        return;
+    }
+
+    if (!element) {
+        console.error('Cannot find Google ReCaptcha target element.');
         return;
     }
 
