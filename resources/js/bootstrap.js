@@ -9,7 +9,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) { }
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -53,15 +53,12 @@ if (token) {
 // });
 
 /**
- * Set ReCaptcha
+ * Load ReCaptcha
  */
-if (typeof grecaptcha !== 'undefined') {
-    grecaptcha.ready(() => {
-        grecaptcha.execute('6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk', { action: 'homepage' }).then((token) => {
-            var recaptcha = document.getElementById('g-recaptcha-response');
-            if(recaptcha) {
-                recaptcha.value = token;
-            }
-        });
-    });
-}
+require('./recaptcha');
+console.log('Test')
+
+/**
+ * Load Stripe
+ */
+require('./stripe');
