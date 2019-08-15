@@ -39,8 +39,8 @@ Route::get('jobs/{job}', [JobController::class, 'show']);
 Route::get('jobs/{job}/apply', [ApplicationController::class, 'create']);
 Route::post('jobs/{job}/apply', [ApplicationController::class, 'store']);
 Route::get('membership', [MembershipController::class, 'index']);
-Route::post('membership', function() {
-
+Route::get('membership/success', function(\Illuminate\Http\Request $request) {
+    dd($request);
 });
 
 /**
