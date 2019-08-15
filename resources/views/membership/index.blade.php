@@ -21,30 +21,43 @@
             <tr>
                 <th scope="row">1</th>
                 <td>Institutional Membership</td>
-                <td>$100 / AFN 7,000</td>
-                <td><button class="btn btn-primary">$250 / AFN 17,500</button></td>
+                <td>AFN 7,000</td>
+                <td>
+                    <button
+                        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+                        id="nil"
+                        role="link">AFN 17,500
+                    </button>
+                </td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Individual Membership - Professional</td>
                 <td>N/A</td>
-                <td><button class="btn btn-primary">$80 / AFN 5600</button></td>
+                <td>
+                    <button
+                        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+                        id="checkout-button-plan_Fd3Fdc2M1zaKmG"
+                        role="link">AFN 5,600
+                    </button>
+                </td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td>Individual Membership - Student</td>
                 <td>N/A</td>
-                <td><button class="btn btn-primary">$30 / AFN 2,100</button></td>
+                <td>
+                    <button
+                        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+                        id="checkout-button-plan_Fd3E3WHL2lQhYl"
+                        role="link">AFN 21,00
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
 
     <div id="error-message"></div>
-
-    <button
-        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-        id="checkout-button-plan_FcykeBCl5kHM5g"
-        role="link">Checkout</button>
 
 </div>
 @endsection
