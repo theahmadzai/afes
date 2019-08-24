@@ -1,7 +1,3 @@
-if (typeof grecaptcha === 'undefined') {
-    window.grecaptcha = undefined;
-}
-
 (function (grecaptcha) {
 
     let key = '6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk';

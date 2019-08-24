@@ -1,7 +1,3 @@
-if (typeof Stripe === 'undefined') {
-    window.Stripe = undefined;
-}
-
 (function (stripe) {
     if (stripe === undefined) {
         return;
@@ -15,7 +11,7 @@ if (typeof Stripe === 'undefined') {
     let student = document.getElementById('checkout-button-plan_Fd3E3WHL2lQhYl');
     let professional = document.getElementById('checkout-button-plan_Fd3Fdc2M1zaKmG');
 
-    let checkout = function() {
+    let checkout = function () {
         let successUrl = 'http://127.0.0.1:8000/membership/success';
         let cancelUrl = 'http://127.0.0.1:8000/membership/cancel';
         let displayError = document.getElementById('error-message');

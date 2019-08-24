@@ -56,10 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Load ReCaptcha
      */
+    if (typeof grecaptcha === 'undefined') {
+        window.grecaptcha = undefined;
+    }
     require('./recaptcha');
 
     /**
      * Load Stripe
      */
+    if (typeof Stripe === 'undefined') {
+        window.Stripe = undefined;
+    }
     require('./stripe');
 });
