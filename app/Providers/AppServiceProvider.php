@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use App\Observers\PostObserver;
 use App\Observers\FileObserver;
 use App\Post;
@@ -42,6 +44,12 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::directive('recaptcha', function () {
             return '<input type="hidden" id="g-recaptcha-response" name="_recaptcha">';
+        });
+
+        Collection::macro('toUpper', function () {
+            return $this->map(function ($value) {
+                return Str::upper($value);
+            });
         });
     }
 }
