@@ -3,7 +3,8 @@
 @section('title', 'Membership')
 
 @section('content')
-<div class="container my-5">
+
+<div class="my-5">
 
     <h1 class="display-5">Become Our Member</h1>
     <p class="lead"><b>Afghan Evaluation Society (AfES)</b> offer memberships to development professionals, evaluators, students, and institutions. As a Member, you will benefit from AfES relationships with targeted service and support providers relevant to our work in the field of evaluation. In addition, members are eligible for discounts in AfES services and products, including events, conferences, seminars and workshops.</p>
@@ -60,6 +61,7 @@
     <div id="error-message"></div>
 
 </div>
+
 @endsection
 
 @push('scripts')

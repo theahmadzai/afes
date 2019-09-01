@@ -3,14 +3,18 @@
 @section('title', 'Jobs')
 
 @section('content')
-<div class="container my-5">
+<div class="container">
+
+    <div class="row p-3">
+        <h1>Jobs available</h1>
+    </div>
 
     @foreach($jobs as $job)
 
-        <div class="row border rounded no-gutters overflow-hidden shadow-sm my-3 p-3">
-            <h3 class="mb-0">{{ $job->title }}</h3>
-            <div class="mb-1 text-muted">{{ $job->posted_at->diffForHumans() }}</div>
-            <div class="mb-1 text-muted">{{ $job->closing_at->diffForHumans() }}</div>
+        <div class="row rounded no-gutters overflow-hidden shadow-sm my-3 p-3">
+            <h2>{{ $job->title }}</h2>
+            <p>Posted Date: {{ $job->posted_at->diffForHumans() }}</p>
+            <p>Closing Date: {{ $job->closing_at->diffForHumans() }}</p>
             <p class="card-text mb-auto">{{ str_limit($job->job_profile, 200) }}</p>
             <a href="{{ url('jobs/' . $job->id) }}">View</a>
         </div>

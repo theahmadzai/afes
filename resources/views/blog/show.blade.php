@@ -3,25 +3,25 @@
 @section('title', 'Post')
 
 @section('content')
-<div class="container my-5">
+<div class="container">
 
-    <div class="row mb-4">
-        <div class="col-3">
+    <div class="row my-4">
+        <div class="col-4">
             <img src="{{ optional($post->file)->image }}" alt="{{ $post->title }}" class="img-fluid">
         </div>
 
         <div class="col">
-            <h3>{{ $post->title }}</h3>
+            <h1>{{ $post->title }}</h1>
 
             <p class="text-muted">{{ $post->published_at->toFormattedDateString() }}</p>
 
-            <p>Tags: <b>{{ $post->tags->implode('name', ', ') }}</b></p>
+            <p>Tags: <b>{{ $post->tags->pluck('name')->implode(', ') }}</b></p>
+
+            <p>Posted by, <img src="{{ $post->user->gravatar }}" width="20" height="20"> <b>{{ $post->user->name }}</b></p>
         </div>
     </div>
 
-    <p class="lead">{{ $post->body }}</p>
-
-    <b>Posted by, {{ $post->user->name }}</b>
+    <p>{{ $post->body }}</p>
 
 </div>
 @endsection
