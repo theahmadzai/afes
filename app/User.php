@@ -38,6 +38,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getGravatarAttribute()
+    {
+        $hash = md5(strtolower(trim($this->email)));
+        return "http://www.gravatar.com/avatar/$hash?s=300";
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
