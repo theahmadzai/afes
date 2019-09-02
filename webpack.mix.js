@@ -12,4 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/vendor.scss', 'public/css/build')
+    .sass('resources/sass/app.scss', 'public/css/build')
+    .styles([
+        'public/css/build/vendor.css',
+        'public/css/build/app.css'
+    ], 'public/css/app.css');
