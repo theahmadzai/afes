@@ -5,9 +5,9 @@
 @section('content')
 <div class="container">
 
-    <div class="row p-3">
-        <h1>Jobs available</h1>
-    </div>
+    @component('partials.head')
+        Jobs Available
+    @endcomponent
 
     @foreach($jobs as $job)
 
