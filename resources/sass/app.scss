@@ -61,17 +61,21 @@ h5 {
 
     p,ul {
         color:#7b7b7b;
-        text-align:left;
-
     }
 
-    ul {
-        margin-left:40%;
+    p {
+        text-align:left;
     }
 }
 
 .app-footer {
-    p {
-        color: #eee;
+    background:#303030;
+
+    h6 {
+        color:#fafafa;
+    }
+
+    p,a{
+        color: #6c757e;
     }
 }
