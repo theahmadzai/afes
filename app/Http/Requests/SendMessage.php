@@ -28,7 +28,7 @@ class SendMessage extends FormRequest
             'name' => 'required|between:3,50',
             'email' => 'required|email',
             'subject' => 'required|between:5,255',
-            'body' => 'required|min:100,2000',
+            'body' => 'required|min:100,1000',
             '_recaptcha' => new ReCaptcha,
         ];
     }
