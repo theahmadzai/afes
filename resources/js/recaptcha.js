@@ -1,7 +1,7 @@
 (function (grecaptcha) {
 
-    let key = '6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk';
-    let element = document.getElementById('g-recaptcha-response');
+    const key = '6LfYwq8UAAAAAAW-MH32BTfFsAmaG1zV2dJNGjPk';
+    const element = document.getElementById('g-recaptcha-response');
 
     if (grecaptcha === undefined) {
         return;
