@@ -68,4 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
         window.Stripe = undefined;
     }
     require('./stripe');
+
+    /**
+     * Load Leaflet
+     */
+    if (typeof L === 'undefined') {
+        window.L = undefined;
+    }
+    require('./leaflet');
+
 });
