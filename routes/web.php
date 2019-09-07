@@ -50,7 +50,7 @@ Route::view('about/chairman-message', 'about.chairman-message');
 Route::view('about/organizational-strategy', 'about.organizational-strategy');
 Route::view('about/board-of-directors', 'about.board-of-directors');
 Route::view('about/statutes-and-by-laws', 'about.statutes-and-by-laws');
-Route::view('donate', 'donate');
+Route::view('donate', 'donate.index');
 
 /**
  * Redirect Routes
