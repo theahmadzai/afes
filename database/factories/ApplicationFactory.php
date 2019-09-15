@@ -13,7 +13,7 @@ $factory->define(Application::class, function (Faker $faker) {
         'gender' => $faker->randomElement(['Male', 'Female']),
         'marital_status' => $faker->randomElement(['Single', 'Married', 'Widowed', 'Separated', 'Divorced']),
         'birth_date' => $faker->date,
-        'cnic' => $faker->randomNumber,
+        'nid' => $faker->randomNumber,
         'city' => $faker->city,
         'address' => $faker->address,
         'contact_number' => $faker->phoneNumber,
