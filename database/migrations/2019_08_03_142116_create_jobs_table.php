@@ -29,8 +29,8 @@ class CreateJobsTable extends Migration
             $table->enum('work_type', ['Part-Time', 'Full-Time'])->default('Part-Time');
             $table->enum('experience', ['Fresh', '1-2 Years', '3-4 Years', '5 > Years'])->default('Fresh');
             $table->enum('status', ['Open', 'Closed'])->default('Open');
-            $table->datetime('posted_at')->useCurrent();
             $table->datetime('closing_at')->nullable();
+            $table->datetime('posted_at')->useCurrent();
             $table->timestamps();
         });
     }

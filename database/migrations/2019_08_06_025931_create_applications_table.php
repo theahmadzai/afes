@@ -20,7 +20,7 @@ class CreateApplicationsTable extends Migration
             $table->enum('gender', ['Male', 'Female']);
             $table->enum('marital_status', ['Single', 'Married', 'Widowed', 'Separated', 'Divorced']);
             $table->date('birth_date');
-            $table->string('cnic');
+            $table->string('nid');
             $table->string('city');
             $table->string('address');
             $table->string('contact_number');
