@@ -42,9 +42,12 @@ class Subscriber extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('First Name'),
-            Text::make('Last Name'),
-            Text::make('Email'),
+
+            Text::make('First Name')->rules('required'),
+
+            Text::make('Last Name')->rules('required'),
+
+            Text::make('Email')->rules('required'),
         ];
     }
 

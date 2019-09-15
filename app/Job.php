@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Builder;
 class Job extends Model
 {
     protected $casts = [
-        'posted_at' => 'datetime',
         'closing_at' => 'datetime',
+        'posted_at' => 'datetime',
     ];
 
     public function scopeOpen(Builder $query)

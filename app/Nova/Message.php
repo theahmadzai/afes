@@ -44,10 +44,15 @@ class Message extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name'),
-            Text::make('Email'),
-            Text::make('Subject')->onlyOnDetail(),
-            Textarea::make('Body'),
+
+            Text::make('Name')->rules('required'),
+
+            Text::make('Email')->rules('required'),
+
+            Text::make('Subject')->onlyOnDetail()->rules('required'),
+
+            Textarea::make('Body')->rules('required'),
+
             DateTime::make('Received On', 'created_at'),
         ];
     }

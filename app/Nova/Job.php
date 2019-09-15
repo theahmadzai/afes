@@ -50,37 +50,81 @@ class Job extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Title'),
-            Trix::make('Job Profile'),
-            Trix::make('Skills'),
-            Trix::make('Tools'),
-            Text::make('Department'),
-            Text::make('Minimum Education')->hideFromIndex(),
-            Place::make('Location')->onlyCities()->countries(['AF'])->hideFromIndex(),
-            Text::make('Required Languages')->hideFromIndex(),
-            Number::make('Total Positions')->hideFromIndex(),
-            Select::make('Shift')->options([
-                'Morning' => 'Morning',
-                'Evening' => 'Evening',
-            ]),
-            Select::make('Gender')->options([
-                'Male' => 'Male',
-                'Female' => 'Female',
-                'Any' => 'Any',
-            ])->hideFromIndex(),
-            Select::make('Work Type')->options([
-                'Part-Time' => 'Part-Time',
-                'Full-Time' => 'Full-Time'
-            ])->hideFromIndex(),
-            Select::make('Experience')->options([
-                'Fresh' => 'Fresh',
-                '1-2 Years' => '1-2 Years',
-                '3-4 Years' => '3-4 Years',
-                '5 > Years' => '5 > Years'
-            ])->hideFromIndex(),
-            Status::make('Status')->loadingWhen(['Open'])->failedWhen(['Closed'])->exceptOnForms(),
+
+            Text::make('Title')->rules('required'),
+
+            Trix::make('Job Profile')->rules('required'),
+
+            Trix::make('Skills')->rules('required'),
+
+            Trix::make('Tools')->rules('required'),
+
+            Text::make('Department')->rules('required'),
+
+            Text::make('Minimum Education')
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Place::make('Location')
+                ->onlyCities()
+                ->countries(['AF'])
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Text::make('Required Languages')
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Number::make('Total Positions')
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Select::make('Shift')
+                ->options([
+                    'Morning' => 'Morning',
+                    'Evening' => 'Evening',
+                ])
+                ->rules('required'),
+
+            Select::make('Gender')
+                ->options([
+                    'Male' => 'Male',
+                    'Female' => 'Female',
+                    'Any' => 'Any',
+                ])
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Select::make('Work Type')
+                ->options([
+                    'Part-Time' => 'Part-Time',
+                    'Full-Time' => 'Full-Time'
+                ])
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Select::make('Experience')
+                ->options([
+                    'Fresh' => 'Fresh',
+                    '1-2 Years' => '1-2 Years',
+                    '3-4 Years' => '3-4 Years',
+                    '5 > Years' => '5 > Years'
+                ])
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Status::make('Status')
+                ->loadingWhen(['Open'])
+                ->failedWhen(['Closed'])
+                ->exceptOnForms(),
+
+
+            DateTime::make('Closing At')
+                ->rules('required')
+                ->hideFromIndex(),
+
             DateTime::make('Posted At')->onlyOnDetail(),
-            DateTime::make('Closing At')->hideFromIndex(),
+
             HasMany::make('Applications'),
         ];
     }

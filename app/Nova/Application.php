@@ -49,27 +49,58 @@ class Application extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('First Name'),
-            Text::make('Last Name'),
-            Select::make('Gender')->options([
-                'Male' => 'Male',
-                'Female' => 'Female',
-            ])->hideFromIndex(),
-            Select::make('Marital Status')->options([
-                'Single' => 'Single',
-                'Married' => 'Married',
-                'Widowed' => 'Widowed',
-                'Separated' => 'Separated',
-                'Divorced' => 'Divorced',
-            ])->hideFromIndex(),
-            Date::make('Birth Date')->hideFromIndex(),
-            Text::make('Cnic')->hideFromIndex(),
-            Text::make('City')->hideFromIndex(),
-            Text::make('Address')->hideFromIndex(),
-            Text::make('Contact Number')->hideFromIndex(),
-            Text::make('Email')->hideFromIndex(),
+
+            Text::make('First Name')->rules('required'),
+
+            Text::make('Last Name')->rules('required'),
+
+            Select::make('Gender')
+                ->options([
+                    'Male' => 'Male',
+                    'Female' => 'Female',
+                ])
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Select::make('Marital Status')
+                ->options([
+                    'Single' => 'Single',
+                    'Married' => 'Married',
+                    'Widowed' => 'Widowed',
+                    'Separated' => 'Separated',
+                    'Divorced' => 'Divorced',
+                ])
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Date::make('Birth Date')
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Text::make('Nid')
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Text::make('City')
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Text::make('Address')
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Text::make('Contact Number')
+                ->rules('required')
+                ->hideFromIndex(),
+
+            Text::make('Email')
+                ->rules('required')
+                ->hideFromIndex(),
+
             Trix::make('About Us'),
+
             Status::make('Status')->loadingWhen(['Pending'])->failedWhen(['Rejected'])->exceptOnForms(),
+
             BelongsTo::make('Job'),
         ];
     }

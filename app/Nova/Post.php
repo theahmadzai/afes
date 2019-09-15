@@ -51,13 +51,21 @@ class Post extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Title'),
+
+            Text::make('Title')->rules('required'),
+
             Trix::make('Body'),
+
             Boolean::make('Is Published')->exceptOnForms(),
+
             Avatar::make('Image', 'file.filename')->onlyOnIndex(),
+
             DateTime::make('Published At')->onlyOnDetail(),
+
             BelongsTo::make('User')->hideWhenCreating()->hideWhenUpdating(),
+
             MorphOne::make('File'),
+
             MorphToMany::make('Tags'),
         ];
     }
