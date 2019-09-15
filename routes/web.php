@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     MembershipController,
     JobController,
     ApplicationController,
+    SubscriberController,
 };
 
 /*
@@ -38,6 +39,8 @@ Route::get('jobs', [JobController::class, 'index']);
 Route::get('jobs/{job}', [JobController::class, 'show']);
 Route::get('jobs/{job}/apply', [ApplicationController::class, 'create']);
 Route::post('jobs/{job}/apply', [ApplicationController::class, 'store']);
+Route::get('/subscribe', [SubscriberController::class, 'create']);
+Route::post('/subscribe', [SubscriberController::class, 'store']);
 Route::get('membership', [MembershipController::class, 'index']);
 Route::get('membership/success', function(\Illuminate\Http\Request $request) {
     dd($request);
