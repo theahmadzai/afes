@@ -11,7 +11,7 @@
 
     <div class="container py-3">
 
-        @foreach($posts->chunk(3) as $chunk)
+        {{-- @foreach($posts->chunk(3) as $chunk)
 
             <div class="row">
 
@@ -27,7 +27,7 @@
 
             </div>
 
-        @endforeach
+        @endforeach --}}
 
         @foreach($posts as $post)
 
