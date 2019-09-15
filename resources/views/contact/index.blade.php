@@ -34,7 +34,7 @@
 
             <div class="col-md-8">
 
-                <form method="POST" action="{{ url()->current() }}">
+                <form method="POST" action="{{ url()->current() }}" novalidate>
                     @csrf
                     @recaptcha
 
