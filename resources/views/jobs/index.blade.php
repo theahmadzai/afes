@@ -3,25 +3,25 @@
 @section('title', 'Jobs')
 
 @section('content')
-<div class="container">
 
     @component('partials.head')
         Jobs Available
     @endcomponent
 
-    @foreach($jobs as $job)
+    <div class="container">
 
-        <div class="row rounded no-gutters overflow-hidden shadow-sm my-3 p-3">
-            <h2>{{ $job->title }}</h2>
-            <p>Posted Date: {{ $job->posted_at->diffForHumans() }}</p>
-            <p>Closing Date: {{ $job->closing_at->diffForHumans() }}</p>
-            <p class="card-text mb-auto">{{ str_limit($job->job_profile, 200) }}</p>
-            <a href="{{ url('jobs/' . $job->id) }}">View</a>
-        </div>
+        @foreach($jobs as $job)
 
-    @endforeach
+            <div class="row rounded no-gutters overflow-hidden shadow-sm my-3 p-3">
+                <h2><a href="{{ url('jobs/' . $job->id) }}">{{ $job->title }}</a></h2>
+                <p>{{ str_limit($job->job_profile, 200) }}</p>
+                <p><b>Closting at</b> {{ $job->closing_at->diffForHumans() }}</p>
+            </div>
 
-    {{ $jobs->links() }}
+        @endforeach
 
-</div>
+        {{ $jobs->links() }}
+
+    </div>
+
 @endsection
