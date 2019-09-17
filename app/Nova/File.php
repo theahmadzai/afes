@@ -54,7 +54,7 @@ class File extends Resource
                 Image::class,
                 Slide::class,
                 Post::class,
-                // Application::class,
+                Application::class,
             ])->searchable(),
 
             DateTime::make('Created At')->onlyOnDetail(),

@@ -45,9 +45,13 @@ class Image extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            Avatar::make('Image', 'location')->onlyOnIndex(),
+
             Text::make('Caption'),
-            Avatar::make('Image', 'file.filename')->onlyOnIndex(),
+
             BelongsTo::make('Category'),
+
             MorphOne::make('File'),
         ];
     }

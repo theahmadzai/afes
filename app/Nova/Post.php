@@ -52,13 +52,13 @@ class Post extends Resource
         return [
             ID::make()->sortable(),
 
+            Avatar::make('Image', 'location'),
+
             Text::make('Title')->rules('required'),
 
             Trix::make('Body'),
 
             Boolean::make('Is Published')->exceptOnForms(),
-
-            Avatar::make('Image', 'file.filename')->onlyOnIndex(),
 
             DateTime::make('Published At')->onlyOnDetail(),
 

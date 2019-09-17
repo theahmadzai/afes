@@ -46,11 +46,11 @@ class Slide extends Resource
         return [
             ID::make()->sortable(),
 
+            Avatar::make('Image', 'location')->onlyOnIndex(),
+
             Text::make('Caption'),
 
             Textarea::make('Description'),
-
-            Avatar::make('Image', 'file.filename')->onlyOnIndex(),
 
             MorphOne::make('File'),
         ];
