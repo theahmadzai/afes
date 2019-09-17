@@ -4,9 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use App\Traits\Imagify;
 
 class Post extends Model
 {
+    use Imagify;
+
     protected $casts = [
         'published_at' => 'datetime',
     ];
