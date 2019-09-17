@@ -8,19 +8,21 @@
         Jobs Available
     @endcomponent
 
-    <div class="container">
+    <div class="container py-3">
 
         @foreach($jobs as $job)
 
-            <div class="row rounded no-gutters overflow-hidden shadow-sm my-3 p-3">
-                <h2><a href="{{ url('jobs/' . $job->id) }}">{{ $job->title }}</a></h2>
-                <p>{{ str_limit($job->job_profile, 200) }}</p>
-                <p><b>Closting at</b> {{ $job->closing_at->diffForHumans() }}</p>
+            <div class="subHeading" onclick="window.location.href = '{{ url('jobs/' . $job->id) }}'">
+                <span><a href="{{ url('jobs/' . $job->id) }}">{{ $job->title }}</a></span>
+                <span>{{ $job->location }}</span>
+                <span>Apply by: {{ $job->closing_at->toFormattedDateString() }}</span>
             </div>
 
         @endforeach
 
-        {{ $jobs->links() }}
+        <div class="row justify-content-center align-items-center mt-3">
+            {{ $jobs->links() }}
+        </div>
 
     </div>
 

@@ -33,7 +33,7 @@
 
             <div class="row rounded no-gutters overflow-hidden shadow-sm my-3 app-post">
                 <div class="col-auto d-none d-lg-block">
-                    <img class="bd-placeholder-img" width="250" height="250" src="{{ optional($post->file)->thumbnail }}"></img>
+                    <img class="bd-placeholder-img" width="250" height="250" src="{{ optional($post)->thumbnail }}"></img>
                 </div>
 
                 <div class="col p-3">
@@ -57,7 +57,10 @@
 
         @endforeach
 
-        {{ $posts->links() }}
+        <div class="row justify-content-center align-items-center mt-3">
+            {{ $posts->links() }}
+        </div>
 
     </div>
+
 @endsection

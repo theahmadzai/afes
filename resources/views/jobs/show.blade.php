@@ -10,7 +10,7 @@
 
     <div class="container py-3">
 
-        <table class="table">
+        <table class="table table-borderless table-sm table-striped">
             <tbody>
                 <tr>
                     <th scope="row">Department</th>
@@ -27,7 +27,7 @@
                 <tr>
                     <th scope="row">Required Languages</th>
                     <td>{{ $job->required_languages }}</td>
-                    <th scope="row">Total Positions</th>
+                    <th scope="row">Total Position(s)</th>
                     <td>{{ $job->total_positions }}</td>
                 </tr>
                 <tr>
@@ -43,32 +43,34 @@
                     <td>{{ $job->status }}</td>
                 </tr>
                 <tr>
-                    <th scope="row">Posted At</th>
+                    <th scope="row">Date Posted</th>
                     <td>{{ $job->posted_at->diffForHumans() }}</td>
-                    <th scope="row">Closing At</th>
+                    <th scope="row">Closing Date</th>
                     <td>{{ $job->closing_at->diffForHumans() }}</td>
                 </tr>
             </tbody>
         </table>
 
-        <hr>
-
-        <h2>Profile</h2>
-        {!! $job->job_profile !!}
-
-        <hr>
-
-        <h2>Skills</h2>
-        {!! $job->skills !!}
+        <div class="py-3">
+            <h2>Profile</h2>
+            {!! $job->job_profile !!}
+        </div>
 
         <hr>
 
-        <h2>Tools</h2>
-        {!! $job->tools !!}
+        <div class="py-3">
+            <h2>Skills</h2>
+            {!! $job->skills !!}
+        </div>
 
         <hr>
 
-        <a class="btn btn-primary" href="{{ url()->current() }}/apply">Apply</a>
+        <div class="py-3">
+            <h2>Tools</h2>
+            {!! $job->tools !!}
+        </div>
+
+        <a class="btn btn-secondary my-3" href="{{ url()->current() }}/apply">Apply</a>
     </div>
 
 @endsection
