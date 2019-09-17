@@ -14,7 +14,7 @@
 
             <div class="col-md-8">
 
-                <form method="POST" action="{{ url()->current() }}" novalidate>
+                <form method="POST" action="{{ url()->current() }}" enctype="multipart/form-data" novalidate>
                     @csrf
                     @recaptcha
 
@@ -107,6 +107,14 @@
                         <div class="col-md-8">
                             <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
                             @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="resume" class="col-form-label col-md-2">Resume</label>
+                        <div class="col-md-8">
+                            <input type="file" name="resume" id="resume" class="form-control-file @error('resume') is-invalid @enderror" value="{{ old('resume') }}">
+                            @error('resume')<span class="invalid-feedback">{{ $message }}</span>@enderror
                         </div>
                     </div>
 
