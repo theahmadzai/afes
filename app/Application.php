@@ -12,7 +12,7 @@ class Application extends Model
         'gender',
         'marital_status',
         'birth_date',
-        'cnic',
+        'nid',
         'city',
         'address',
         'contact_number',
