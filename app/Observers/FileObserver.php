@@ -2,13 +2,12 @@
 
 namespace App\Observers;
 
-use App\Traits\Thumbnail;
+use App\Observers\Traits\Thumbnailer;
 use App\File;
-use Storage;
 
 class FileObserver
 {
-    use Thumbnail;
+    use Thumbnailer;
 
     public function created(File $file)
     {
