@@ -8,7 +8,9 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Status;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use App\Nova\Actions\AcceptApplication;
@@ -28,7 +30,7 @@ class Application extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'first_name';
 
     /**
      * The columns that should be searched.
@@ -36,7 +38,7 @@ class Application extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'first_name', 'last_name', 'email'
     ];
 
     /**
@@ -97,11 +99,15 @@ class Application extends Resource
                 ->rules('required')
                 ->hideFromIndex(),
 
+            File::make('Resume', 'file.resume'),
+
             Trix::make('About Us'),
 
             Status::make('Status')->loadingWhen(['Pending'])->failedWhen(['Rejected'])->exceptOnForms(),
 
             BelongsTo::make('Job'),
+
+            MorphOne::make('File'),
         ];
     }
 
