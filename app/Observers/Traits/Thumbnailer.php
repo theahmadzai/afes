@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Traits;
+namespace App\Observers\Traits;
 
 use Intervention\Image\Facades\Image as InterventionImage;
 use App\File;
 use Storage;
 
-trait Thumbnail
+trait Thumbnailer
 {
     public static $imageables = [
         \App\Image::class,
