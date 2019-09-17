@@ -35,6 +35,7 @@ class StoreApplication extends FormRequest
             'address' => 'required',
             'contact_number' => 'required',
             'email' => 'required|email',
+            'resume' => 'required|max:5000',
             'about_us' => 'nullable|max:500',
             'clearify' => 'accepted',
             '_recaptcha' => new ReCaptcha,
