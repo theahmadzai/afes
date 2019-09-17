@@ -8,16 +8,15 @@ use Storage;
 
 class File extends Model
 {
-    use SoftDeletes;
+    use softDeletes;
 
-    public function getThumbnailAttribute()
-    {
-        return Storage::disk('public')->url('thumbnails/' . basename($this->filename));
-    }
+    protected $fillable = [
+        'filename'
+    ];
 
-    public function getImageAttribute()
+    public function getResumeAttribute()
     {
-        return Storage::disk('public')->url($this->filename);
+        return 'files/' . basename($this->filename);
     }
 
     public function fileable()
