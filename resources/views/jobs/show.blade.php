@@ -51,21 +51,21 @@
             </tbody>
         </table>
 
-        <div class="py-3">
+        <div class="py-2">
             <h2>Profile</h2>
             {!! $job->job_profile !!}
         </div>
 
         <hr>
 
-        <div class="py-3">
+        <div class="py-2">
             <h2>Skills</h2>
             {!! $job->skills !!}
         </div>
 
         <hr>
 
-        <div class="py-3">
+        <div class="py-2">
             <h2>Tools</h2>
             {!! $job->tools !!}
         </div>

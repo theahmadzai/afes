@@ -22,15 +22,19 @@
             </div>
         </div>
 
-        @foreach($items->chunk(4) as $chunk)
-            <div class="row">
+        <div class="gallery">
+
+            @foreach($items->chunk(4) as $chunk)
                 @foreach($chunk as $item)
-                    <div class="col-3">
-                        <img src="{{ optional($item)->thumbnail }}" class="img-fluid my-3">
+
+                    <div class="gallery__image">
+                        <img src="{{ optional($item)->thumbnail }}">
                     </div>
+
                 @endforeach
-            </div>
-        @endforeach
+            @endforeach
+
+        </div>
 
         <div class="row justify-content-center align-items-center mt-3">
             {{ $items->appends(request()->query())->links() }}
