@@ -48,10 +48,6 @@ h5 {
     border-bottom:2px solid #900;
 }
 
-.app-post {
-    border-bottom:1px solid #900;
-}
-
 .app-aim {
     background:#fafafa;
 
@@ -175,5 +171,48 @@ h5 {
   }
 }
 
+.app-blog-post {
+    &-left {
+        img {
+            width:100%;
+            height:auto;
+            border:1px solid #900;
+        }
+    }
+
+    &-right {
+        position:relative;
+        background:#f9f9f9;
+
+        h2 {
+            font-size: 20px;
+
+            a {
+                text-decoration: none;
+                color: #0C3165;
+            }
+        }
+
+        p {
+            text-align:justify;
+        }
+
+        .tags {
+            font-size:0.8rem;
+            color: #900;
+        }
+
+        img {
+            width:32px;
+            height:32px;
+            border-radius:100%;
+            cursor:pointer;
+
+            &:hover {
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
 
 

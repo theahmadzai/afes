@@ -3,9 +3,15 @@
 @section('title', 'Donate')
 
 @section('content')
-<div class="container my-5">
 
-    Donate
+    @component('partials.head')
+        Donate
+    @endcomponent
 
-</div>
+    <div class="container py-3">
+
+        <p>This page is under construction!</p>
+
+    </div>
+
 @endsection

@@ -12,8 +12,8 @@
 
         @foreach($jobs as $job)
 
-            <div class="subHeading" onclick="window.location.href = '{{ url('jobs/' . $job->id) }}'">
-                <span><a href="{{ url('jobs/' . $job->id) }}">{{ $job->title }}</a></span>
+            <div class="subHeading" onclick="window.location.href = '{{ url()->current() . '/' . $job->id }}'">
+                <span><a href="{{ url()->current() . '/' . $job->id }}">{{ $job->title }}</a></span>
                 <span>{{ $job->location }}</span>
                 <span>Apply by: {{ $job->closing_at->toFormattedDateString() }}</span>
             </div>

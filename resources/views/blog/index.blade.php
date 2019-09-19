@@ -11,51 +11,45 @@
 
     <div class="container py-3">
 
-        {{-- @foreach($posts->chunk(3) as $chunk)
+        <div class="row">
 
-            <div class="row">
+            <div class="col-md-8">
 
-                @foreach($chunk as $post)
+                <div class="container mb-2">
 
-                    <div class="col-4 my-3">
+                    @foreach($posts as $post)
 
-                        <img class="img-fluid" src="{{ optional($post->file)->thumbnail }}" alt="{{ $post->title }}">
+                        <div class="row mb-3 app-blog-post" onclick="window.location.href = '{{ url()->current() . '/' . $post->slug }}'">
 
-                    </div>
+                            <div class="col-sm-4 p-0 app-blog-post-left">
+                                <img class="bd-placeholder-img" src="{{ optional($post)->thumbnail }}"></img>
+                            </div>
 
-                @endforeach
+                            <div class="col-sm-8 p-2 app-blog-post-right">
+                                <h2><a href="{{ url()->current() . '/' . $post->slug }}">{{ $post->title }}</a></h2>
+                                <p class="m-0 mb-5">{{ str_limit($post->body, 200) }}</p>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="m-0 tags">{{ $post->tags->pluck('name')->toUpper()->implode(', ') }}</p>
+                                    <img src="{{ $post->user->gravatar }}" title="{{ $post->user->name }}" alt="{{ $post->user->name }}">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    @endforeach
+
+                </div>
 
             </div>
 
-        @endforeach --}}
+            <div class="col-md-4" style="background:#eaeaea;">
 
-        @foreach($posts as $post)
 
-            <div class="row rounded no-gutters overflow-hidden shadow-sm my-3 app-post">
-                <div class="col-auto d-none d-lg-block">
-                    <img class="bd-placeholder-img" width="250" height="250" src="{{ optional($post)->thumbnail }}"></img>
-                </div>
 
-                <div class="col p-3">
-                    <h2 class="text-uppercase">
-                        {{ $post->title }}
-                    </h2>
-                    <p class="text-primary">
-                        {{ $post->tags->pluck('name')->toUpper()->implode(', ') }}
-                    </p>
-                    <div class="text-muted">
-                        {{ $post->published_at->diffForHumans() }}
-                    </div>
-                    <p class="card-text mb-auto">{{ str_limit($post->body, 200) }}</p>
-                    <a href="{{ url('blog/' . $post->slug) }}" class="stretched-link">Continue reading</a>
-                    <div>
-                        <p>Posted by <b>{{ $post->user->name }}</b></p>
-                        <img src="{{ $post->user->gravatar }}" width="40" height="40">
-                    </div>
-                </div>
             </div>
 
-        @endforeach
+        </div>
 
         <div class="row justify-content-center align-items-center mt-3">
             {{ $posts->links() }}
