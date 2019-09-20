@@ -50,7 +50,7 @@ class Image extends Resource
 
             Text::make('Caption'),
 
-            BelongsTo::make('Category'),
+            BelongsTo::make('Category')->sortable(),
 
             MorphOne::make('File'),
         ];

@@ -46,13 +46,19 @@ h5 {
 .app-head {
     color: #733;
     border-bottom:2px solid #900;
+
+    h1 {
+        font-size:1.8rem;
+        font-family: 'Lato';
+        // text-align: center;
+    }
 }
 
 .app-aim {
     background:#fafafa;
 
     h2 {
-        font-family: Calibri;
+        font-family: 'Calibri';
     }
 
     p,ul {
@@ -172,6 +178,13 @@ h5 {
 }
 
 .app-blog-post {
+    cursor:pointer;
+
+    &:hover {
+        opacity:0.8;
+        transition: all 250ms ease-in-out;
+    }
+
     &-left {
         img {
             width:100%;
@@ -181,12 +194,15 @@ h5 {
 
     &-right {
         position:relative;
-        background:#f9f9f9;
+        background:#fdfdfd;
         border-bottom:2px solid #900;
+        border-right:1px solid #f6f6f6;
+        border-top:1px solid #f6f6f6;
 
         h2 {
-            font-size: 20px;
+            font-size: 1.4rem;
             padding-right:1.2rem;
+            font-family: 'Lato';
 
             a {
                 text-decoration: none;
@@ -199,10 +215,9 @@ h5 {
             text-align:justify;
         }
 
-        .tags {
+        div > strong {
             font-size:0.8rem;
             color: #900;
-            font-weight:bold;
         }
 
         img {

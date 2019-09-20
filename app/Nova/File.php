@@ -55,7 +55,7 @@ class File extends Resource
                 Slide::class,
                 Post::class,
                 Application::class,
-            ])->searchable(),
+            ])->searchable()->sortable(),
 
             DateTime::make('Created At')->onlyOnDetail(),
         ];
