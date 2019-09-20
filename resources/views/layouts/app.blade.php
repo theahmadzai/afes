@@ -11,6 +11,7 @@
     <link rel="icon" href="/img/logo.png">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link href="https://fonts.googleapis.com/css?family=Nunito|Lato|Open+Sans|Roboto:400,400i,500,500i,700&display=swap" rel="stylesheet">
 
     @stack('styles')
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
