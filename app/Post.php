@@ -19,6 +19,11 @@ class Post extends Model
         return 'slug';
     }
 
+    public function scopePublished(Builder $query)
+    {
+        return $query->where('is_published', true);
+    }
+
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
@@ -32,10 +37,5 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function scopePublished(Builder $query)
-    {
-        return $query->where('is_published', true);
     }
 }
