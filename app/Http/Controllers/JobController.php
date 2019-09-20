@@ -11,7 +11,7 @@ class JobController extends Controller
     public function index()
     {
         return View::make('jobs.index', [
-            'jobs' => Job::open()->paginate(10),
+            'jobs' => Job::open()->latest()->paginate(10),
         ]);
     }
 

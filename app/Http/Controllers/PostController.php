@@ -11,7 +11,7 @@ class PostController extends Controller
     public function index()
     {
         return View::make('blog.index', [
-            'posts' => Post::published()->paginate(5),
+            'posts' => Post::published()->latest()->paginate(5),
         ]);
     }
 
