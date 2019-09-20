@@ -176,16 +176,17 @@ h5 {
         img {
             width:100%;
             height:auto;
-            border:1px solid #900;
         }
     }
 
     &-right {
         position:relative;
         background:#f9f9f9;
+        border-bottom:2px solid #900;
 
         h2 {
             font-size: 20px;
+            padding-right:1.2rem;
 
             a {
                 text-decoration: none;
@@ -194,22 +195,28 @@ h5 {
         }
 
         p {
+            font-family:'Roboto';
             text-align:justify;
         }
 
         .tags {
             font-size:0.8rem;
             color: #900;
+            font-weight:bold;
         }
 
         img {
-            width:32px;
-            height:32px;
-            border-radius:100%;
+            position: absolute;
+            top:0;
+            right:0;
+            width:25px;
+            height:25px;
+
             cursor:pointer;
+            transition: all 100ms ease-in-out;
 
             &:hover {
-                transform: rotate(45deg);
+                opacity:0.8;
             }
         }
     }

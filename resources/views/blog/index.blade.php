@@ -26,13 +26,10 @@
                             </div>
 
                             <div class="col-sm-8 p-2 app-blog-post-right">
-                                <h2><a href="{{ url()->current() . '/' . $post->slug }}">{{ $post->title }}</a></h2>
-                                <p class="m-0 mb-5">{{ str_limit($post->body, 200) }}</p>
-
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <p class="m-0 tags">{{ $post->tags->pluck('name')->toUpper()->implode(', ') }}</p>
-                                    <img src="{{ $post->user->gravatar }}" title="{{ $post->user->name }}" alt="{{ $post->user->name }}">
-                                </div>
+                                <h2 class="pl-2 mb-1"><a href="{{ url()->current() . '/' . $post->slug }}">{{ $post->title }}</a></h2>
+                                <p class="pl-2 mb-1 tags">{{ $post->tags->pluck('name')->toUpper()->implode(', ') }}</p>
+                                <p class="pl-2">{{ str_limit($post->body, 150) }}</p>
+                                <img src="{{ $post->user->gravatar }}" title="{{ $post->user->name }}" alt="{{ $post->user->name }}">
                             </div>
 
                         </div>
