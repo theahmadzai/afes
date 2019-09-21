@@ -20,8 +20,9 @@ class ApplicationController extends Controller
     public function store(StoreApplication $request, Job $job)
     {
         $job->applications()
-            ->create($request->validated())->file()
-            ->create(['filename' => request()->resume->store('public/files')]);
+            ->create($request->validated())
+            ->file()
+            ->create(['filename' => request()->resume->store('files', 'public')]);
 
         return View::make('flash.success');
     }
