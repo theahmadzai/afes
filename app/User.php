@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'username', 'avatar',
     ];
 
     /**
@@ -40,8 +40,12 @@ class User extends Authenticatable
 
     public function getGravatarAttribute()
     {
-        $hash = md5(strtolower(trim($this->email)));
-        return "http://www.gravatar.com/avatar/$hash?s=300";
+        return $this->avatar ?? 'http://www.gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?s=300';
+    }
+
+    public function identities()
+    {
+        return $this->hasMany(SocialIdentity::class);
     }
 
     public function posts()
