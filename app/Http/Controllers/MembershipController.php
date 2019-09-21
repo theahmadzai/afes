@@ -11,4 +11,9 @@ class MembershipController extends Controller
     {
         return View::make('membership.index');
     }
+
+    public function test(Request $request)
+    {
+        dd($request);
+    }
 }
