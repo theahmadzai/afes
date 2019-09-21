@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('body')->nullable();
             $table->boolean('is_published')->default(false);
             $table->datetime('published_at')->useCurrent();
-            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
