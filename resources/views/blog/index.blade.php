@@ -40,7 +40,7 @@
 
             </div>
 
-            <div class="col-md-4 pl-0">
+            <div class="col-md-4 pl-md-0">
 
                 <div class="container" style="background:#fafafa; height:100% py-3">
 
@@ -73,9 +73,9 @@
 
         </div>
 
-        <div class="row justify-content-center align-items-center mt-3">
+        @component('partials.pagination')
             {{ $posts->links() }}
-        </div>
+        @endcomponent
 
     </div>
 

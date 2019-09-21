@@ -20,9 +20,9 @@
 
         @endforeach
 
-        <div class="row justify-content-center align-items-center mt-3">
+        @component('partials.pagination')
             {{ $jobs->links() }}
-        </div>
+        @endcomponent
 
     </div>
 

@@ -36,9 +36,9 @@
 
         </div>
 
-        <div class="row justify-content-center align-items-center mt-3">
+        @component('partials.pagination')
             {{ $items->appends(request()->query())->links() }}
-        </div>
+        @endcomponent
 
     </div>
 
