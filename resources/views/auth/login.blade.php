@@ -8,6 +8,13 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+
+                    @if (session('status'))
+                        <div class="alert alert-danger">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -64,7 +71,19 @@
                                 @endif
                             </div>
                         </div>
+
+                        <hr>
+
+                        <div class="form-group">
+                            <div class="col-md-8">
+                                <a href="{{ url('/login/twitter') }}" class="btn btn-light"><i class="fa fa-twitter"></i> Twitter</a>
+                                <a href="{{ url('/login/facebook') }}" class="btn btn-light"><i class="fa fa-facebook"></i> Facebook</a>
+                                <a href="{{ url('/register') }}" class="btn btn-light">{{ __('Create an Account') }}</a>
+                            </div>
+                        </div>
+
                     </form>
+
                 </div>
             </div>
         </div>
