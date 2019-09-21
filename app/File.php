@@ -14,11 +14,6 @@ class File extends Model
         'filename'
     ];
 
-    public function getResumeAttribute()
-    {
-        return 'files/' . basename($this->filename);
-    }
-
     public function fileable()
     {
         return $this->morphTo();
