@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     JobController,
     ApplicationController,
     SubscriberController,
+    Auth\LoginController,
 };
 
 /*
@@ -30,21 +31,28 @@ Auth::routes();
  * Controller Routes
  */
 Route::get('/', HomeController::class);
+
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('contact', [ContactController::class, 'mail']);
+
 Route::get('gallery', [GalleryController::class, 'index']);
+
 Route::get('blog', [PostController::class, 'index']);
 Route::get('blog/{post}', [PostController::class, 'show']);
+
 Route::get('jobs', [JobController::class, 'index']);
 Route::get('jobs/{job}', [JobController::class, 'show']);
 Route::get('jobs/{job}/apply', [ApplicationController::class, 'create']);
 Route::post('jobs/{job}/apply', [ApplicationController::class, 'store']);
+
 Route::get('/subscribe', [SubscriberController::class, 'create']);
 Route::post('/subscribe', [SubscriberController::class, 'store']);
+
 Route::get('membership', [MembershipController::class, 'index']);
-Route::get('membership/success', function(\Illuminate\Http\Request $request) {
-    dd($request);
-});
+Route::get('membership/success', [MembershipController::class, 'test']);
+
+Route::get('login/{provider}', [LoginController::class, 'redirectToProvider']);
+Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
 
 /**
  * View Routes
