@@ -4,7 +4,7 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
@@ -46,7 +46,7 @@ class Slide extends Resource
         return [
             ID::make()->sortable(),
 
-            Image::make('Image', function() {
+            Avatar::make('Image', function() {
                 return 'thumbnails/' . ($this->file ? basename($this->file->filename) : 'default.png');
             }),
 
