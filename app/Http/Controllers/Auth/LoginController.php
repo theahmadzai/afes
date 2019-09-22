@@ -41,6 +41,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    protected function authenticated()
+    {
+        $user = Auth::user();
+        $user->last_login_ip = 0;
+
+    }
+
     public function redirectToProvider(string $provider)
     {
         return Socialite::driver($provider)->redirect();
@@ -81,9 +88,9 @@ class LoginController extends Controller
 
     private function loginWithUser(string $provider, $identity)
     {
-        $user = User::where('email', $identity->getEmail())->orWhere('username', $identity->getNickname())->first();
+        $user = User::where('email', $identity->getEmail())->first();
 
-        if($user) {
+        if($user && $identity->getEmail()) {
             return false;
         }
 

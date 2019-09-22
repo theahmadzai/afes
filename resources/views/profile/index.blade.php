@@ -41,7 +41,7 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="name" class="col-form-label col-md-4">Name</label>
+                                        <label for="name" class="col-form-label col-md-4">Display Name</label>
                                         <div class="col-md-8">
                                             <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? Auth::user()->name }}">
                                             @error('name')<span class="invalid-feedback">{{ $message }}</span>@enderror
@@ -58,7 +58,10 @@
 
                                     <div class="form-group row">
                                         <label for="username" class="col-form-label col-md-4">Username</label>
-                                        <div class="col-md-8">
+                                        <div class="col-md-8 input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">@</span>
+                                            </div>
                                             <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') ?? Auth::user()->username }}">
                                             @error('username')<span class="invalid-feedback">{{ $message }}</span>@enderror
                                         </div>
@@ -133,12 +136,55 @@
 
                     </div>
 
+                    <!-- PRIVACY -->
+
                     <div class="tab-pane fade" id="v-pills-privacy">
 
                         <div class="card">
                             <div class="card-header">Privacy</div>
 
                             <div class="card-body">
+
+                                <form method="POST" action="{{ url()->current() }}" enctype="multipart/form-data" novalidate>
+                                    @csrf
+
+                                    <div class="form-group row">
+                                        <label for="email" class="col-form-label col-md-4">Email Address</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') ?? Auth::user()->email }}">
+                                            @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="email" class="col-form-label col-md-4">Notification</label>
+                                        <div class="col-md-8">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <small class="form-text text-muted">
+                                                Do you want to receive email notifications from Afghan Evaluation Society. Turning this off will turn of all notifications.
+                                            </small>
+                                            @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="email" class="col-form-label col-md-4">Notification</label>
+                                        <div class="col-md-8">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <small class="form-text text-muted">
+                                                Do you want to receive email notifications from Afghan Evaluation Society. Turning this off will turn of all notifications.
+                                            </small>
+                                            @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                        </div>
+                                    </div>
+
+                                </form>
 
                             </div>
                         </div>
