@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     JobController,
     ApplicationController,
     SubscriberController,
+    ProfileController,
     Auth\LoginController,
 };
 
@@ -53,6 +54,9 @@ Route::get('membership/success', [MembershipController::class, 'test']);
 
 Route::get('login/{provider}', [LoginController::class, 'redirectToProvider']);
 Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
+
+Route::get('profile', [ProfileController::class, 'index']);
+Route::post('profile', [ProfileController::class, 'updateProfile']);
 
 /**
  * View Routes
