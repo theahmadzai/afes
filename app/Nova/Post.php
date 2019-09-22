@@ -52,7 +52,9 @@ class Post extends Resource
         return [
             ID::make()->sortable(),
 
-            Avatar::make('Image', 'location'),
+            Avatar::make('Image', function() {
+                return 'thumbnails/' . ($this->file ? basename($this->file->filename) : 'default.png');
+            }),
 
             Text::make('Title')->rules('required'),
 
