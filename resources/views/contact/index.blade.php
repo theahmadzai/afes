@@ -14,7 +14,7 @@
 
             <div class="col-md-4">
 
-                <div class="shadow-lg p-5 mb-5 bg-white rounded">
+                <div class="shadow-sm p-5 mb-5 bg-white rounded">
                     <ul class="list-unstyled mb-0">
                         <li>
                             <i class="fa fa-map-marker fa-2x"></i>
