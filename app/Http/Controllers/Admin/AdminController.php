@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-    public function constructor()
+    public function __construct()
     {
         $this->middleware('admin');
     }
