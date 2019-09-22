@@ -42,7 +42,7 @@
 
             <div class="col-md-4 pl-md-0">
 
-                <div class="container" style="background:#fafafa; height:100% py-3">
+                <div class="container" style="background:#ededed; height:100% py-3">
 
                     <form method="POST" action="{{ url()->current() }}" novalidate class="py-3">
                         @csrf
