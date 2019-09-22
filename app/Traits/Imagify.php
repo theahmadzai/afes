@@ -7,19 +7,11 @@ trait Imagify
 {
     public function getThumbnailAttribute()
     {
-        if(!$this->file) {
-            return 'thumbnails/default.png';
-        }
-
-        return Storage::disk('public')->url('thumbnails/' . basename($this->file->filename));
+        return Storage::disk('public')->url('thumbnails/' . basename($this->file ? $this->file->filename : 'default.png'));
     }
 
     public function getImageAttribute()
     {
-        if(!$this->file) {
-            return 'files/default.png';
-        }
-
-        return Storage::disk('public')->url($this->file->filename);
+        return Storage::disk('public')->url($this->file ? $this->file->filename : 'files/default.png');
     }
 }
