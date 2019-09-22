@@ -14,18 +14,21 @@
 
             <div class="col-md-4">
 
-                <div class="shadow-lg p-3 mb-5 bg-white rounded text-muted p-5">
+                <div class="shadow-lg p-5 mb-5 bg-white rounded">
                     <ul class="list-unstyled mb-0">
-                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                            <p>House# 236, Behind District 4 Municipality Office, 5 th Street, 40-Meter Road, Kulola Pushta Kabul, Afghanistan 1001</p>
+                        <li>
+                            <i class="fa fa-map-marker fa-2x"></i>
+                            <p class="mb-0">House# 236, Behind District 4 Municipality Office, 5 th Street, 40-Meter Road, Kulola Pushta Kabul, Afghanistan 1001</p>
                         </li>
 
-                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                            <p>+93 771 251 253</p>
+                        <li>
+                            <i class="fa fa-phone mt-4 fa-2x"></i>
+                            <p class="mb-0">+93 771 251 253</p>
                         </li>
 
-                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                            <p>contact@afghanevaluation.af</p>
+                        <li>
+                            <i class="fa fa-envelope mt-4 fa-2x"></i>
+                            <p class="mb-0">contact@afghanevaluation.af</p>
                         </li>
                     </ul>
                 </div>
