@@ -11,7 +11,7 @@
     <div class="container py-3">
 
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Show only
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -25,13 +25,19 @@
         <div class="gallery">
 
             @foreach($items->chunk(4) as $chunk)
-                @foreach($chunk as $item)
 
-                    <div class="gallery__image">
-                        <img src="{{ optional($item)->thumbnail }}">
-                    </div>
+                <div class="gallery__row">
 
-                @endforeach
+                    @foreach($chunk as $item)
+
+                        <div class="gallery__row__image">
+                            <img src="{{ $item->thumbnail }}">
+                        </div>
+
+                    @endforeach
+
+                </div>
+
             @endforeach
 
         </div>

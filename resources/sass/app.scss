@@ -126,53 +126,68 @@ h5 {
 
 
 .gallery {
-    display: grid;
-    justify-content: space-between;
-    gap: 0.8rem;
-    grid-template-columns: repeat(4, calc(25%-1rem));
+    // display: grid;
+    // gap: 1rem;
+    // grid-template-columns: repeat(4, 23.5%);
 
     @media (max-width: 60.0626em) {
-      grid-template-columns: repeat(3, 33.33%);
+      grid-template-columns: repeat(3, 32.33%);
     }
 
-    @media (max-width: 40.0625em) {
-      grid-template-columns: repeat(2, 50%);
-    }
+    // @media (max-width: 40.0625em) {
+    //   grid-template-columns: repeat(2, 49%);
+    // }
 
-    @media (max-width: 30.0625em) {
-      grid-template-columns: 100%;
-    }
+    // @media (max-width: 30.0625em) {
+    //   grid-template-columns: 100%;
+    // }
 
-    &__image {
-    position: relative;
-    max-height: auto;
-    // margin: 0.25rem;
-    background: #f9f9f9;
-    overflow: hidden;
+    &__row {
+        display:flex;
+        align-items: center;
+        margin-bottom:1rem;
 
-    img {
-      width: 100%;
-    }
+        &:first-child {
+            margin-top:1rem;
+        }
 
-    p {
-      position: absolute;
-      bottom: 0;
-      display: none;
-      width: 100%;
-      padding: 0.25rem;
-      opacity: 0.8;
-      background: #111111;
-      font-size: 0.8rem;
-      color: #ffffff;
-      text-align: center;
-    }
+        &__image {
+            display:block;
+            margin-left:1rem;
+            position: relative;
+            max-height: auto;
+            background: #f9f9f9;
+            border:1px solid #6c757e;
+            overflow: hidden;
 
-    &:hover {
-      p {
-        display: block;
-      }
+            &:first-child {
+                margin-left:0;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            p {
+                position: absolute;
+                bottom: 0;
+                display: none;
+                width: 100%;
+                padding: 0.25rem;
+                opacity: 0.8;
+                background: #111111;
+                font-size: 0.8rem;
+                color: #ffffff;
+                text-align: center;
+            }
+
+            &:hover {
+                p {
+                    display: block;
+                }
+            }
+        }
     }
-  }
 }
 
 .app-blog-post {
@@ -234,4 +249,29 @@ h5 {
     }
 }
 
+.app-post {
+    .app-post-first {
+        background: #f3f3f3;
+    }
 
+    &-avatar {
+        width:50px;
+        height:50px;
+        border-radius:100%;
+    }
+
+    &-name {
+        font-size:1rem;
+        color: #0C3165;
+    }
+
+    &-tags {
+        font-size:1rem;
+        color:#0C3165;
+    }
+
+    &-body {
+        font-size:1rem;
+        font-family: 'Open Sans';
+    }
+}
