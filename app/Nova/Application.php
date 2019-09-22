@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Status;
 use Laravel\Nova\Fields\File;
+use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
@@ -83,7 +84,9 @@ class Application extends Resource
                 ->rules('required')
                 ->hideFromIndex(),
 
-            Text::make('City')
+            Place::make('City')
+                ->onlyCities()
+                ->countries(['AF'])
                 ->rules('required')
                 ->hideFromIndex(),
 
@@ -99,11 +102,14 @@ class Application extends Resource
                 ->rules('required')
                 ->hideFromIndex(),
 
-            File::make('Resume', 'file.resume'),
-
             Trix::make('About Us'),
 
-            Status::make('Status')->loadingWhen(['Pending'])->failedWhen(['Rejected'])->exceptOnForms(),
+            Status::make('Status')
+                ->loadingWhen(['Pending'])
+                ->failedWhen(['Rejected'])
+                ->exceptOnForms(),
+
+            File::make('Resume', 'file.filename')->hideFromIndex(),
 
             BelongsTo::make('Job'),
 

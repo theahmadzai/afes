@@ -5,15 +5,6 @@ use Storage;
 
 trait Imagify
 {
-    public function getLocationAttribute()
-    {
-        if(!$this->file) {
-            return 'thumbnails/default.png';
-        }
-
-        return 'thumbnails/' . basename($this->file->filename);
-    }
-
     public function getThumbnailAttribute()
     {
         if(!$this->file) {

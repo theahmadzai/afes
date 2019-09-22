@@ -5,7 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Gravatar;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\HasMany;
 
@@ -31,7 +31,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id', 'name', 'email', 'username',
     ];
 
     /**
@@ -45,7 +45,9 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make(),
+            Avatar::make('Gravatar')->thumbnail(function($value, $disk) {
+                return $value;
+            }),
 
             Text::make('Name')
                 ->sortable()
