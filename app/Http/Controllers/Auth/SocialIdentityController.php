@@ -78,14 +78,13 @@ class SocialIdentityController extends Controller
         $user = null;
 
         if(!Auth::check()) {
-            $user = User::where('email', $identity->getEmail())->orWhere('username', $identity->getNickname())->first();
+            $user = User::where('email', $identity->getEmail())->first();
 
-            if($user && ($identity->getEmail() || $identity->getNickname()) ) {
+            if($user && $identity->getEmail() != null) {
                 return false;
             }
 
             $user = User::create([
-                'username' => $identity->getNickname(),
                 'avatar' => $identity->getAvatar(),
                 'email' => $identity->getEmail(),
                 'name' => $identity->getName(),
