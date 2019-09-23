@@ -9,7 +9,7 @@ use App\Http\Controllers\{
     ApplicationController,
     SubscriberController,
     ProfileController,
-    Auth\LoginController,
+    Auth\SocialIdentityController,
 };
 
 /*
@@ -52,8 +52,8 @@ Route::post('/subscribe', [SubscriberController::class, 'store']);
 Route::get('membership', [MembershipController::class, 'index']);
 Route::get('membership/success', [MembershipController::class, 'test']);
 
-Route::get('login/{provider}', [LoginController::class, 'redirectToProvider']);
-Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
+Route::get('login/{provider}', [SocialIdentityController::class, 'redirectToProvider']);
+Route::get('login/{provider}/callback', [SocialIdentityController::class, 'handleProviderCallback']);
 
 Route::get('profile', [ProfileController::class, 'index']);
 Route::post('profile', [ProfileController::class, 'update']);
