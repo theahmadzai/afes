@@ -19,16 +19,19 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('username')->unique()->nullable();
             $table->string('email')->unique()->nullable();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            /** Last Login */
+            $table->string('city')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->enum('gender', ['Male', 'Female'])->nullable();
+            $table->datetime('birth_date')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->ipAddress('last_login_ip')->nullable();
-            $table->timestamp('last_login_date')->nullable();
+            $table->datetime('last_login_date')->nullable();
             $table->string('last_login_location')->nullable();
             $table->string('last_login_device')->nullable();
             $table->string('last_login_platform')->nullable();
             $table->string('last_login_browser')->nullable();
-            /** Remember Token */
             $table->rememberToken();
             $table->timestamps();
         });
