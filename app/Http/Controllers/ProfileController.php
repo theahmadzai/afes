@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Auth;
+use Socialite;
+use Hash;
 
 class ProfileController extends Controller
 {
@@ -14,11 +19,103 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return View::make('profile.index');
+        $identities = [
+            'facebook' => false,
+            'twitter' => false,
+        ];
+
+        foreach(Auth::user()->identities as $identity) {
+            $provider = strtolower($identity->provider_name);
+
+            if(array_key_exists($provider, $identities)) {
+                $identities[$provider] = true;
+            }
+        }
+
+        return View::make('profile.index', [
+            'identities' => $identities,
+        ]);
     }
 
-    public function updateProfile(Request $request)
+    public function update(Request $request)
     {
-        return back()->withInput();
+        $method = "update{$request->update}";
+        if(method_exists($this, $method)) {
+            return $this->$method($request);
+        }
+
+        return back();
+    }
+
+    private function updateEmailAndUsername(Request $request)
+    {
+        Validator::make($request->all(), [
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::User())],
+            'username' => ['nullable', 'string', 'min:5', 'max:25', 'unique:users'],
+        ])->validate();
+
+        $updated = false;
+
+        if($request->email != Auth::User()->email) {
+            Auth::User()->email = $request->email;
+            $updated = true;
+        }
+
+        if($request->username != Auth::User()->username) {
+            Auth::User()->username = $request->username;
+            $updated = true;
+        }
+
+        if($updated) {
+            Auth::User()->save();
+            return back()->with('status', 'Account Login Info Updated Successfuly!');
+        }
+
+        return back();
+    }
+
+    private function updatePassword(Request $request)
+    {
+        Validator::make($request->all(), [
+            'current_password' => ['required', function ($attribute, $value, $fail) {
+                if (!Hash::check($value, Auth::user()->password)) {
+                    return $fail(__('The current password is incorrect.'));
+                }
+            }],
+            'password' => ['required', 'min:8', 'confirmed', function ($attribute, $value, $fail) {
+                if (Hash::check($value, Auth::user()->password)) {
+                    return $fail(__('The current password cannot be same as new password.'));
+                }
+            }],
+        ])->validate();
+
+        Auth::User()->password = Hash::make($request->password);
+        Auth::User()->save();
+
+        return back()->with('status', 'Password Updated Successfuly!');
+    }
+
+    private function updateSocialAccounts(Request $request)
+    {
+        $identities = [];
+
+        foreach(Auth::user()->identities as $identity) {
+            $provider = strtolower($identity->provider_name);
+            if(!$request->has($provider)) {
+                $identity->delete();
+            } else {
+                $identities[$provider] = true;
+            }
+        }
+
+        if($request->has('facebook') && !isset($identities['facebook'])) {
+            return Socialite::driver('facebook')->redirect();
+        }
+
+        if($request->has('twitter') && !isset($identities['twitter'])) {
+            return Socialite::driver('twitter')->redirect();
+        }
+
+        return back();
     }
 }
