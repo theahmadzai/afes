@@ -47,6 +47,35 @@ class ProfileController extends Controller
         return back();
     }
 
+    private function updateProfile(Request $request)
+    {
+        Validator::make($request->all(), [
+            'avatar' => ['nullable', 'string'],
+            'name' => ['nullable', 'required', 'string', 'min:5', 'max:255'],
+            'gender' => ['nullable', 'in:male,female'],
+            'city' => ['nullable', 'string', 'min:3', 'max:25'],
+            'address' => ['nullable', 'string', 'min:10', 'max:255'],
+            'phone' => ['nullable', 'digits_between:8,15'],
+            'birth_date' => ['nullable', 'date'],
+        ])->validate();
+
+        Auth::User()->avatar = $request->avatar;
+        Auth::User()->name = $request->name;
+        Auth::User()->gender = $request->gender;
+        Auth::User()->city = $request->city;
+        Auth::User()->address = $request->address;
+        Auth::User()->phone = $request->phone;
+        Auth::User()->birth_date = $request->birth_date;
+
+        Auth::User()->save();
+
+        if(Auth::User()->wasChanged()){
+            return back()->with('status', 'Profile has been updated Successfuly!');
+        }
+
+        return back();
+    }
+
     private function updateEmailAndUsername(Request $request)
     {
         Validator::make($request->all(), [
@@ -54,20 +83,11 @@ class ProfileController extends Controller
             'username' => ['nullable', 'string', 'min:5', 'max:25', 'unique:users'],
         ])->validate();
 
-        $updated = false;
+        Auth::User()->email = $request->email;
+        Auth::User()->username = $request->username;
+        Auth::User()->save();
 
-        if($request->email != Auth::User()->email) {
-            Auth::User()->email = $request->email;
-            $updated = true;
-        }
-
-        if($request->username != Auth::User()->username) {
-            Auth::User()->username = $request->username;
-            $updated = true;
-        }
-
-        if($updated) {
-            Auth::User()->save();
+        if(Auth::User()->wasChanged()) {
             return back()->with('status', 'Account Login Info Updated Successfuly!');
         }
 
