@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use Illuminate\Auth\Events\Authenticated;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Jenssegers\Agent\Agent;
@@ -10,7 +10,7 @@ use Carbon\Carbon;
 use Location;
 use Auth;
 
-class UserAuthenticated
+class UserLogin
 {
     /**
      * Create the event listener.
@@ -28,7 +28,7 @@ class UserAuthenticated
      * @param  Authenticated  $event
      * @return void
      */
-    public function handle(Authenticated $event)
+    public function handle(Login $event)
     {
         $location = Location::get();
         $agent = new Agent();
