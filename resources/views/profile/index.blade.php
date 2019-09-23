@@ -36,6 +36,7 @@
                             <div class="card-body">
                                 <form method="POST" action="{{ url()->current() }}" enctype="multipart/form-data" novalidate>
                                     @csrf
+                                    <input type="hidden" name="update" value="Profile">
 
                                     <div class="form-group row">
                                         <label for="name" class="col-form-label col-md-4">Avatar</label>
@@ -58,31 +59,17 @@
                                         <label for="gender" class="col-form-label col-md-4">Gender</label>
                                         <div class="col-md-8">
                                             <select name="gender" id="gender" class="form-control @error('gender') is-invalid @enderror">
-                                                <option {{ old('gender') == 'Male' ? 'Selected' : '' }}>Male</option>
-                                                <option {{ old('gender') == 'Female' ? 'Selected' : '' }}>Female</option>
+                                                <option value="male" {{ old('gender') ?? Auth::User()->gender == 'male' ? 'selected' : '' }}>Male</option>
+                                                <option value="female" {{ old('gender') ?? Auth::User()->gender == 'female' ? 'selected' : '' }}>Female</option>
                                             </select>
                                             @error('gender')<span class="invalid-feedback">{{ $message }}</span>@enderror
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="marital_status" class="col-form-label col-md-4">Marital Status</label>
-                                        <div class="col-md-8">
-                                            <select name="marital_status" id="marital_status" class="form-control @error('marital_status') is-invalid @enderror">
-                                                <option {{ old('marital_status') == 'Single' ? 'Selected' : '' }}>Single</option>
-                                                <option {{ old('marital_status') == 'Married' ? 'Selected' : '' }}>Married</option>
-                                                <option {{ old('marital_status') == 'Widowed' ? 'Selected' : '' }}>Widowed</option>
-                                                <option {{ old('marital_status') == 'Separated' ? 'Selected' : '' }}>Separated</option>
-                                                <option {{ old('marital_status') == 'Divorced' ? 'Selected' : '' }}>Divorced</option>
-                                            </select>
-                                            @error('marital_status')<span class="invalid-feedback">{{ $message }}</span>@enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
                                         <label for="birth_date" class="col-form-label col-md-4">Birth Date</label>
                                         <div class="col-md-8">
-                                            <input type="date" name="birth_date" id="birth_date" class="form-control @error('birth_date') is-invalid @enderror" value="{{ old('birth_date') }}">
+                                            <input type="date" name="birth_date" id="birth_date" class="form-control @error('birth_date') is-invalid @enderror" value="{{ old('birth_date') ?? Auth::User()->birth_date }}">
                                             @error('birth_date')<span class="invalid-feedback">{{ $message }}</span>@enderror
                                         </div>
                                     </div>
@@ -90,7 +77,7 @@
                                     <div class="form-group row">
                                         <label for="city" class="col-form-label col-md-4">City</label>
                                         <div class="col-md-8">
-                                            <input type="text" name="city" id="city" placeholder="City you are living in" class="form-control @error('city') is-invalid @enderror" value="{{ old('city') }}">
+                                            <input type="text" name="city" id="city" placeholder="City you are living in" class="form-control @error('city') is-invalid @enderror" value="{{ old('city') ?? Auth::User()->city }}">
                                             @error('city')<span class="invalid-feedback">{{ $message }}</span>@enderror
                                         </div>
                                     </div>
@@ -98,16 +85,16 @@
                                     <div class="form-group row">
                                         <label for="address" class="col-form-label col-md-4">Address</label>
                                         <div class="col-md-8">
-                                            <textarea name="address" id="address" placeholder="Your current address" rows="2" class="form-control @error('address') is-invalid @enderror">{{ old('address') }}</textarea>
+                                            <textarea name="address" id="address" placeholder="Your current address" rows="2" class="form-control @error('address') is-invalid @enderror">{{ old('address') ?? Auth::User()->address }}</textarea>
                                             @error('address')<span class="invalid-feedback">{{ $message }}</span>@enderror
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="contact_number" class="col-form-label col-md-4">Contact Number</label>
+                                        <label for="phone" class="col-form-label col-md-4">Contact Number</label>
                                         <div class="col-md-8">
-                                            <input type="text" name="contact_number" id="contact_number" placeholder="Mobile Number" class="form-control @error('contact_number') is-invalid @enderror" value="{{ old('contact_number') }}">
-                                            @error('contact_number')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                            <input type="text" name="phone" id="phone" placeholder="Mobile Number" class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') ?? Auth::User()->phone }}">
+                                            @error('phone')<span class="invalid-feedback">{{ $message }}</span>@enderror
                                         </div>
                                     </div>
 
