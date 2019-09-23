@@ -56,7 +56,7 @@ Route::get('login/{provider}', [LoginController::class, 'redirectToProvider']);
 Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
 
 Route::get('profile', [ProfileController::class, 'index']);
-Route::post('profile', [ProfileController::class, 'updateProfile']);
+Route::post('profile', [ProfileController::class, 'update']);
 
 /**
  * View Routes
