@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
-            $table->enum('gender', ['Male', 'Female'])->nullable();
+            $table->enum('gender', ['male', 'female'])->nullable();
             $table->datetime('birth_date')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->ipAddress('last_login_ip')->nullable();
