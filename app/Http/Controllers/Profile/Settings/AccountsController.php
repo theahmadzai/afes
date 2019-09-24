@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Auth;
 use Socialite;
 
@@ -35,6 +37,24 @@ class AccountsController extends Controller
     }
 
     public function update(Request $request)
+    {
+        Validator::make($request->all(), [
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::user())],
+            'username' => ['required', 'nullable', 'alpha_num', 'min:5', 'max:25', Rule::unique('users')->ignore(Auth::user())],
+        ])->validate();
+
+        Auth::user()->email = $request->email;
+        Auth::user()->username = $request->username;
+        Auth::user()->save();
+
+        if(Auth::user()->wasChanged()) {
+            Session::flash('success', 'Account Login Info Updated Successfuly!');
+        }
+
+        return back();
+    }
+
+    public function updateAccount(Request $request)
     {
         $identities = [];
 

@@ -73,6 +73,7 @@ Route::get('profile/settings/security', [SecurityController::class, 'index']);
 Route::post('profile/settings/security', [SecurityController::class, 'update']);
 Route::get('profile/settings/accounts', [AccountsController::class, 'index']);
 Route::post('profile/settings/accounts', [AccountsController::class, 'update']);
+Route::put('profile/settings/accounts', [AccountsController::class, 'updateAccount']);
 Route::get('profile/settings/notifications', [NotificationsController::class, 'index']);
 Route::post('profile/settings/notifications', [NotificationsController::class, 'update']);
 Route::get('profile/settings/billing', [BillingController::class, 'index']);
