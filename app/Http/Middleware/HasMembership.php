@@ -15,10 +15,10 @@ class HasMembership
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && (
-            !$request->user()->subscribed('student') ||
-            !$request->user()->subscribed('professional') ||
-            !$request->user()->subscribed('institutional') )) {
+        if ($request->user() && !(
+            $request->user()->subscribed('student') ||
+            $request->user()->subscribed('professional') ||
+            $request->user()->subscribed('institutional') )) {
             return redirect('membership');
         }
 
