@@ -28,10 +28,6 @@ class SocialIdentityController extends Controller
             abort(404);
         }
 
-        if(!session()->has('url.intended')) {
-            session()->put('url.intended', url()->previous());
-        }
-
         try {
             $identity = Socialite::driver($provider)->user();
         } catch(Exception $ex) {
@@ -42,17 +38,17 @@ class SocialIdentityController extends Controller
 
         if(!$user) {
             if(Auth::check()) {
-                return redirect()->intended('/')->with('error', 'This account is already linked to another user.');
+                return back()->with('error', 'This account is already linked to another user.');
             }
 
-            return redirect('login')->with('error', 'An account with the same credentials already exists, Click "Forgot Your Password" to recover.');
+            return back()->with('error', 'An account with the same credentials already exists, Click "Forgot Your Password" to recover.');
         }
 
         if(!Auth::check()) {
             Auth::login($user, true);
         }
 
-        return redirect()->intended('/');
+        return back();
     }
 
     private function loginWithSocialIdentity(string $provider, $identity)
