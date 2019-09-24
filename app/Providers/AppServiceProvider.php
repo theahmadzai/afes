@@ -37,11 +37,6 @@ class AppServiceProvider extends ServiceProvider
         Post::observe(PostObserver::class);
         File::observe(FileObserver::class);
 
-        View::composer('flash.success', function($view) {
-            $view->with('header', 'Application Sent!');
-            $view->with('body', 'Your application has been received successfuly and will be reviwed in few days please wait for our notification!');
-        });
-
         Blade::directive('recaptcha', function () {
             return '<input type="hidden" id="g-recaptcha-response" name="_recaptcha">';
         });
