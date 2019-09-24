@@ -10,6 +10,18 @@
 
     <div class="container py-3">
 
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <p><b>Afghan Evaluation Society (AfES)</b> offer memberships to development professionals, evaluators, students, and institutions. As a Member, you will benefit from AfES relationships with targeted service and support providers relevant to our work in the field of evaluation. In addition, members are eligible for discounts in AfES services and products, including events, conferences, seminars and workshops.</p>
 
         <table class="table">
@@ -27,11 +39,11 @@
                     <td>Institutional Membership</td>
                     <td>AFN 7,000</td>
                     <td>
-                        <button
-                            style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-                            id="nil"
-                            role="link">AFN 17,500
-                        </button>
+                        <form method="POST" action="{{ url()->current() }}">
+                            @csrf
+                            <input type="hidden" name="membership" value="institutional">
+                            <button class="subscription-button">AFN 17,500</button>
+                        </form>
                     </td>
                 </tr>
                 <tr>
@@ -39,11 +51,11 @@
                     <td>Individual Membership - Professional</td>
                     <td>N/A</td>
                     <td>
-                        <button
-                            style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-                            id="checkout-button-plan_Fd3Fdc2M1zaKmG"
-                            role="link">AFN 5,600
-                        </button>
+                        <form method="POST" action="{{ url()->current() }}">
+                            @csrf
+                            <input type="hidden" name="membership" value="professional">
+                            <button id="checkout-button-plan_Fd3Fdc2M1zaKmG" class="subscription-button">AFN 5,600</button>
+                        </form>
                     </td>
                 </tr>
                 <tr>
@@ -51,21 +63,16 @@
                     <td>Individual Membership - Student</td>
                     <td>N/A</td>
                     <td>
-                        <button
-                            style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-                            id="checkout-button-plan_Fd3E3WHL2lQhYl"
-                            role="link">AFN 21,00
-                        </button>
+                        <form method="POST" action="{{ url()->current() }}">
+                            @csrf
+                            <input type="hidden" name="membership" value="student">
+                            <button id="checkout-button-plan_Fd3E3WHL2lQhYl" class="subscription-button">AFN 21,00</button>
+                        </form>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <div id="error-message"></div>
     </div>
 
 @endsection
-
-@push('scripts')
-    <script src="https://js.stripe.com/v3/"></script>
-@endpush
