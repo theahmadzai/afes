@@ -42,10 +42,10 @@ class SocialIdentityController extends Controller
 
         if(!$user) {
             if(Auth::check()) {
-                return redirect()->intended('/')->with('status', 'This account is already linked to another user.');
+                return redirect()->intended('/')->with('error', 'This account is already linked to another user.');
             }
 
-            return redirect('login')->with('status', 'An account with the same credentials already exists, Click "Forgot Your Password" to recover.');
+            return redirect('login')->with('error', 'An account with the same credentials already exists, Click "Forgot Your Password" to recover.');
         }
 
         if(!Auth::check()) {
