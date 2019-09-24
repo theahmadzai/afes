@@ -42,6 +42,11 @@ class User extends Authenticatable
         'birth_date' => 'datetime',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
     public function getGravatarAttribute()
     {
         return $this->avatar ?? 'http://www.gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?s=300';
