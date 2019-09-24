@@ -58,8 +58,14 @@
                             {{ __('Profile') }}
                         </a>
 
+                        <a class="dropdown-item" href="{{ url('members') }}">
+                            <i class="fa fa-key mr-1"></i>
+                            {{ __('Members Area') }}
+                        </a>
+
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out mr-1"></i>
                             {{ __('Logout') }}
                         </a>
 
