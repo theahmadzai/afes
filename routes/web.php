@@ -9,7 +9,8 @@ use App\Http\Controllers\{
     SubscriberController,
     MembershipController,
     MembersController,
-    Profile\Settings\ProfileController,
+    Profile\ProfileController,
+    Profile\Settings\GeneralController,
     Profile\Settings\SecurityController,
     Profile\Settings\AccountsController,
     Profile\Settings\NotificationsController,
@@ -65,8 +66,9 @@ Route::get('members', [MembersController::class, 'index']);
 Route::get('login/{provider}', [SocialIdentityController::class, 'redirectToProvider']);
 Route::get('login/{provider}/callback', [SocialIdentityController::class, 'handleProviderCallback']);
 
-Route::get('profile/settings', [ProfileController::class, 'index']);
-Route::post('profile/settings', [ProfileController::class, 'update']);
+Route::get('profile/{user}', [ProfileController::class, 'index']);
+Route::get('profile/settings/general', [GeneralController::class, 'index']);
+Route::post('profile/settings/general', [GeneralController::class, 'update']);
 Route::get('profile/settings/security', [SecurityController::class, 'index']);
 Route::post('profile/settings/security', [SecurityController::class, 'update']);
 Route::get('profile/settings/accounts', [AccountsController::class, 'index']);
