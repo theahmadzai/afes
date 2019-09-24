@@ -53,19 +53,33 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url('profile/settings') }}">
-                            <img src="{{ Auth::user()->gravatar }}" alt="" style="width:20px;height:20px;" class="rounded-circle shadow mr-1">
+                        <a class="dropdown-item" href="{{ url('profile/' . Auth::user()->username ) }}">
+                            <img src="{{ Auth::user()->gravatar }}" alt="" style="width:18px;height:18px;" class="rounded-circle shadow mr-2">
                             {{ __('Profile') }}
                         </a>
 
                         <a class="dropdown-item" href="{{ url('members') }}">
-                            <i class="fa fa-key mr-1"></i>
+                            <i class="fa fa-key mr-2"></i>
                             {{ __('Members Area') }}
                         </a>
 
+                        <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item" href="{{ url('profile/settings/subscriptions') }}">
+                            <i class="fa fa-heart mr-2"></i>
+                            {{ __('Subscriptions') }}
+                        </a>
+
+                        <a class="dropdown-item" href="{{ url('profile/settings/general') }}">
+                            <i class="fa fa-cog mr-2"></i>
+                            {{ __('Settings') }}
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="fa fa-sign-out mr-1"></i>
+                            <i class="fa fa-reply mr-2"></i>
                             {{ __('Logout') }}
                         </a>
 
