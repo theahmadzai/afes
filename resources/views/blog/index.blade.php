@@ -22,14 +22,16 @@
                         <div class="row mb-3 app-blog-post" onclick="window.location.href = '{{ url()->current() . '/' . $post->slug }}'">
 
                             <div class="col-sm-4 p-0 app-blog-post-left">
-                                <img src="{{ $post->thumbnail }}"></img>
+                            <img src="{{ $post->thumbnail }}"></img>
                             </div>
 
                             <div class="col-sm-8 p-3 app-blog-post-right">
                                 <h2 class="mb-1"><a href="{{ url()->current() . '/' . $post->slug }}">{{ $post->title }}</a></h2>
                                 <div class="mb-1"><strong>{{ $post->tags->pluck('name')->toUpper()->implode(', ') }}</strong></div>
                                 <p>{{ str_limit($post->body, 150) }}</p>
-                                <img src="{{ $post->user->gravatar }}" title="{{ $post->user->name }}" alt="{{ $post->user->name }}">
+                                <a href="{{ url('profile/' . $post->user->username) }}">
+                                    <img src="{{ $post->user->gravatar }}" title="{{ $post->user->name }}" alt="{{ $post->user->name }}">
+                                </a>
                             </div>
 
                         </div>
