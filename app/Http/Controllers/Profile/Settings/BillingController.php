@@ -34,5 +34,7 @@ class BillingController extends Controller
         } else {
             Session::flash('error', 'Please try again later!');
         }
+
+        return back();
     }
 }
