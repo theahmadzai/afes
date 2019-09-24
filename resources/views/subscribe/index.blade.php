@@ -5,7 +5,7 @@
 @section('content')
 
     @component('partials.head')
-        Subscribe for Newsletter
+        Subscribe to Newsletter
     @endcomponent
 
     <div class="container">
@@ -16,7 +16,6 @@
 
                 <form method="POST" action="{{ url()->current() }}" novalidate>
                     @csrf
-                    @recaptcha
 
                     <div class="form-group">
                         <label for="first_name">First Name</label>

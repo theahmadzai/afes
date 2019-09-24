@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $header)
+@section('title', $head)
 
 @section('content')
 <div class="container my-5">
