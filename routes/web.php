@@ -4,10 +4,11 @@ use App\Http\Controllers\{
     ContactController,
     GalleryController,
     PostController,
-    MembershipController,
     JobController,
     ApplicationController,
     SubscriberController,
+    MembershipController,
+    MembersController,
     Profile\Settings\ProfileController,
     Profile\Settings\SecurityController,
     Profile\Settings\AccountsController,
@@ -54,8 +55,11 @@ Route::get('/subscribe', [SubscriberController::class, 'create']);
 Route::post('/subscribe', [SubscriberController::class, 'store']);
 
 Route::get('membership', [MembershipController::class, 'index']);
+Route::post('membership', [MembershipController::class, 'subscribe']);
 Route::get('membership/success', [MembershipController::class, 'success']);
 Route::get('membership/cancel', [MembershipController::class, 'cancel']);
+
+Route::get('members', [MembersController::class, 'index']);
 
 Route::get('login/{provider}', [SocialIdentityController::class, 'redirectToProvider']);
 Route::get('login/{provider}/callback', [SocialIdentityController::class, 'handleProviderCallback']);
