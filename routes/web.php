@@ -14,6 +14,7 @@ use App\Http\Controllers\{
     Profile\Settings\AccountsController,
     Profile\Settings\NotificationsController,
     Profile\Settings\BillingController,
+    Profile\Settings\SubscriptionsController,
     Auth\SocialIdentityController,
 };
 
@@ -74,6 +75,7 @@ Route::get('profile/settings/notifications', [NotificationsController::class, 'i
 Route::post('profile/settings/notifications', [NotificationsController::class, 'update']);
 Route::get('profile/settings/billing', [BillingController::class, 'index']);
 Route::post('profile/settings/billing', [BillingController::class, 'update']);
+Route::get('profile/settings/subscriptions', [SubscriptionsController::class, 'index']);
 
 /**
  * View Routes

@@ -100,7 +100,7 @@
                 <i class="fa fa-globe fa-5x"></i>
                 <div class="ml-3">
                     <p class="mb-0"><b>{{ Auth::user()->last_login_platform }} - {{ Auth::user()->last_login_location }}</b></p>
-                    <p class="mb-0 text-muted">{{ Auth::user()->last_login_browser }} - {{ Auth::user()->last_login_date->diffForHumans() }}</p>
+                    <p class="mb-0 text-muted">{{ Auth::user()->last_login_browser }} - {{ optional(Auth::user()->last_login_date)->diffForHumans() }}</p>
                     <p class="mb-0">{{ Auth::user()->last_login_device }} <small class="text-primary">({{ Auth::user()->last_login_ip }})</small></p>
                 </div>
             </div>

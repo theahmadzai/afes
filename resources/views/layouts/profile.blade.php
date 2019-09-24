@@ -8,11 +8,12 @@
 
             <div class="col-md-4">
 
-                <div class="nav flex-column nav-pills">
+                <div class="nav flex-column nav-pills shadow-sm">
                     <a href="{{ url('profile/settings') }}" class="nav-link {{ (request()->segment(3) == '') ? 'active' : '' }}">Profile</a>
                     <a href="{{ url('profile/settings/security') }}" class="nav-link {{ (request()->segment(3) == 'security') ? 'active' : '' }}" >Security</a>
                     <a href="{{ url('profile/settings/notifications') }}" class="nav-link {{ (request()->segment(3) == 'notifications') ? 'active' : '' }}">Notifications</a>
                     <a href="{{ url('profile/settings/accounts') }}" class="nav-link {{ (request()->segment(3) == 'accounts') ? 'active' : '' }}">Accounts</a>
+                    <a href="{{ url('profile/settings/subscriptions') }}" class="nav-link {{ (request()->segment(3) == 'subscriptions') ? 'active' : '' }}">Subscriptions</a>
                     <a href="{{ url('profile/settings/billing') }}" class="nav-link {{ (request()->segment(3) == 'billing') ? 'active' : '' }}">Billing</a>
                 </div>
 
