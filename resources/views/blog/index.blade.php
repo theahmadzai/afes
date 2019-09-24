@@ -46,9 +46,8 @@
 
                 <div class="container" style="background:#ededed; height:100% py-3">
 
-                    <form method="POST" action="{{ url()->current() }}" novalidate class="py-3">
+                    <form method="POST" action="{{ url('subscribe') }}" class="py-3" novalidate>
                         @csrf
-                        @recaptcha
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
