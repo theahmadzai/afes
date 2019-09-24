@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Auth;
 use Socialite;
 use App\SocialIdentity;
@@ -29,71 +30,64 @@ class SocialIdentityController extends Controller
         }
 
         try {
-            $identity = Socialite::driver($provider)->user();
+            $account = Socialite::driver($provider)->user();
         } catch(Exception $ex) {
             return redirect('login');
         }
 
-        $user = $this->loginWithSocialIdentity($provider, $identity);
+        if(!$this->getIdentity($provider, $account)) {
+            $user = Auth::check() ? Auth::user() : $this->createUserFromAccount($account);
+            $this->associateIdentity($provider, $account, $user);
 
-        if(!$user) {
-            if(Auth::check()) {
-                return back()->with('error', 'This account is already linked to another user.');
+            if(!Auth::check()) {
+                Auth::login($user, true);
             }
 
-            return back()->with('error', 'An account with the same credentials already exists, Click "Forgot Your Password" to recover.');
+            return back();
         }
 
         if(!Auth::check()) {
-            Auth::login($user, true);
+            $identity = $this->getIdentity($provider, $account);
+            Auth::login($identity->user);
         }
 
+        Session::flash('error', 'This account is already linked to another user.');
         return back();
     }
 
-    private function loginWithSocialIdentity(string $provider, $identity)
+    private function getIdentity(string $provider, $account)
     {
-        $socialIdentity = SocialIdentity::where([
-                'provider_name' => $provider,
-                'provider_id' => $identity->getId(),
-            ])->first();
-
-        if(! $socialIdentity) {
-            return $this->loginWithUser($provider, $identity);
-        }
-
-        if(Auth::check()) {
-            return false;
-        }
-
-        return $socialIdentity->user;
+        return SocialIdentity::where([
+            'provider_name' => $provider,
+            'provider_id' => $account->getId(),
+        ])->first();
     }
 
-    private function loginWithUser(string $provider, $identity)
+    private function associateIdentity(string $provider, $account, $user)
     {
-        $user = null;
-
-        if(!Auth::check()) {
-            $user = User::where('email', $identity->getEmail())->first();
-
-            if($user && $identity->getEmail() != null) {
-                return false;
-            }
-
-            $user = User::create([
-                'avatar' => $identity->getAvatar(),
-                'email' => $identity->getEmail(),
-                'name' => $identity->getName(),
-            ]);
-        } else {
-            $user = Auth::user();
-        }
-
         $user->identities()->create([
-            'provider_id' => $identity->getId(),
+            'provider_id' => $account->getId(),
             'provider_name' => $provider,
         ]);
+    }
 
-        return $user;
+    private function createUserFromAccount($account)
+    {
+        $username = $account->getNickname() ?? explode('@', $account->getEmail())[0];
+        while(User::where('username', $username)->first()) {
+            $username = $username . rand(100,10000);
+        }
+
+        $email = $account->getEmail();
+        if($email && User::where('email', $email)->first()) {
+            $email = null;
+        }
+
+        return User::create([
+            'username' => $username,
+            'email' => $email,
+            'avatar' => $account->getAvatar(),
+            'name' => $account->getName(),
+        ]);
     }
 }
