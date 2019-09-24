@@ -37,7 +37,7 @@ class SecurityController extends Controller
     {
         Validator::make($request->all(), [
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::user())],
-            'username' => ['nullable', 'string', 'min:5', 'max:25', 'unique:users'],
+            'username' => ['required', 'nullable', 'alpha_num', 'min:5', 'max:25', Rule::unique('users')->ignore(Auth::user())],
         ])->validate();
 
         Auth::user()->email = $request->email;
