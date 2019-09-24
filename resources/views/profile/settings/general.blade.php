@@ -1,12 +1,12 @@
 @extends('layouts.profile')
 
-@section('title', Auth::user()->name)
+@section('title', 'General')
 
 @section('profile-content')
 
     <div class="card">
 
-        <div class="card-header">Profile</div>
+        <div class="card-header">General</div>
 
         <div class="card-body">
 

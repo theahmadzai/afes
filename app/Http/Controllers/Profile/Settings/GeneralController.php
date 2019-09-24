@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 
-class ProfileController extends Controller
+class GeneralController extends Controller
 {
     public function __construct()
     {
@@ -18,7 +18,7 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return View::make('profile.settings.profile');
+        return View::make('profile.settings.general');
     }
 
     public function update(Request $request)
