@@ -16,7 +16,7 @@
         <p>AfES is established by a number of professionals in the field of Evaluation whose primary objective is to promote the theory, practice and use of evaluation. And, to strengthen individual and institutional capacities for Evaluation to support evidence-based policy making and improved programming in Afghanistan.</p>
     </div>
 
-    <div class="container">
+    <div class="container shadow-sm">
 
         <div class="row p-3 text-center app-aim">
 
@@ -42,6 +42,10 @@
 
         </div>
 
+    </div>
+
+    <div class="d-flex p-5 justify-content-around aligns-items-center">
+        <a href="{{ url('subscribe') }}" class="btn btn-lg btn-light shadow-lg" style="background:#900;color:#fff;">Subscribe</a>
     </div>
 
 @endsection
