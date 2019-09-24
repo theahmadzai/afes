@@ -53,7 +53,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url('profile') }}">
+                        <a class="dropdown-item" href="{{ url('profile/settings') }}">
                             <img src="{{ Auth::user()->gravatar }}" alt="" style="width:20px;height:20px;" class="rounded-circle shadow mr-1">
                             {{ __('Profile') }}
                         </a>
