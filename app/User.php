@@ -36,7 +36,10 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'trails_end_at' => 'datetime',
+        'ends_at' => 'datetime',
         'last_login_date' => 'datetime',
+        'birth_date' => 'datetime',
     ];
 
     public function getGravatarAttribute()
