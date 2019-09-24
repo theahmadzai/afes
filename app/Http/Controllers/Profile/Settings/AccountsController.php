@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Profile\Settings;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Session;
 use Auth;
 use Socialite;
 
@@ -40,6 +41,10 @@ class AccountsController extends Controller
         foreach(Auth::user()->identities as $identity) {
             $provider = strtolower($identity->provider_name);
             if(!$request->has($provider)) {
+                if(!Auth::user()->email) {
+                    Session::flash('error', 'You need to have email address first, te remove linked acccounts.');
+                    return back();
+                }
                 $identity->delete();
             } else {
                 $identities[$provider] = true;
@@ -48,9 +53,7 @@ class AccountsController extends Controller
 
         if($request->has('facebook') && !isset($identities['facebook'])) {
             return Socialite::driver('facebook')->redirect();
-        }
-
-        if($request->has('twitter') && !isset($identities['twitter'])) {
+        } else if($request->has('twitter') && !isset($identities['twitter'])) {
             return Socialite::driver('twitter')->redirect();
         }
 
