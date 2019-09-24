@@ -24,6 +24,9 @@ class ApplicationController extends Controller
             ->file()
             ->create(['filename' => request()->resume->store('files', 'public')]);
 
-        return View::make('flash.success');
+        return View::make('flash.success', [
+            'header' => 'Application Sent!',
+            'body' => 'Your application has been received successfuly and will be reviwed in few days please wait for our notification!',
+        ]);
     }
 }
