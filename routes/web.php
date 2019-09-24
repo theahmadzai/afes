@@ -53,8 +53,8 @@ Route::get('jobs/{job}', [JobController::class, 'show']);
 Route::get('jobs/{job}/apply', [ApplicationController::class, 'create']);
 Route::post('jobs/{job}/apply', [ApplicationController::class, 'store']);
 
-Route::get('/subscribe', [SubscriberController::class, 'create']);
-Route::post('/subscribe', [SubscriberController::class, 'store']);
+Route::get('/subscribe', [SubscriberController::class, 'index']);
+Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
 
 Route::get('membership', [MembershipController::class, 'index']);
 Route::post('membership', [MembershipController::class, 'subscribe']);
