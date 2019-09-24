@@ -8,7 +8,11 @@ use App\Http\Controllers\{
     JobController,
     ApplicationController,
     SubscriberController,
-    ProfileController,
+    Profile\Settings\ProfileController,
+    Profile\Settings\SecurityController,
+    Profile\Settings\AccountsController,
+    Profile\Settings\NotificationsController,
+    Profile\Settings\BillingController,
     Auth\SocialIdentityController,
 };
 
@@ -50,13 +54,22 @@ Route::get('/subscribe', [SubscriberController::class, 'create']);
 Route::post('/subscribe', [SubscriberController::class, 'store']);
 
 Route::get('membership', [MembershipController::class, 'index']);
-Route::get('membership/success', [MembershipController::class, 'test']);
+Route::get('membership/success', [MembershipController::class, 'success']);
+Route::get('membership/cancel', [MembershipController::class, 'cancel']);
 
 Route::get('login/{provider}', [SocialIdentityController::class, 'redirectToProvider']);
 Route::get('login/{provider}/callback', [SocialIdentityController::class, 'handleProviderCallback']);
 
-Route::get('profile', [ProfileController::class, 'index']);
-Route::post('profile', [ProfileController::class, 'update']);
+Route::get('profile/settings', [ProfileController::class, 'index']);
+Route::post('profile/settings', [ProfileController::class, 'update']);
+Route::get('profile/settings/security', [SecurityController::class, 'index']);
+Route::post('profile/settings/security', [SecurityController::class, 'update']);
+Route::get('profile/settings/accounts', [AccountsController::class, 'index']);
+Route::post('profile/settings/accounts', [AccountsController::class, 'update']);
+Route::get('profile/settings/notifications', [NotificationsController::class, 'index']);
+Route::post('profile/settings/notifications', [NotificationsController::class, 'update']);
+Route::get('profile/settings/billing', [BillingController::class, 'index']);
+Route::post('profile/settings/billing', [BillingController::class, 'update']);
 
 /**
  * View Routes
