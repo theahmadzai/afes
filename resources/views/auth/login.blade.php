@@ -9,9 +9,9 @@
 
                 <div class="card-body">
 
-                    @if (session('status'))
+                    @if (session('error'))
                         <div class="alert alert-danger">
-                            {{ session('status') }}
+                            {{ session('error') }}
                         </div>
                     @endif
 
