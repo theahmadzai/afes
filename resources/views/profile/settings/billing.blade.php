@@ -12,31 +12,36 @@
 
             @if(Auth::user()->hasPaymentMethod())
                 <div class="form-group row">
-                    <div class="col-md-8 offset-md-4 d-flex align-items-center">
-                        <i class="fa fa-cc-stripe fa-3x mr-md-3"></i>
-                        <p class="mb-0"><b>{{ Auth::user()->card_brand }}</b> - {{ Auth::user()->card_last_four }}</p>
+                    <div class="col d-flex align-items-center">
+                        <i class="fa fa-cc-stripe fa-3x"></i>
+                        <div class="ml-md-3">
+                            <p class="mb-0"><b>**** **** **** {{ Auth::user()->card_last_four }}</b></p>
+                            <p class="mb-0"><b><i>{{ Auth::user()->card_brand }}</i></b></p>
+                        </div>
                     </div>
                 </div>
             @endif
 
-            <div class="form-group row">
-                <label for="card-holder-name" class="col-form-label col-md-4">Full Name</label>
-                <div class="col-md-8">
-                    <input type="text" id="card-holder-name" placeholder="Your Full Name" class="form-control">
-                </div>
-            </div>
+            <form id="payment-form" method="POST" action="{{ url()->current() }}" novalidate>
+                @csrf
 
-            <div class="form-group row">
-                <div class="col-md-8 offset-md-4">
-                    <div id="card-element"></div>
-                </div>
-            </div>
+                <input type="hidden" id="payment-name" value="{{ Auth::user()->name }}">
+                <input type="hidden" name="payment_method" id="payment-method">
 
-            <div class="form-group row">
-                <div class="col-md-8 offset-md-4">
-                    <button type="submit" class="btn btn-primary" id="card-button" data-secret="{{ Auth::user()->createSetupIntent()->client_secret }}">Update Billing Info</Button>
+                <div class="form-group row">
+                    <div class="col">
+                        <div id="card-element" class="mb-2"></div>
+                        <div id="card-errors" class="text-danger"></div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="form-group row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary" id="card-button" data-secret="{{ Auth::user()->createSetupIntent()->client_secret }}">Update Billing Info</Button>
+                    </div>
+                </div>
+
+            </form>
 
         </div>
 
