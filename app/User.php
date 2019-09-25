@@ -38,7 +38,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'trails_end_at' => 'datetime',
         'ends_at' => 'datetime',
-        'last_login_date' => 'datetime',
         'birth_date' => 'datetime',
     ];
 
@@ -61,4 +60,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Post::class);
     }
+
+   public function logins()
+   {
+       return $this->hasMany(Login::class);
+   }
 }
