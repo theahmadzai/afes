@@ -13,7 +13,7 @@
 
         <div class="row">
 
-            <div class="col-md-8">
+            <div class="col-lg-8">
 
                 <div class="container">
 
@@ -40,9 +40,13 @@
 
                 </div>
 
+                @component('partials.pagination')
+                    {{ $posts->links() }}
+                @endcomponent
+
             </div>
 
-            <div class="col-md-4 pl-md-0">
+            <div class="col-lg-4 pl-lg-0">
 
                 <div class="container" style="background:#ededed; height:100% py-3">
 
@@ -73,10 +77,6 @@
             </div>
 
         </div>
-
-        @component('partials.pagination')
-            {{ $posts->links() }}
-        @endcomponent
 
     </div>
 

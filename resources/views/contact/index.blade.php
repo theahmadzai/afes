@@ -12,7 +12,7 @@
 
         <div class="row py-5">
 
-            <div class="col-md-4">
+            <div class="col-lg-4">
 
                 <div class="shadow-sm p-5 mb-5 bg-white rounded">
                     <ul class="list-unstyled mb-0">
@@ -35,7 +35,7 @@
 
             </div>
 
-            <div class="col-md-8">
+            <div class="col-lg-8">
 
                 <form method="POST" action="{{ url()->current() }}" novalidate>
                     @csrf
