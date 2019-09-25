@@ -26,12 +26,6 @@ class CreateUsersTable extends Migration
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->datetime('birth_date')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->ipAddress('last_login_ip')->nullable();
-            $table->datetime('last_login_date')->nullable();
-            $table->string('last_login_location')->nullable();
-            $table->string('last_login_device')->nullable();
-            $table->string('last_login_platform')->nullable();
-            $table->string('last_login_browser')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
