@@ -33,15 +33,14 @@ class UserLogin
         $location = Location::get();
         $agent = new Agent();
 
-        $user = $event->user;
-
-        $user->last_login_ip = request()->getClientIp();
-        $user->last_login_location = "{$location->cityName}, {$location->regionName}, {$location->countryName}";
-        $user->last_login_device = $agent->device();
-        $user->last_login_platform = $agent->platform();
-        $user->last_login_browser = $agent->browser();
-        $user->last_login_date = Carbon::now();
-
-        $user->save();
+        $event->user->logins()->create([
+            'ip' => request()->getClientIp(),
+            'location' => "{$location->cityName}, {$location->regionName}, {$location->countryName}",
+            'device' => $agent->device(),
+            'platform' => $agent->platform(),
+            'browser' => $agent->browser(),
+            'date' => Carbon::now(),
+            'is_mobile' => $agent->isMobile(),
+        ]);
     }
 }
