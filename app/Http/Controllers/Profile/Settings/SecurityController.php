@@ -14,7 +14,7 @@ class SecurityController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware('auth');
     }
 
     public function index()
@@ -24,6 +24,11 @@ class SecurityController extends Controller
 
     public function update(Request $request)
     {
+        if(!Auth::user()->hasVerifiedEmail()) {
+            Session::flash('error', 'Please verify your email address first.');
+            return back();
+        }
+
         Validator::make($request->all(), [
             'current_password' => ['required', function ($attribute, $value, $fail) {
                 if (!Hash::check($value, Auth::user()->password)) {
