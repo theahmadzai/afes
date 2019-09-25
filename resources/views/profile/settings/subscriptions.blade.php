@@ -12,11 +12,7 @@
 
             <ul class="list-group">
 
-                @if(Auth::user()->subscriptions->count() < 1)
-                    <p>No active subscriptions.</p>
-                @endif
-
-                @foreach(Auth::user()->subscriptions as $subscription)
+                @forelse(Auth::user()->subscriptions as $subscription)
 
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <div>
@@ -30,7 +26,9 @@
                         </div>
                     </li>
 
-                @endforeach
+                @empty
+                    <p>No active subscriptions.</p>
+                @endforelse
 
             </ul>
 
