@@ -41,14 +41,19 @@ class SocialIdentityController extends Controller
 
             if(!Auth::check()) {
                 Auth::login($user, true);
+
+                return redirect('profile/settings/accounts');
             }
 
+            Session::flash('success', 'Linked an account from ' . $provider . '!');
             return back();
         }
 
         if(!Auth::check()) {
             $identity = $this->getIdentity($provider, $account);
             Auth::login($identity->user);
+
+            return back();
         }
 
         Session::flash('error', 'This account is already linked to another user.');
