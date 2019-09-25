@@ -33,7 +33,7 @@ use App\Http\Controllers\{
 /**
  * Laravel Routes
  */
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 /**
  * Controller Routes
