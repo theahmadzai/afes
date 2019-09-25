@@ -59,7 +59,7 @@
                     <div class="ml-3">
                         <p class="mb-0"><b>{{ $login->platform }} - {{ $login->location }}</b></p>
                         <p class="mb-0 text-muted">{{ $login->browser }} - {{ optional($login->date)->diffForHumans() }}</p>
-                        <p class="mb-0"><i class="fa {{$login->is_mobile ? 'fa-phone' : 'fa-desktop'}}"></i> {{ $login->device }} <small class="text-primary">({{ $login->ip }})</small></p>
+                        <p class="mb-0"><i class="fa {{$login->is_mobile ? 'fa-tablet' : 'fa-laptop'}}"></i> {{ $login->device }} <small class="text-primary">({{ $login->ip }})</small></p>
                     </div>
                 </div>
 
