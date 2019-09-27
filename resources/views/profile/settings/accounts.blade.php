@@ -50,26 +50,34 @@
 
         <div class="card-body">
 
-            <form id="social-accounts" method="POST" action="{{ url()->current() }}" novalidate>
+            <form method="POST" action="{{ url()->current() }}" novalidate>
                 @csrf
                 @method('PUT')
+                <input type="hidden" name="account" value="facebook">
 
                 <div class="form-group row">
                     <label class="col-form-label col-md-4">Facebook</label>
                     <div class="col-md-8">
                         <label class="switch">
-                            <input name="facebook" type="checkbox" {{ $identities['facebook'] ? 'checked' : ''}} onchange="this.form.submit();">
+                            <input name="link" type="checkbox" {{ $identities['facebook'] ? 'checked' : ''}} onchange="this.form.submit();">
                             <span class="slider round"></span>
                         </label>
                         @error('facebook')<span class="invalid-feedback">{{ $message }}</span>@enderror
                     </div>
                 </div>
 
+            </form>
+
+            <form method="POST" action="{{ url()->current() }}" novalidate>
+                @csrf
+                @method('PUT')
+                <input type="hidden" name="account" value="twitter">
+
                 <div class="form-group row">
                     <label class="col-form-label col-md-4">Twitter</label>
                     <div class="col-md-8">
                         <label class="switch">
-                            <input name="twitter" type="checkbox" {{ $identities['twitter'] ? 'checked' : ''}} onchange="this.form.submit();">
+                            <input name="link" type="checkbox" {{ $identities['twitter'] ? 'checked' : ''}} onchange="this.form.submit();">
                             <span class="slider round"></span>
                         </label>
                         @error('twitter')<span class="invalid-feedback">{{ $message }}</span>@enderror

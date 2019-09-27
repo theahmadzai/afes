@@ -26,11 +26,7 @@ class AccountsController extends Controller
         ];
 
         foreach(Auth::user()->identities as $identity) {
-            $provider = strtolower($identity->provider_name);
-
-            if(array_key_exists($provider, $identities)) {
-                $identities[$provider] = true;
-            }
+            $identities[strtolower($identity->provider_name)] = true;
         }
 
         return View::make('profile.settings.accounts', compact('identities'));
@@ -56,27 +52,23 @@ class AccountsController extends Controller
 
     public function updateAccount(Request $request)
     {
-        $identities = [];
-
-        foreach(Auth::user()->identities as $identity) {
-            $provider = strtolower($identity->provider_name);
-            if(!$request->has($provider)) {
-                if(!Auth::user()->email) {
-                    Session::flash('error', 'You need to have email address first, te remove linked acccounts.');
-                    return back();
-                }
-                $identity->delete();
-            } else {
-                $identities[$provider] = true;
-            }
+        if(!$request->has('account')) {
+            Session::flash('error', 'Trying to link an invalid social account.');
+            return back();
         }
 
-        if($request->has('facebook') && !isset($identities['facebook'])) {
-            return Socialite::driver('facebook')->redirect();
-        } else if($request->has('twitter') && !isset($identities['twitter'])) {
-            return Socialite::driver('twitter')->redirect();
+        if($request->has('link')) {
+            return Socialite::driver($request->account)->redirect();
         }
 
+        if(!Auth::user()->email) {
+            Session::flash('error', 'You must have an email address before you remove your linked account.');
+            return back();
+        }
+
+        Auth::user()->identities()->where('provider_name', $request->account)->delete();
+
+        Session::flash('success', 'Unlinked your ' . $request->account . ' account from profile.');
         return back();
     }
 }
