@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
+            $table->string('notifications')->default(true);
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->datetime('birth_date')->nullable();
             $table->timestamp('email_verified_at')->nullable();
