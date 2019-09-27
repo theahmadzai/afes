@@ -37,7 +37,6 @@ class SocialIdentityController extends Controller
         try {
             $account = Socialite::driver($provider)->user();
         } catch(Exception $ex) {
-            dd(3);
             return redirect('login');
         }
 
