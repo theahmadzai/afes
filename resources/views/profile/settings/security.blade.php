@@ -53,13 +53,16 @@
         <div class="card-header">Where You're Logged In</div>
 
         <div class="card-body">
-            @foreach(Auth::user()->logins as $login)
+            @foreach(Auth::user()->logins()->latest()->take(10)->get() as $login)
                 <div class="d-flex align-items-center">
                     <i class="fa fa-globe fa-5x"></i>
                     <div class="ml-3">
                         <p class="mb-0"><b>{{ $login->platform }} - {{ $login->location }}</b></p>
-                        <p class="mb-0 text-muted">{{ $login->browser }} - {{ optional($login->date)->diffForHumans() }}</p>
-                        <p class="mb-0"><i class="fa {{$login->is_mobile ? 'fa-phone' : 'fa-desktop'}}"></i> {{ $login->device }} <small class="text-primary">({{ $login->ip }})</small></p>
+                        <p class="mb-0 text-muted">{{ $login->browser }} -
+                            @if ($loop->first) <b style="color:green;">Active now</b>
+                            @else {{ optional($login->date)->diffForHumans() }}</p>
+                            @endif
+                        <p class="mb-0"><i class="fa {{$login->is_mobile ? 'fa-tablet' : 'fa-laptop'}}"></i> {{ $login->device }} <small class="text-primary">({{ $login->ip }})</small></p>
                     </div>
                 </div>
 
