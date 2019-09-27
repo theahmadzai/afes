@@ -14,38 +14,29 @@
                 @csrf
 
                 <div class="form-group row">
-                    <label for="eemail" class="col-form-label col-md-4">Email Address</label>
+                    <label class="col-form-label col-md-4">Email Address</label>
                     <div class="col-md-8">
-                        <input type="text" name="email" id="eemail" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') ?? Auth::user()->email }}">
-                        @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                        <input type="text" class="form-control" value="{{ Auth::user()->email }}" disabled>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="email" class="col-form-label col-md-4">Notification</label>
+                    <label class="col-form-label col-md-4">News & Updates</label>
                     <div class="col-md-8">
                         <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
+                            <input type="checkbox" name="notifications" {{ Auth::user()->notifications ? 'checked' : '' }}>
+                            <span class="slider"></span>
                         </label>
                         <small class="form-text text-muted">
-                            Do you want to receive email notifications from Afghan Evaluation Society. Turning this off will turn of all notifications.
+                            Do you want to receive email notifications from Afghan Evaluation Society. Turning this off will turn all notifications off.
                         </small>
-                        @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                        @error('notifications')<span class="invalid-feedback">{{ $message }}</span>@enderror
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="email" class="col-form-label col-md-4">Notification</label>
-                    <div class="col-md-8">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <small class="form-text text-muted">
-                            Do you want to receive email notifications from Afghan Evaluation Society. Turning this off will turn of all notifications.
-                        </small>
-                        @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                    <div class="col-md-8 offset-md-4">
+                        <button type="submit" class="btn btn-primary">Save Preferences</Button>
                     </div>
                 </div>
 

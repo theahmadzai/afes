@@ -59,13 +59,12 @@
                     <label class="col-form-label col-md-4">Facebook</label>
                     <div class="col-md-8">
                         <label class="switch">
-                            <input name="link" type="checkbox" {{ $identities['facebook'] ? 'checked' : ''}} onchange="this.form.submit();">
+                            <input type="checkbox" name="link" {{ $identities['facebook'] ? 'checked' : ''}} onchange="this.form.submit();">
                             <span class="slider round"></span>
                         </label>
                         @error('facebook')<span class="invalid-feedback">{{ $message }}</span>@enderror
                     </div>
                 </div>
-
             </form>
 
             <form method="POST" action="{{ url()->current() }}" novalidate>
@@ -77,13 +76,12 @@
                     <label class="col-form-label col-md-4">Twitter</label>
                     <div class="col-md-8">
                         <label class="switch">
-                            <input name="link" type="checkbox" {{ $identities['twitter'] ? 'checked' : ''}} onchange="this.form.submit();">
+                            <input type="checkbox" name="link" {{ $identities['twitter'] ? 'checked' : ''}} onchange="this.form.submit();">
                             <span class="slider round"></span>
                         </label>
                         @error('twitter')<span class="invalid-feedback">{{ $message }}</span>@enderror
                     </div>
                 </div>
-
             </form>
 
         </div>

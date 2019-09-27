@@ -40,7 +40,6 @@ class GeneralController extends Controller
         Auth::user()->address = $request->address;
         Auth::user()->phone = $request->phone;
         Auth::user()->birth_date = $request->birth_date;
-
         Auth::user()->save();
 
         if(Auth::user()->wasChanged()){
