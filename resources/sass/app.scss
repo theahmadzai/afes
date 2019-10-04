@@ -271,8 +271,10 @@ h5 {
     }
 
     &-body {
-        font-size:1rem;
-        font-family: 'Open Sans';
+        font-size:18px;
+        line-height:26px;
+        font-family: 'Open Sans', Helvetica;
+        letter-spacing:-.5px;
     }
 }
 
