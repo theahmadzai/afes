@@ -1304,7 +1304,7 @@
             "dist": {
                 "type": "path",
                 "url": "./vendor/nova",
-                "reference": "be523cad5952d311460e00576fc40cdb7626d86f"
+                "reference": "44b2d572e7dfff707439ada0b0e9c0c608a88ae9"
             },
             "require": {
                 "cakephp/chronos": "^1.0",
@@ -4736,9 +4736,9 @@
             "authors": [
                 {
                     "name": "Marcel Pociot",
+                    "role": "Developer",
                     "email": "marcel@beyondco.de",
-                    "homepage": "https://beyondco.de",
-                    "role": "Developer"
+                    "homepage": "https://beyondco.de"
                 }
             ],
             "description": "Symfony Var-Dump Server for Laravel",
@@ -4850,8 +4850,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "homepage": "https://github.com/filp",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "homepage": "https://github.com/filp"
                 }
             ],
             "description": "php error handling for cool kids",
