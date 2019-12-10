@@ -1304,7 +1304,7 @@
             "dist": {
                 "type": "path",
                 "url": "./vendor/nova",
-                "reference": "44b2d572e7dfff707439ada0b0e9c0c608a88ae9"
+                "reference": "be523cad5952d311460e00576fc40cdb7626d86f"
             },
             "require": {
                 "cakephp/chronos": "^1.0",
