@@ -19,6 +19,7 @@ class PostController extends Controller
     {
         return View::make('blog.show', [
             'post' => $post,
+            'latest' => Post::published()->latest()->take(5)->get(),
         ]);
     }
 }

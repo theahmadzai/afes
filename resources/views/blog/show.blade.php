@@ -54,6 +54,30 @@
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi ducimus deserunt officia inventore sit doloribus perferendis, itaque eius et, sapiente magnam alias commodi aperiam doloremque quae eaque vero nam tempora.</p>
                 </div>
 
+                <div class="container py-3 mt-3" style="background:#ededed">
+                    <p><b>Latest Articles</b></p>
+
+                    @foreach($latest as $post)
+
+                        <a class="row" href="{{ url('blog/' . $post->slug ) }}">
+                            <div class="col-5">
+                                <img src="{{ $post->thumbnail }}" alt="{{ $post->title}}" style="width:100%;">
+                            </div>
+
+                            <div class="col pl-0">
+                                <p class="mb-0" style="font-size:1rem; line-height:18px; font-weight:100; font-family: 'Roboto'; color:#900;">{{ $post->title }}</p>
+                                <span style="font-weight:300; font-size:14px; color:#999;">{{ $post->published_at->toFormattedDateString() }}</span>
+                            </div>
+                        </a>
+
+                        @if(!$loop->last)
+                            <hr>
+                        @endif
+
+                    @endforeach
+
+                </div>
+
             </div>
 
         </div>

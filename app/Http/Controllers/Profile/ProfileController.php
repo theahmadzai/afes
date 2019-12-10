@@ -11,6 +11,7 @@ class ProfileController extends Controller
 {
     public function index(User $user)
     {
+        // dd($user->posts);
         return View::make('profile.index', compact('user'));
     }
 }
