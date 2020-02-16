@@ -12,7 +12,17 @@
 
         <div class="row">
             <div class="col-md-4">
-                <img src="{{ $user->gravatar }}" alt="{{ $user->name }}" class="m-4">
+                <img src="{{ $user->gravatar }}" alt="{{ $user->name }}" class="w-100 shadow img-thumbnail mb-2">
+            </div>
+            <div class="col-md-4">
+                <p>{{ $user->name }}</p>
+                <p>{{ $user->username }}</p>
+                <p>{{ $user->email }}</p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ $user->name }}</p>
+                <p>{{ $user->username }}</p>
+                <p>{{ $user->email }}</p>
             </div>
         </div>
 
