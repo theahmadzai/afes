@@ -16,7 +16,7 @@
                 <div class="form-group row">
                     <label for="name" class="col-form-label col-md-4">Avatar</label>
                     <div class="col-md-8">
-                        <img class="mb-2 shadow" style="width:100px;height:100px;" src="{{ Auth::user()->gravatar }}">
+                        <img class="mb-2 shadow img-thumbnail w-25" src="{{ Auth::user()->gravatar }}">
                         <input type="url" name="avatar" id="avatar" class="form-control @error('avatar') is-invalid @enderror" value="{{ old('avatar') ?? Auth::user()->gravatar }}">
                         @error('avatar')<span class="invalid-feedback">{{ $message }}</span>@enderror
                     </div>
