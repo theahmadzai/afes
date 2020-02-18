@@ -39,9 +39,16 @@ class AccountsController extends Controller
             'username' => ['required', 'nullable', 'alpha_num', 'min:5', 'max:25', Rule::unique('users')->ignore(Auth::user())],
         ])->validate();
 
+        if(!Auth::user()->hasVerifiedEmail()) {
+            Session::flash('error', 'Verify your email address first.');
+            back();
+        }
+
         Auth::user()->email = $request->email;
         Auth::user()->username = $request->username;
+        Auth::user()->email_verified_at = null;
         Auth::user()->save();
+        Auth::user()->sendEmailVerificationNotification();
 
         if(Auth::user()->wasChanged()) {
             Session::flash('success', 'Account Login Info Updated Successfuly!');
@@ -61,8 +68,8 @@ class AccountsController extends Controller
             return Socialite::driver($request->account)->redirect();
         }
 
-        if(!Auth::user()->email) {
-            Session::flash('error', 'You must have an email address before you remove your linked account.');
+        if(!Auth::user()->email || !Auth::user()->hasVerifiedEmail()) {
+            Session::flash('error', 'You must have verified email address before you remove your linked account.');
             return back();
         }
 
