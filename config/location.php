@@ -121,7 +121,7 @@ return [
 
         'enabled' => env('APP_DEBUG', false),
 
-        'ip' => '42.201.253.150',
+        'ip' => '8.8.8.8',
 
     ],
 
