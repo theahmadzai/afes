@@ -21,6 +21,12 @@
 
             <div class="col-md-8 pl-md-0">
 
+                @if(!Auth::user()->hasVerifiedEmail())
+                    <div class="alert alert-warning">
+                        Please verify, your email address!
+                    </div>
+                @endif
+
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
