@@ -15,9 +15,12 @@
                 <img src="{{ $user->gravatar }}" alt="{{ $user->name }}" class="w-100 shadow img-thumbnail mb-2">
             </div>
             <div class="col-md-4">
-                <p>{{ $user->name }}</p>
-                <p>{{ $user->username }}</p>
-                <p>{{ $user->email }}</p>
+                <p><b>Name</b></p>
+                <p><b>Username</b></p>
+                <p><b>Email Address</b></p>
+                <p><b>Gender</b></p>
+                <p><b>Email Address</b></p>
+                <p><b>Email Address</b></p>
             </div>
             <div class="col-md-4">
                 <p>{{ $user->name }}</p>
