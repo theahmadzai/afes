@@ -33,9 +33,13 @@ class UserLogin
         $location = Location::get();
         $agent = new Agent();
 
+        $city = $location->cityName ?? 'Ashburn';
+        $region = $location->regionName ?? 'Virginia';
+        $country = $location->countryName ?? 'United States';
+
         $event->user->logins()->create([
             'ip' => request()->getClientIp(),
-            'location' => "{$location->cityName}, {$location->regionName}, {$location->countryName}",
+            'location' => "{$city}, {$region}, {$country}",
             'device' => $agent->device(),
             'platform' => $agent->platform(),
             'browser' => $agent->browser(),
