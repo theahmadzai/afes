@@ -86,7 +86,15 @@ Route::get('profile/settings/subscriptions', [SubscriptionsController::class, 'i
 Route::view('about/chairman-message', 'about.chairman-message');
 Route::view('about/organizational-strategy', 'about.organizational-strategy');
 Route::view('about/board-of-directors', 'about.board-of-directors');
-Route::view('about/statutes-and-by-laws', 'about.statutes-and-by-laws');
+Route::view('about/statutes-and-by-laws', 'about.statutes-and-by-laws.index');
+Route::view('about/statutes-and-by-laws/general-provisions', 'about.statutes-and-by-laws.general-provisions');
+Route::view('about/statutes-and-by-laws/aim-and-objectives-of-the-organization', 'about.statutes-and-by-laws.aim-and-objectives-of-the-organization');
+Route::view('about/statutes-and-by-laws/governance-structure', 'about.statutes-and-by-laws.governance-structure');
+Route::view('about/statutes-and-by-laws/use-of-property', 'about.statutes-and-by-laws.use-of-property');
+Route::view('about/statutes-and-by-laws/staff-recruitment-wages-and-leave', 'about.statutes-and-by-laws.staff-recruitment-wages-and-leave');
+Route::view('about/statutes-and-by-laws/reporting-and-financial-operations', 'about.statutes-and-by-laws.reporting-and-financial-operations');
+Route::view('about/statutes-and-by-laws/duties-and-responsibilities-of-members', 'about.statutes-and-by-laws.duties-and-responsibilities-of-members');
+Route::view('about/statutes-and-by-laws/miscellaneous-decrees', 'about.statutes-and-by-laws.miscellaneous-decrees');
 Route::view('donate', 'donate.index');
 
 /**
