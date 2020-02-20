@@ -8,7 +8,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/') }}">Home</a>
             </li>
-                <li class="nav-item dropdown">
+            <li class="nav-item dropdown">
                 <a class="nav-link" href="{{ url('/about') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ url('/about/chairman-message') }}">Chairman's Message</a>
