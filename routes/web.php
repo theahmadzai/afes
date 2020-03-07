@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\{
+    HomeController,
     ContactController,
     GalleryController,
     PostController,
@@ -16,7 +17,7 @@ use App\Http\Controllers\{
     Profile\Settings\NotificationsController,
     Profile\Settings\BillingController,
     Profile\Settings\SubscriptionsController,
-    Auth\SocialIdentityController,
+    Auth\SocialIdentityController
 };
 
 /*
@@ -38,7 +39,7 @@ Auth::routes(['verify' => true]);
 /**
  * Controller Routes
  */
-Route::get('/', HomeController::class);
+Route::get('/', [HomeController::class, '__invoke']);
 
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('contact', [ContactController::class, 'mail']);
