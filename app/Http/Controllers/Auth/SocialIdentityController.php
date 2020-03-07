@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 use Socialite;
 use App\SocialIdentity;
@@ -12,7 +13,7 @@ use App\User;
 
 class SocialIdentityController extends Controller
 {
-    private $providers = ['facebook', 'twitter'];
+    private $providers = ['facebook', 'google'];
 
     public function __construct()
     {
@@ -37,12 +38,23 @@ class SocialIdentityController extends Controller
         try {
             $account = Socialite::driver($provider)->user();
         } catch(Exception $ex) {
-            return redirect('login');
+            return Redirect::route('register');
         }
 
         if(!$this->getIdentity($provider, $account)) {
-            $user = Auth::check() ? Auth::user() : $this->createUserFromAccount($account);
-            $this->associateIdentity($provider, $account, $user);
+
+            if(!Auth::check()) {
+                return Redirect::route('register')->withInput([
+                    'email' => $account->getEmail(),
+                    'avatar' => $account->getAvatar(),
+                    'name' => $account->getName()
+                ]);
+            }
+
+            Auth::user()->identities()->create([
+                'provider_id' => $account->getId(),
+                'provider_name' => $provider,
+            ]);
 
             if(!Auth::check()) {
                 Auth::login($user, true);
@@ -71,33 +83,5 @@ class SocialIdentityController extends Controller
             'provider_name' => $provider,
             'provider_id' => $account->getId(),
         ])->first();
-    }
-
-    private function associateIdentity(string $provider, $account, $user)
-    {
-        $user->identities()->create([
-            'provider_id' => $account->getId(),
-            'provider_name' => $provider,
-        ]);
-    }
-
-    private function createUserFromAccount($account)
-    {
-        $username = $account->getNickname() ?? explode('@', $account->getEmail())[0];
-        while(User::where('username', $username)->first()) {
-            $username = $username . rand(100,10000);
-        }
-
-        $email = $account->getEmail();
-        if($email && User::where('email', $email)->first()) {
-            $email = null;
-        }
-
-        return User::create([
-            'username' => $username,
-            'email' => $email,
-            'avatar' => $account->getAvatar(),
-            'name' => $account->getName(),
-        ]);
     }
 }
