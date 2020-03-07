@@ -8,7 +8,7 @@
     background:#fff;
     padding:0;
     margin:0 auto;
-    max-width: 62rem;
+    max-width: 63rem;
     box-shadow: 0 0 4px 0 rgba(0,0,0,.2);
 }
 
@@ -71,14 +71,37 @@ h5 {
 }
 
 .app-footer {
-    background:#303030;
+    background:#4c4c4c;
+    font-size: 12px;
 
     h6 {
-        color:#fafafa;
+        color:#FFFFFF;
+        font-size: 16px;
     }
 
     p,a{
-        color: #6c757e;
+        color: #ddd;
+    }
+    a{
+        text-decoration: underline;
+    }
+    b{
+        color:#fff;
+    }
+    ul{
+        color:#fff;
+        padding-left:15px;
+    }
+}
+
+.app-footer-bottom {
+    background:#424242;
+    color:#888;
+    font-size:12px;
+    line-height:1.6;
+
+    span {
+        color:#fff;
     }
 }
 
