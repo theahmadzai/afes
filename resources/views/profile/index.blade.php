@@ -22,10 +22,6 @@
                             <td>{{ $user->name }}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Username</th>
-                            <td>{{ $user->username }}</td>
-                        </tr>
-                        <tr>
                             <th scope="row">Email Address</th>
                             <td>{{ $user->email_address }}</td>
                         </tr>
