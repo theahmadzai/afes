@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-sm-6 py-3">
                             <div class="container d-flex align-items-center py-3 app-post-first">
-                                <a href="{{ url('profile/' . $post->user->username) }}"><img class="app-post-avatar" src="{{ $post->user->gravatar }}"></a>
+                                <a href="{{ url('profile/' . $post->user->id) }}"><img class="app-post-avatar" src="{{ $post->user->gravatar }}"></a>
                                 <div>
                                     <p class="ml-3 mb-0 app-post-name">{{ $post->user->name }}</p>
                                     <p class="ml-3 mb-0 text-muted">{{ $post->published_at->toFormattedDateString() }}</p>

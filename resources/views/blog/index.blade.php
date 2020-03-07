@@ -29,7 +29,7 @@
                                 <h2 class="mb-1"><a href="{{ url()->current() . '/' . $post->slug }}">{{ $post->title }}</a></h2>
                                 <div class="mb-1"><strong>{{ $post->tags->pluck('name')->toUpper()->implode(', ') }}</strong></div>
                                 <p>{{ str_limit($post->body, 150) }}</p>
-                                <a href="{{ url('profile/' . $post->user->username) }}">
+                                <a href="{{ url('profile/' . $post->user->id) }}">
                                     <img src="{{ $post->user->gravatar }}" title="{{ $post->user->name }}" alt="{{ $post->user->name }}">
                                 </a>
                             </div>
