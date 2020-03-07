@@ -8,52 +8,32 @@
         Profile
     @endcomponent
 
-    <div class="container p-4">
+    <div class="container pb-3">
 
-        <div class="row">
-            <div class="col-md-4">
-                <img src="{{ $user->gravatar }}" alt="{{ $user->name }}" class="w-100 shadow img-thumbnail mb-2">
+        <div class="row justify-content-center bg-light py-5">
+            <div class="col-md-8">
+                <h2 class="h1" style="font-family:'Lato';">{{ $user->name }} <a href="/profile/settings/general" class="btn btn-sm btn-outline-dark ml-4">edit profile</a> </h2>
+                <p class="text-muted ml-2">Last active {{ optional($user->logins()->latest()->first()->date)->diffForHumans() }}</p>
+                <p class="text-muted ml-2">{{ count($user->posts) }} Artices Posted</p>
             </div>
-            <div class="col-md-8 table-responsive">
-                <table class="table table-striped">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Name</th>
-                            <td>{{ $user->name }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Email Address</th>
-                            <td>{{ $user->email }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Gender</th>
-                            <td>{{ $user->gender }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Birth Date</th>
-                            <td>{{ $user->birth_date }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">City</th>
-                            <td>{{ $user->city }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Phone</th>
-                            <td>{{ $user->phone }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Address</th>
-                            <td>{{ $user->address }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="col-md-2">
+                <img src="{{ $user->gravatar }}" alt="{{ $user->name }}" class="w-100 shadow img-thumbnail rounded-circle">
             </div>
         </div>
 
-        <ul class="list-group list-group-flush">
-        @foreach ($user->posts as $post)
-            <a href="{{ url('blog/' . $post->slug) }}"><li class="list-group-item">{{ $post->title }}</li></a>
-        @endforeach
+        <h2 class="h3 mt-5">Articles by {{ $user->name }}</h2>
+
+        <ul class="list-unstyled">
+            @foreach ($user->posts as $post)
+            <hr>
+            <li class="media">
+                <img class="mr-3" src="{{ $post->thumbnail }}" style="width:70px;" alt="{{ $post->title }}">
+                <div class="media-body">
+                    <a href="{{ url('blog/' . $post->slug) }}"><h5 class="mt-0 mb-1">{{ $post->title }}</h5></a>
+                    <p>{{ str_limit($post->body, 350) }}</p>
+                </div>
+            </li>
+            @endforeach
         </ul>
 
     </div>
