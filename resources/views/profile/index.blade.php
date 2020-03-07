@@ -23,7 +23,7 @@
                         </tr>
                         <tr>
                             <th scope="row">Email Address</th>
-                            <td>{{ $user->email_address }}</td>
+                            <td>{{ $user->email }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Gender</th>
