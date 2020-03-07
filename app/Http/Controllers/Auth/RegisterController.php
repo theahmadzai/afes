@@ -71,10 +71,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $user->identities()->create([
-            'provider_name' => $data['provider_name'],
-            'provider_id' => $data['provider_id'],
-        ]);
+        if(isset($data['provider_name']) && isset($data['provider_id'])) {
+            $user->identities()->create([
+                'provider_name' => $data['provider_name'],
+                'provider_id' => $data['provider_id'],
+            ]);
+        }
 
         return $user;
     }
