@@ -50,10 +50,10 @@ return [
         'redirect' => env('FACEBOOK_APP_REDIRECT'),
     ],
 
-    'twitter' => [
-        'client_id' => env('TWITTER_APP_ID'),
-        'client_secret' => env('TWITTER_APP_SECRET'),
-        'redirect' => env('TWITTER_APP_REDIRECT'),
-    ],
+    'google' => [
+        'client_id' => env('GOOGLE_APP_ID'),
+        'client_secret' => env('GOOGLE_APP_SECRET'),
+        'redirect' => env('GOOGLE_APP_REDIRECT'),
+    ]
 
 ];
