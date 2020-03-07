@@ -19,6 +19,12 @@
 <body>
     <div class="wrapper" id="app">
 
+        @if(Auth::check() && !Auth::user()->hasVerifiedEmail())
+            <div class="alert alert-warning">
+                Please verify, your email address! <a href="{{ route('verification.resend') }}">resend verification email</a>
+            </div>
+        @endif
+
         @include('partials.header')
 
         @include('partials.navbar')
