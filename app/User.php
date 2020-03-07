@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username', 'avatar',
+        'name', 'email', 'password', 'avatar',
     ];
 
     /**
@@ -40,11 +40,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'ends_at' => 'datetime',
         'birth_date' => 'datetime',
     ];
-
-    public function getRouteKeyName()
-    {
-        return 'username';
-    }
 
     public function getGravatarAttribute()
     {
