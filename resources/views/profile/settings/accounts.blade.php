@@ -59,16 +59,16 @@
             <form method="POST" action="{{ url()->current() }}" novalidate>
                 @csrf
                 @method('PUT')
-                <input type="hidden" name="account" value="twitter">
+                <input type="hidden" name="account" value="google">
 
                 <div class="form-group row">
-                    <label class="col-form-label col-md-4">Twitter</label>
+                    <label class="col-form-label col-md-4">Google</label>
                     <div class="col-md-8">
                         <label class="switch">
-                            <input type="checkbox" name="link" {{ $identities['twitter'] ? 'checked' : ''}} onchange="this.form.submit();">
+                            <input type="checkbox" name="link" {{ $identities['google'] ? 'checked' : ''}} onchange="this.form.submit();">
                             <span class="slider round"></span>
                         </label>
-                        @error('twitter')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                        @error('google')<span class="invalid-feedback">{{ $message }}</span>@enderror
                     </div>
                 </div>
             </form>
