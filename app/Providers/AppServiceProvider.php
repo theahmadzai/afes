@@ -12,6 +12,7 @@ use App\Observers\PostObserver;
 use App\Observers\FileObserver;
 use App\Post;
 use App\File;
+use App\Job;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -45,6 +46,13 @@ class AppServiceProvider extends ServiceProvider
             return $this->map(function ($value) {
                 return Str::upper($value);
             });
+        });
+
+        View::composer('*', function ($view) {
+            $view->with([
+                'footer_posts' => Post::published()->latest()->paginate(5),
+                'footer_jobs' => Job::open()->latest()->paginate(3),
+            ]);
         });
     }
 }
