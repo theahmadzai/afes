@@ -2,7 +2,6 @@
 
 @section('title', 'Blog')
 
-
 @section('content')
 
     @component('partials.head')
