@@ -6,7 +6,7 @@
 
     <div class="card">
 
-        <div class="card-header">Email & Username</div>
+        <div class="card-header">Email</div>
 
         <div class="card-body">
 
@@ -18,17 +18,6 @@
                     <div class="col-md-8">
                         <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') ?? Auth::user()->email }}">
                         @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="username" class="col-form-label col-md-4">Username</label>
-                    <div class="col-md-8 input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                        </div>
-                        <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') ?? Auth::user()->username }}">
-                        @error('username')<span class="invalid-feedback">{{ $message }}</span>@enderror
                     </div>
                 </div>
 
