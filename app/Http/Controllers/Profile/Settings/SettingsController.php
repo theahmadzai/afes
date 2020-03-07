@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Profile\Settings;
 
 use App\Http\Controllers\Controller;
 
-abstract class AbstractSettingsController extends Controller
+class SettingsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
     }
 }
