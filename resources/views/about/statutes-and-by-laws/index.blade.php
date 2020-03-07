@@ -20,7 +20,7 @@
                     <b>Article 1: Aim of the Statute</b>
                     <p>The Statutes are enacted under the Afghan NGOs law for steering the overall organizational vision, mission and structure.</p>
                 </p>
-                <a href="{{ url()->current() }}/general-provisions" class="btn btn-primary">Read More</a>
+                <a href="{{ url()->current() }}/general-provisions" class="btn btn-outline-dark">Read More</a>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                     <b>Article 9: Vision</b>
                     <p>Vision of the organization is “Strengthened Evaluations for Sustainable Development”</p>
                 </p>
-                <a href="{{ url()->current() }}/aim-and-objectives-of-the-organization" class="btn btn-primary">Read More</a>
+                <a href="{{ url()->current() }}/aim-and-objectives-of-the-organization" class="btn btn-outline-dark">Read More</a>
             </div>
         </div>
 
@@ -43,7 +43,7 @@
                     <p>The organization has the following leading bodies.</p>
                     <p>⦁ General Assembly (GA)</p>
                 </p>
-                <a href="{{ url()->current() }}/governance-structure" class="btn btn-primary">Read More</a>
+                <a href="{{ url()->current() }}/governance-structure" class="btn btn-outline-dark">Read More</a>
             </div>
         </div>
 
@@ -54,7 +54,7 @@
                     <b>Article 39: Property Rights</b>
                     <p>All real properties and movables of the organization belong to the organization, are recorded as such and no staff member</p>
                 </p>
-                <a href="{{ url()->current() }}/use-of-property" class="btn btn-primary">Read More</a>
+                <a href="{{ url()->current() }}/use-of-property" class="btn btn-outline-dark">Read More</a>
             </div>
         </div>
 
@@ -65,7 +65,7 @@
                     <b>Article 44: Recruitment</b>
                     <p>⦁ All Afghan and foreign nationals willing to work can be recruited based on the needs of</p>
                 </p>
-                <a href="{{ url()->current() }}/staff-recruitment-wages-and-leave" class="btn btn-primary">Read More</a>
+                <a href="{{ url()->current() }}/staff-recruitment-wages-and-leave" class="btn btn-outline-dark">Read More</a>
             </div>
         </div>
 
@@ -77,7 +77,7 @@
                     <p>⦁ The organization shall maintain an Afghani and a USD account.</p>
                     <p>⦁ Bank accounts should have at least two</p>
                 </p>
-                <a href="{{ url()->current() }}/reporting-and-financial-operations" class="btn btn-primary">Read More</a>
+                <a href="{{ url()->current() }}/reporting-and-financial-operations" class="btn btn-outline-dark">Read More</a>
             </div>
         </div>
 
@@ -88,7 +88,7 @@
                     <b>Article 48: </b>
                     <p>All the members (General Assembly, Board of Directors, the Executive Committee and other staff members)</p>
                 </p>
-                <a href="{{ url()->current() }}/duties-and-responsibilities-of-members" class="btn btn-primary">Read More</a>
+                <a href="{{ url()->current() }}/duties-and-responsibilities-of-members" class="btn btn-outline-dark">Read More</a>
             </div>
         </div>
 
@@ -99,7 +99,7 @@
                     <b>Article 51:</b>
                     <p>The funding sources can be ensured by membership payments, donations, charity and attracting national and international assistance based</p>
                 </p>
-                <a href="{{ url()->current() }}/miscellaneous-decrees" class="btn btn-primary">Read More</a>
+                <a href="{{ url()->current() }}/miscellaneous-decrees" class="btn btn-outline-dark">Read More</a>
             </div>
         </div>
     </div>
