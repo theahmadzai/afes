@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
 use Socialite;
@@ -37,51 +37,40 @@ class SocialIdentityController extends Controller
 
         try {
             $account = Socialite::driver($provider)->user();
-        } catch(Exception $ex) {
-            return Redirect::route('register');
-        }
 
-        if(!$this->getIdentity($provider, $account)) {
-
-            if(!Auth::check()) {
-                return Redirect::route('register')->withInput([
-                    'email' => $account->getEmail(),
-                    'avatar' => $account->getAvatar(),
-                    'name' => $account->getName()
-                ]);
-            }
-
-            Auth::user()->identities()->create([
-                'provider_id' => $account->getId(),
+            $identity = SocialIdentity::where([
                 'provider_name' => $provider,
-            ]);
+                'provider_id' => $account->getId(),
+            ])->first();
 
             if(!Auth::check()) {
-                Auth::login($user, true);
+                if(!$identity) {
+                    return Redirect::route('register')->withInput([
+                        'email' => $account->getEmail(),
+                        'avatar' => $account->getAvatar(),
+                        'name' => $account->getName(),
+                        'provider_name' => $provider,
+                        'provider_id' => $account->getId(),
+                    ]);
+                }
 
-                return redirect('profile/settings/accounts');
+                Auth::login($identity->user);
+                return Redirect::back();
             }
 
-            Session::flash('success', 'Linked an account from ' . $provider . '!');
-            return back();
+            if(!$identity) {
+                Auth::user()->identities()->create([
+                    'provider_name' => $provider,
+                    'provider_id' => $account->getId(),
+                ]);
+
+                return Redirect::back()->with('success', 'Linked an account from ' . $provider . '!');
+            }
+
+            return Redirect::back()->with('error', 'This account is already linked to another user.');
+
+        } catch(\Exception $ex) {
+            return Redirect::back();
         }
-
-        if(!Auth::check()) {
-            $identity = $this->getIdentity($provider, $account);
-            Auth::login($identity->user);
-
-            return back();
-        }
-
-        Session::flash('error', 'This account is already linked to another user.');
-        return back();
-    }
-
-    private function getIdentity(string $provider, $account)
-    {
-        return SocialIdentity::where([
-            'provider_name' => $provider,
-            'provider_id' => $account->getId(),
-        ])->first();
     }
 }
