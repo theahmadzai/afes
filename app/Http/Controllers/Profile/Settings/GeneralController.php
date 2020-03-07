@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers\Profile\Settings;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 
-class GeneralController extends Controller
+class GeneralController extends SettingsController
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         return View::make('profile.settings.general');
@@ -46,6 +41,6 @@ class GeneralController extends Controller
             Session::flash('success', 'Profile has been updated Successfuly!');
         }
 
-        return back();
+        return Redirect::back();
     }
 }

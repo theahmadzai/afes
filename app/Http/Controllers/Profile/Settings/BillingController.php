@@ -3,18 +3,12 @@
 namespace App\Http\Controllers\Profile\Settings;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 
-class BillingController extends Controller
+class BillingController extends SettingsController
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'verified']);
-    }
-
     public function index()
     {
         return View::make('profile.settings.billing');
@@ -30,11 +24,9 @@ class BillingController extends Controller
             Auth::user()->updateDefaultPaymentMethod($request->payment_method);
             Auth::user()->updateDefaultPaymentMethodFromStripe();
 
-            Session::flash('success', 'Successfuly Updated Payment Method!');
-        } else {
-            Session::flash('error', 'Please try again later!');
+            Redirect::back()->with('success', 'Successfuly Updated Payment Method!');
         }
 
-        return back();
+        return Redirect::back()->with('error', 'Please try again later!');
     }
 }

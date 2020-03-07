@@ -3,18 +3,12 @@
 namespace App\Http\Controllers\Profile\Settings;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 
-class NotificationsController extends Controller
+class NotificationsController extends SettingsController
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         return View::make('profile.settings.notifications');
@@ -22,19 +16,16 @@ class NotificationsController extends Controller
 
     public function update(Request $request)
     {
-        if($request->has('notifications') )
-        {
+        if($request->has('notifications')) {
             Auth::user()->notifications = true;
             Auth::user()->save();
 
-            Session::flash('success', 'Email notifications has been turned on');
-            return back();
+            return Redirect::back()->with('success', 'Email notifications has been turned on');
         }
 
         Auth::user()->notifications = false;
         Auth::user()->save();
 
-        Session::flash('success', 'Email notifications has been turned off');
-        return back();
+        return Redirect::back()->with('success', 'Email notifications has been turned off');
     }
 }

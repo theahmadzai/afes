@@ -3,20 +3,14 @@
 namespace App\Http\Controllers\Profile\Settings;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 use Hash;
 
-class SecurityController extends Controller
+class SecurityController extends SettingsController
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         return View::make('profile.settings.security');
@@ -24,20 +18,15 @@ class SecurityController extends Controller
 
     public function update(Request $request)
     {
-        if(!Auth::user()->hasVerifiedEmail()) {
-            Session::flash('error', 'Please verify your email address first.');
-            return back();
-        }
-
         Validator::make($request->all(), [
             'current_password' => ['required', function ($attribute, $value, $fail) {
                 if (!Hash::check($value, Auth::user()->password)) {
-                    return $fail(__('The current password is incorrect.'));
+                    return $fail('The current password is incorrect.');
                 }
             }],
             'password' => ['required', 'min:8', 'confirmed', function ($attribute, $value, $fail) {
                 if (Hash::check($value, Auth::user()->password)) {
-                    return $fail(__('The current password cannot be same as new password.'));
+                    return $fail('The current password cannot be same as new password.');
                 }
             }],
         ])->validate();
@@ -45,7 +34,6 @@ class SecurityController extends Controller
         Auth::user()->password = Hash::make($request->password);
         Auth::user()->save();
 
-        Session::flash('success', 'Password Updated Successfuly!');
-        return back();
+        return Redirect::back()->with('success', 'Password Updated Successfuly!');
     }
 }
