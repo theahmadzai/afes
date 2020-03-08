@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <div class="wrapper" id="app">
+
+    <main class="wrapper" id="app">
 
         @if(Auth::check() && !Auth::user()->hasVerifiedEmail())
             <div class="alert alert-warning">
@@ -29,12 +30,11 @@
 
         @include('partials.navbar')
 
-        <main>
-            @yield('content')
-        </main>
+        @yield('content')
 
         @include('partials.footer')
-    </div>
+
+    </main>
 
     @stack('scripts')
     <script src="{{ asset('js/app.js') }}"></script>

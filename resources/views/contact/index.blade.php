@@ -8,35 +8,11 @@
         Contact Us
     @endcomponent
 
-    <div class="container">
+    <div class="container-fluid">
 
-        <div class="row py-5">
+        <div class="row py-3">
 
-            <div class="col-lg-4">
-
-                <div class="shadow-sm p-5 mb-5 bg-white rounded">
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <i class="fa fa-map-marker fa-2x"></i>
-                            <p class="mb-0">House# 236, Behind District 4 Municipality Office, 5 th Street, 40-Meter Road, Kulola Pushta Kabul, Afghanistan 1001</p>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-phone mt-4 fa-2x"></i>
-                            <p class="mb-0">+93 771 251 253</p>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-envelope mt-4 fa-2x"></i>
-                            <p class="mb-0">contact@afghanevaluation.af</p>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="col-lg-8">
-
+            <div class="container p-5 bg-light">
                 <form method="POST" action="{{ url()->current() }}" novalidate>
                     @csrf
                     @recaptcha
@@ -74,14 +50,46 @@
                         <button type="submit" class="btn btn-primary">Send Message</Button>
                     </div>
                 </form>
-
             </div>
 
         </div>
 
-    </div>
+        <div class="row p-3">
 
-    <div id="leaflet-map"></div>
+            <div class="container p-5 shadow rounded">
+                <div class="row border-top pt-4 border-bottom mb-4">
+                    <div class="col-md-1">
+                        <i class="fa fa-map-marker fa-2x"></i>
+                    </div>
+                    <div class="col-md-5">
+                        <p>House# 236, Behind District 4 Municipality Office, 5 th Street, 40-Meter Road, Kulola Pushta Kabul, Afghanistan 1001</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mb-4">
+                    <div class="col-md-1">
+                        <i class="fa fa-phone fa-2x"></i>
+                    </div>
+                    <div class="col-md-5">
+                        <p>+93 771 251 253</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom">
+                    <div class="col-md-1">
+                        <i class="fa fa-envelope fa-2x"></i>
+                    </div>
+                    <div class="col-md-5">
+                        <p>contact@afghanevaluation.af</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="leaflet-map"></div>
+
+    </div>
 
 @endsection
 
