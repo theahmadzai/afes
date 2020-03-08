@@ -8,9 +8,13 @@
         Donate
     @endcomponent
 
-    <div class="container py-3">
+    <div class="container">
 
-        <p>This page is under construction!</p>
+        <div class="row p-3">
+
+            <p>This page is under construction!</p>
+
+        </div>
 
     </div>
 
