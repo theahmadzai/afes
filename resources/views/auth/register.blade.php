@@ -8,9 +8,9 @@
         Create Account
     @endcomponent
 
-    <div class="container py-5">
+    <div class="container">
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center py-5">
 
             <div class="col-md-8">
 
