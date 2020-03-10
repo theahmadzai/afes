@@ -10,9 +10,9 @@
 
     <div class="container-fluid">
 
-        <div class="row py-3">
+        <div class="row p-4">
 
-            <div class="container p-5 bg-light">
+            <div class="col-12 p-5 bg-light">
                 <form method="POST" action="{{ url()->current() }}" novalidate>
                     @csrf
                     @recaptcha
@@ -54,44 +54,42 @@
 
         </div>
 
-        <div class="row p-3">
+        <div class="row px-4 pb-4">
 
-            <div class="col-md-6 p-5 shadow rounded">
-                <div class="row border-top pt-4 border-bottom mb-4">
-                    <div class="col-md-1">
+            <div class="col-md-6 p-5 shadow">
+                <div class="row border-bottom">
+                    <div class="col-2 p-2 text-center">
                         <i class="fa fa-map-marker fa-2x"></i>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-10 p-2">
                         <p>House# 236, Behind District 4 Municipality Office, 5 th Street, 40-Meter Road, Kulola Pushta Kabul, Afghanistan 1001</p>
                     </div>
                 </div>
 
-                <div class="row border-bottom mb-4">
-                    <div class="col-md-1">
+                <div class="row border-bottom pt-4">
+                    <div class="col-2 p-2 text-center">
                         <i class="fa fa-phone fa-2x"></i>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-10 p-2">
                         <p>+93 771 251 253</p>
                     </div>
                 </div>
 
-                <div class="row border-bottom">
-                    <div class="col-md-1">
+                <div class="row pt-4">
+                    <div class="col-2 p-2 text-center">
                         <i class="fa fa-envelope fa-2x"></i>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-10 p-2">
                         <p>contact@afghanevaluation.af</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6 p-0">
-                <iframe style="border:0; width:100%; height:100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.3034974807124!2d69.14740571454173!3d34.54587029900377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16ee39bf810bd%3A0x7a6956ff2e20c5c7!2sAfghan%20Evaluation%20Society!5e0!3m2!1sen!2s!4v1583838323323!5m2!1sen!2s" frameborder="0" allowfullscreen=""></iframe>
+                <iframe style="border:0; width:100%; min-height:300px; height:100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.3034974807124!2d69.14740571454173!3d34.54587029900377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16ee39bf810bd%3A0x7a6956ff2e20c5c7!2sAfghan%20Evaluation%20Society!5e0!3m2!1sen!2s!4v1583838323323!5m2!1sen!2s" frameborder="0" allowfullscreen=""></iframe>
             </div>
 
         </div>
-
-        {{-- <div id="leaflet-map"></div> --}}
 
     </div>
 

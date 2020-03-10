@@ -1,9 +1,9 @@
 <footer class="container-fluid app-footer">
 
-    <div class="row px-4 py-5">
+    <div class="row p-4">
 
-        <div class="col-sm-3 px-2">
-            <h6 class="mb-3">Recent Opportunity Posting</h6>
+        <div class="col-md-3 px-0 border-bottom-md-3 mb-md-3">
+            <h6 class="mb-3 text-white">Recent Opportunity Posting</h6>
             <ul>
                 @foreach ($footer_jobs as $job)
                     <li><a href="/jobs/{{$job->id}}">{{ $job->title }}</a></li>
@@ -11,8 +11,8 @@
             </ul>
         </div>
 
-        <div class="col-md-3">
-            <h6 class="mb-3">Latest Publications</h6>
+        <div class="col-md-3 px-0">
+            <h6 class="mb-3 text-white">Latest Publications</h6>
             <ul>
                 @foreach ($footer_posts as $post)
                     <li><a href="/blog/{{$post->slug}}">{{ $post->title }}</a></li>
@@ -20,8 +20,8 @@
             </ul>
         </div>
 
-        <div class="col-sm-3 px-2">
-            <h6 class="mb-3">Statutes And By-Laws</h6>
+        <div class="col-md-3 px-0">
+            <h6 class="mb-3 text-white">Statutes And By-Laws</h6>
             <ul>
                 <li><a href="#">General Provisions</a></li>
                 <li><a href="#">Aim and Objectives of the Organization</a></li>
@@ -34,8 +34,8 @@
             </ul>
         </div>
 
-        <div class="col-sm-3">
-            <h6 class="mb-3">Contact Details</h6>
+        <div class="col-md-3 px-0">
+            <h6 class="mb-3 text-white">Contact Details</h6>
             <p>House# 236, Behind District 4 Municipality Office 5 th Street, 40-Meter Road, Kulola Pushta Kabul, Afghanistan 1001</p>
             <p>
                 <b>Phone: </b>+93 771 251 253 <br>
@@ -46,8 +46,8 @@
 
     </div>
 
-</footer>
+    <div class="row p-4" style="background:#424242;">
+        <div style="color:#888;">&copy; <span class="text-white">Copyright</span> 2020 by <span class="text-white">Afghan Evaluation Society</span>. All Rights Reserved.</div>
+    </div>
 
-<div class="container app-footer-bottom">
-    <p class="p-4">&copy; <span>Copyright</span> 2020 by <span>Afghan Evaluation Society</span>. All Rights Reserved.</p>
-</div>
+</footer>

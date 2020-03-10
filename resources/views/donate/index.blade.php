@@ -10,7 +10,7 @@
 
     <div class="container-fluid">
 
-        <div class="row p-3">
+        <div class="row p-4">
 
             <p>This page is under construction!</p>
 
