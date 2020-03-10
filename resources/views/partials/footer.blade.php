@@ -1,4 +1,4 @@
-<footer class="container app-footer">
+<footer class="container-fluid app-footer">
 
     <div class="row px-4 py-5">
 
