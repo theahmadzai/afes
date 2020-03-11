@@ -17,7 +17,7 @@ class GalleryController extends Controller
 
         return View::make('gallery.index', [
             'categories' => Category::all(),
-            'items' => $images->paginate(8),
+            'items' => $images->paginate(6),
         ]);
     }
 }
