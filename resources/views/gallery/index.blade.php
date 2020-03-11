@@ -8,43 +8,45 @@
         Gallery
     @endcomponent
 
-    <div class="container py-3">
+    <div class="container-fluid">
 
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Show only
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ url('gallery') }}">All</a>
-                @foreach($categories as $category)
-                    <a class="dropdown-item" href="{{ url('gallery?category=' . $category->id) }}">{{ $category->name }}</a>
-                @endforeach
+        <div class="row p-0 px-4 pt-4">
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Show only
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ url('gallery') }}">All</a>
+                    @foreach($categories as $category)
+                        <a class="dropdown-item" href="{{ url('gallery?category=' . $category->id) }}">{{ $category->name }}</a>
+                    @endforeach
+                </div>
             </div>
         </div>
 
-        <div class="gallery">
+        <div class="row p-0 px-4 pt-4">
 
-            @foreach($items->chunk(4) as $chunk)
+            {{-- <div class="gallery"> --}}
 
-                <div class="gallery__row">
+                @foreach($items->chunk(3) as $chunk)
 
-                    @foreach($chunk as $item)
+                        @foreach($chunk as $item)
+                            <div class="col-sm-4 pb-4">
 
-                        <div class="gallery__row__image">
-                            <img src="{{ $item->thumbnail }}">
-                        </div>
+                            {{-- <div class="gallery__row__image"> --}}
+                                <img src="{{ $item->thumbnail }}" width="100%" height="100%" class="border">
+                            {{-- </div> --}}
+                            </div>
 
-                    @endforeach
+                        @endforeach
 
-                </div>
-
-            @endforeach
+                @endforeach
 
         </div>
 
-        @component('partials.pagination')
+        <nav class="row pb-2 justify-content-center" aria-label="Search Navigation Pages">
             {{ $items->appends(request()->query())->links() }}
-        @endcomponent
+        </nav>
 
     </div>
 
