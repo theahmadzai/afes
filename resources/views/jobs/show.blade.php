@@ -8,7 +8,7 @@
         {{ $job->title }}
     @endcomponent
 
-    <div class="container py-3">
+    <div class="container-fluid p-4">
 
         <table class="table table-borderless table-sm table-striped">
             <tbody>

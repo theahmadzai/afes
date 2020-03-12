@@ -8,21 +8,29 @@
         Jobs Available
     @endcomponent
 
-    <div class="container py-3">
+    <div class="container-fluid">
 
-        @foreach($jobs as $job)
+        <div class="row p-0 px-4 pt-4 pb-1">
+            @foreach($jobs as $job)
 
-            <div class="subHeading" onclick="window.location.href = '{{ url()->current() . '/' . $job->id }}'">
-                <span><a href="{{ url()->current() . '/' . $job->id }}">{{ $job->title }}</a></span>
-                <span>{{ $job->location }}</span>
-                <span>Apply by: {{ $job->closing_at->toFormattedDateString() }}</span>
-            </div>
+                <div class="container-fluid mb-2 p-4 border bg-light" style="cursor:pointer;" onclick="window.location.href = '{{ url()->current() . '/' . $job->id }}'">
+                    <div class="row">
+                        <div class="col-sm-8 h5 mb-0">
+                            <a href="{{ url()->current() . '/' . $job->id }}">{{ $job->title }}</a>
+                        </div>
+                        <div class="col-sm-2 text-right">{{ $job->location }}</div>
+                        <div class="col-sm-2 text-right">{{ $job->closing_at->toFormattedDateString() }}</div>
+                    </div>
+                </div>
 
-        @endforeach
+            @endforeach
+        </div>
 
-        @component('partials.pagination')
-            {{ $jobs->links() }}
-        @endcomponent
+        <div class="row p-2 justify-content-center">
+            <nav aria-label="Search Navigation Pages">
+                {{ $jobs->links() }}
+            </nav>
+        </div>
 
     </div>
 

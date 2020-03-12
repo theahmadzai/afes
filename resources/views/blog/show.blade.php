@@ -8,17 +8,17 @@
         {{ $post->title }}
     @endcomponent
 
-    <div class="container py-3">
+    <div class="container-fluid">
 
-        <div class="row">
+        <div class="row p-4">
 
-            <div class="col-md-8">
+            <div class="col-md-8 p-0">
 
                 <div class="container p-0 app-post">
 
                     <p class="app-post-tags"><b>Posted in</b> {{ $post->tags->pluck('name')->implode(', ') }}</p>
 
-                    <img src="{{ $post->image }}" alt="{{ $post->title }}" class="img-fluid">
+                    <img src="{{ $post->image }}" alt="{{ $post->title }}" class="img-fluid w-100">
 
                     <div class="row">
                         <div class="col-sm-6 py-3">
@@ -31,15 +31,13 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-6 py-3">
-                            <div class="container d-flex align-items-center">
-                                <div class="fb-share-button mr-2" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world" data-size="large">Tweet</a>
-                            </div>
+                        <div class="col-sm-6 py-sm-3">
+                            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                            <div class="mt-1"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world" data-size="large">Tweet</a></div>
                         </div>
                     </div>
 
-                    <div class="app-post-body">{!! html_entity_decode($post->body) !!}</div>
+                    <div class="app-post-body text-justify">{!! html_entity_decode($post->body) !!}</div>
 
                 </div>
 
@@ -47,7 +45,7 @@
 
             </div>
 
-            <div class="col-md-4 pl-md-0">
+            <div class="col-md-4 p-0 pl-md-4">
 
                 <div class="container py-3" style="background:#ededed">
                     <p><b>News</b></p>

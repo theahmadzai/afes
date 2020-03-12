@@ -8,9 +8,9 @@
         Application Form
     @endcomponent
 
-    <div class="container">
+    <div class="container-fluid">
 
-        <div class="row my-5">
+        <div class="row p-0 px-2 py-4">
 
             <div class="col-md-8">
 
