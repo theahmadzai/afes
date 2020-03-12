@@ -104,72 +104,6 @@ h5 {
 }
 
 
-
-.gallery {
-    // display: grid;
-    // gap: 1rem;
-    // grid-template-columns: repeat(4, 23.5%);
-
-    @media (max-width: 60.0626em) {
-      grid-template-columns: repeat(3, 32.33%);
-    }
-
-    // @media (max-width: 40.0625em) {
-    //   grid-template-columns: repeat(2, 49%);
-    // }
-
-    // @media (max-width: 30.0625em) {
-    //   grid-template-columns: 100%;
-    // }
-
-    &__row {
-        display:flex;
-        align-items: center;
-        margin-bottom:1rem;
-
-        &:first-child {
-            margin-top:1rem;
-        }
-
-        &__image {
-            display:block;
-            margin-left:1rem;
-            position: relative;
-            max-height: auto;
-            background: #f9f9f9;
-            border:1px solid #6c757e;
-            overflow: hidden;
-
-            &:first-child {
-                margin-left:0;
-            }
-
-            img {
-                width: 100%;
-            }
-
-            p {
-                position: absolute;
-                bottom: 0;
-                display: none;
-                width: 100%;
-                padding: 0.25rem;
-                opacity: 0.8;
-                background: #111111;
-                font-size: 0.8rem;
-                color: #ffffff;
-                text-align: center;
-            }
-
-            &:hover {
-                p {
-                    display: block;
-                }
-            }
-        }
-    }
-}
-
 .app-blog-post {
     cursor:pointer;
 
@@ -178,12 +112,6 @@ h5 {
         transition: all 250ms ease-in-out;
     }
 
-    &-left {
-        img {
-            width:100%;
-            height:auto;
-        }
-    }
 
     &-right {
         position:relative;
@@ -192,19 +120,10 @@ h5 {
         border-right:1px solid #f6f6f6;
         border-top:1px solid #f6f6f6;
 
-        h2 {
-            font-size: 1.4rem;
-            padding-right:1.2rem;
-            font-family: 'Lato';
 
-            a {
-                text-decoration: none;
-                color: #0C3165;
-            }
-        }
-
-        p {
-            text-align:justify;
+        a {
+            text-decoration: none;
+            color: #0C3165;
         }
 
         div > strong {
