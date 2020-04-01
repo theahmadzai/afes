@@ -77,4 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     require('./leaflet');
 
+    /**
+     * Load Utills
+     */
+
+    require('./utills');
+
 });

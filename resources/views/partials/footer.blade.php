@@ -21,20 +21,6 @@
         </div>
 
         <div class="col-md-3 px-0">
-            <h6 class="mb-3 text-white">Statutes And By-Laws</h6>
-            <ul>
-                <li><a href="#">General Provisions</a></li>
-                <li><a href="#">Aim and Objectives of the Organization</a></li>
-                <li><a href="#">Governance Structure</a></li>
-                <li><a href="#">Use of Property</a></li>
-                <li><a href="#">Staff recruitment, wages and leave</a></li>
-                <li><a href="#">Reporting and Financial Operations</a></li>
-                <li><a href="#">uties and responsibilities of members</a></li>
-                <li><a href="#">Miscellaneous decrees</a></li>
-            </ul>
-        </div>
-
-        <div class="col-md-3 px-0">
             <h6 class="mb-3 text-white">Contact Details</h6>
             <p>House# 236, Behind District 4 Municipality Office 5 th Street, 40-Meter Road, Kulola Pushta Kabul, Afghanistan 1001</p>
             <p>
@@ -42,6 +28,35 @@
                 <a href="contact@afghanevaluation.af">contact@afghanevaluation.af</a><br>
                 <a href="webmster@afghanevaluation.af">webmaster@afghanevaluation.af</a>
             </p>
+        </div>
+
+        <div class="col-md-3 px-0">
+            <h6 class="mb-3 text-white">Subscribe</h6>
+            <form method="POST" action="{{ url('subscribe') }}" novalidate>
+                @csrf
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="first_name" class="form-control @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" placeholder="First Name">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <input type="text" name="last_name" class="form-control @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" placeholder="Last Name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email Address">
+                </div>
+
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email Address">
+                </div>
+
+                <div class="form-group m-0">
+                    <button type="submit" class="btn btn-outline-secondary">Subscribe for more</Button>
+                </div>
+            </form>
         </div>
 
     </div>
