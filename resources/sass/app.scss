@@ -1,3 +1,13 @@
+/** font-awesome **/
+.fab:hover {
+    opacity: 0.7;
+    transition: all ease-in-out 0.3s;
+    transform: rotate(30deg);
+    background: white;
+}
+
+/** styles **/
+
 .courosel-img-fix {
     height: 380px;
     background-position: center;
@@ -281,9 +291,17 @@ h5 {
 
 /** Sticky navbar */
 .sticky {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width:auto;
-    width: 63rem;
     z-index:1000;
+}
+
+.hide-topbar {
+    height:0;
+    display:none;
+}
+
+.show-topbar {
+    display:block;
+    height:100%;
 }

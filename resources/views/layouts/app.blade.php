@@ -10,7 +10,6 @@
 
     <link rel="icon" href="/img/logo.png">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito|Lato|Open+Sans|Roboto:400,400i,500,500i,700&display=swap">
 
     @stack('styles')
@@ -21,14 +20,12 @@
     <main class="wrapper" id="app">
 
         @if(Auth::check() && !Auth::user()->hasVerifiedEmail())
-            <div class="alert alert-warning">
+            <div class="alert alert-warning m-0">
                 Please verify, your email address! <a href="{{ route('verification.resend') }}">resend verification email</a>
             </div>
         @endif
 
         @include('partials.header')
-
-        @include('partials.navbar')
 
         @yield('content')
 
