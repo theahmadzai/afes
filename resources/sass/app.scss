@@ -296,12 +296,18 @@ h5 {
     z-index:1000;
 }
 
-.hide-topbar {
-    height:0;
-    display:none;
-}
+.navbar .nav-item {
+    font-size: 1rem;
+    margin-right:0.5rem;
+    border-bottom:2px solid transparent;
+    padding: 0.3rem 0;
 
-.show-topbar {
-    display:block;
-    height:100%;
+    &:hover {
+        background:#fafafa;
+        border-bottom:2px solid #900;
+    }
+
+    &:last-child {
+        margin-right:0;
+    }
 }

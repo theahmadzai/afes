@@ -1,16 +1,13 @@
-<header id="header" class="bg-light sticky">
+<header id="header" class="bg-white shadow-sm sticky">
 
-    <div class="container-fluid">
-    <div id="topbar" class="row">
-
+    <div id="topbar" class="row px-4" style="overflow:hidden; transition: height 0.2s ease-out">
         <div class="col-8 align-self-center">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="/img/logo.png" alt="{{ config('app.name', 'Laravel') }} Logo" width="64" height="64">
+            <a id="logo" class="navbar-brand my-2" href="{{ url('/') }}">
+                <img src="/img/logo.jpg" alt="{{ config('app.name', 'Laravel') }} Logo" height="64">
             </a>
         </div>
 
-        {{--align-self-center d-flex justify-content-end --}}
-        <div class="col-4 ">
+        <div class="col-4 align-self-center d-flex justify-content-end">
             <a href="#"><i class="fab fa-facebook-f fa-2x mr-2" style="color:#3b5998"></i></a>
             <a href="#"><i class="fab fa-twitter fa-2x ml-2 mr-2" style="color:#00aced"></i></a>
             <a href="#"><i class="fab fa-google-plus-g fa-2x ml-2 mr-2" style="color:#dd4b39"></i></a>
@@ -18,9 +15,9 @@
         </div>
     </div>
 
-    <nav id="navbar" class="row navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="/img/logo.png" alt="{{ config('app.name', 'Laravel') }} Logo" width="32" height="32">
+    <nav id="navbar" class="row navbar navbar-expand-md navbar-light p-0 m-0 px-4" style="border-top: 1px solid #efefef;">
+        <a id="logo-sm" class="navbar-brand" href="{{ url('/') }}" style="display:none">
+            <img src="/img/logo-sm.jpg" alt="{{ config('app.name', 'Laravel') }} Logo" width="32" height="32">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -28,7 +25,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav p-0 m-0 mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/') }}">Home</a>
                 </li>
@@ -117,5 +114,4 @@
         </div>
     </nav>
 
-    </div>
 </header>
