@@ -18,7 +18,7 @@
 
                     <p class="app-post-tags"><b>Posted in</b> {{ $post->tags->pluck('name')->implode(', ') }}</p>
 
-                    <img src="{{ $post->image }}" alt="{{ $post->title }}" class="img-fluid w-100">
+                    <img src="{{ $post->imagePath }}" alt="{{ $post->title }}" class="img-fluid w-100">
 
                     <div class="row">
                         <div class="col-sm-6 py-3">
@@ -59,7 +59,7 @@
 
                         <a class="row" href="{{ url('blog/' . $post->slug ) }}">
                             <div class="col-5">
-                                <img src="{{ $post->thumbnail }}" alt="{{ $post->title}}" style="width:100%;">
+                                <img src="{{ $post->thumbnailPath }}" alt="{{ $post->title}}" style="width:100%;">
                             </div>
 
                             <div class="col pl-0">

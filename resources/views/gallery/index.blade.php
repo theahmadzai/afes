@@ -37,7 +37,7 @@
         <div class="row p-0 px-3">
             @foreach($images as $image)
                 <div class="col-sm-6 col-md-4 col-lg-3 p-0 px-2 pb-3">
-                    <img src="{{ $image->thumbnail }}" alt="{{ $image->caption }}" class="img-thumbnail rounded w-100">
+                    <img src="{{ $image->thumbnailPath }}" alt="{{ $image->caption }}" class="img-thumbnail rounded w-100">
                 </div>
             @endforeach
         </div>

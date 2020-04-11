@@ -33,7 +33,7 @@
                 @foreach ($user->posts as $post)
                     <hr>
                     <li class="media">
-                        <img class="mr-3" src="{{ $post->thumbnail }}" style="width:70px;" alt="{{ $post->title }}">
+                        <img class="mr-3" src="{{ $post->thumbnailPath }}" style="width:70px;" alt="{{ $post->title }}">
                         <div class="media-body">
                             <a href="{{ url('blog/' . $post->slug) }}"><h5 class="mt-0 mb-1">{{ $post->title }}</h5></a>
                             <p>{{ str_limit($post->body, 350) }}</p>
