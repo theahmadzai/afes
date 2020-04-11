@@ -11,6 +11,7 @@ $factory->define(Post::class, function (Faker $faker) {
         'title' => $faker->sentence(6),
         'slug' => $faker->slug,
         'body' => $faker->sentence(200),
+        'slide' => $faker->boolean,
         'is_published' => $faker->boolean,
         'published_at' => now()->subDays(random_int(1, 180)),
         'user_id' => $faker->randomElement(User::pluck('id')->toArray()),
