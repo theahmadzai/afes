@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use App\Traits\Imagify;
+use Storage;
 
 class Post extends Model
 {
-    use Imagify;
-
     protected $casts = [
         'published_at' => 'datetime',
     ];
@@ -19,9 +17,24 @@ class Post extends Model
         return 'slug';
     }
 
+    public function getThumbnailPathAttribute()
+    {
+        return $this->image ? $this->image->thumbnailPath : Storage::disk('public')->url('thumbnails/default.png');
+    }
+
+    public function getImagePathAttribute()
+    {
+        return $this->image ? $this->image->imagePath : Storage::disk('public')->url('images/default.png');
+    }
+
     public function scopePublished(Builder $query)
     {
         return $query->where('is_published', true);
+    }
+
+    public function scopeSlide(Builder $query)
+    {
+        return $query->where('slide', true);
     }
 
     public function tags()
@@ -29,9 +42,9 @@ class Post extends Model
         return $this->morphToMany(Tag::class, 'taggable');
     }
 
-    public function file()
+    public function image()
     {
-        return $this->morphOne(File::class, 'fileable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 
     public function user()
