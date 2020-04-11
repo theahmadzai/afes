@@ -1,21 +1,23 @@
 <header id="header" class="bg-white shadow-sm sticky">
 
-    <div id="topbar" class="row px-4" style="overflow:hidden; transition: height 0.2s ease-out">
-        <div class="col-8 align-self-center">
-            <a id="logo" class="navbar-brand my-2" href="{{ url('/') }}">
-                <img src="/img/logo.jpg" alt="{{ config('app.name', 'Laravel') }} Logo" height="64">
-            </a>
-        </div>
+    <div id="topbar" class="topbar container-fluid px-4">
+        <div class="row">
+            <div class="col-8 align-self-center">
+                <a id="logo" class="navbar-brand my-2" href="{{ url('/') }}">
+                    <img src="/img/logo.jpg" alt="{{ config('app.name', 'Laravel') }} Logo" height="64">
+                </a>
+            </div>
 
-        <div class="col-4 align-self-center d-flex justify-content-end">
-            <a href="#"><i class="fab fa-facebook-f fa-2x mr-2" style="color:#3b5998"></i></a>
-            <a href="#"><i class="fab fa-twitter fa-2x ml-2 mr-2" style="color:#00aced"></i></a>
-            <a href="#"><i class="fab fa-google-plus-g fa-2x ml-2 mr-2" style="color:#dd4b39"></i></a>
-            <a href="#"><i class="fab fa-pinterest-p fa-2x ml-2 mr-2" style="color:#cb2027"></i></a>
+            <div class="col-4 align-self-center d-flex justify-content-end">
+                <a href="#"><i class="fab fa-facebook-f fa-2x mr-2" style="color:#3b5998"></i></a>
+                <a href="#"><i class="fab fa-twitter fa-2x ml-2 mr-2" style="color:#00aced"></i></a>
+                <a href="#"><i class="fab fa-google-plus-g fa-2x ml-2 mr-2" style="color:#dd4b39"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p fa-2x ml-2 mr-2" style="color:#cb2027"></i></a>
+            </div>
         </div>
     </div>
 
-    <nav id="navbar" class="row navbar navbar-expand-md navbar-light p-0 m-0 px-4" style="border-top: 1px solid #efefef;">
+    <nav id="navbar" class="row navbar navbar-expand-md navbar-light p-0 m-0 px-4">
         <a id="logo-sm" class="navbar-brand" href="{{ url('/') }}" style="display:none">
             <img src="/img/logo-sm.jpg" alt="{{ config('app.name', 'Laravel') }} Logo" width="32" height="32">
         </a>
@@ -26,10 +28,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav p-0 m-0 mr-auto">
-                <li class="nav-item">
+                <li class="nav-item @if(Route::currentRouteName() == 'home') active @endif">
                     <a class="nav-link" href="{{ url('/') }}">Home</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown @if(Route::currentRouteName() == 'about') active @endif">
                     <a class="nav-link" href="{{ url('/about') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ url('/about/chairman-message') }}">Chairman's Message</a>
@@ -41,22 +43,19 @@
                         <a class="dropdown-item" href="{{ url('/about/statutes-and-by-laws') }}">Statutes And By-Laws</a>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item @if(Route::currentRouteName() == 'blog') active @endif">
                     <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item @if(Route::currentRouteName() == 'membership') active @endif">
                     <a class="nav-link" href="{{ url('/membership') }}">Membership</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item @if(Route::currentRouteName() == 'jobs') active @endif">
                     <a class="nav-link" href="{{ url('/jobs') }}">Jobs</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/gallery') }}">Gallery</a>
-                </li>
-                <li class="nav-item">
+                <li class="nav-item @if(Route::currentRouteName() == 'contact') active @endif">
                     <a class="nav-link" href="{{ url('/contact') }}">Contact Us</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item @if(Route::currentRouteName() == 'donate') active @endif">
                     <a class="nav-link" href="{{ url('/donate') }}">Donate</a>
                 </li>
             </ul>
