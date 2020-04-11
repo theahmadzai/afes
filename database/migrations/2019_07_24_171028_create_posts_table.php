@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('body')->nullable();
+            $table->boolean('slide')->default(false);
             $table->boolean('is_published')->default(false);
             $table->datetime('published_at')->useCurrent();
             $table->unsignedBigInteger('user_id');
