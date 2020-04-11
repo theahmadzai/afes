@@ -60,7 +60,7 @@
                         <p class="mb-0"><b>{{ $login->platform }} - {{ $login->location }}</b></p>
                         <p class="mb-0 text-muted">{{ $login->browser }} -
                             @if ($loop->first) <b style="color:green;">Active now</b>
-                            @else {{ optional($login->date)->diffForHumans() }}</p>
+                            @else {{ optional($login)->date->diffForHumans() }}</p>
                             @endif
                         <p class="mb-0"><i class="fa {{$login->is_mobile ? 'fa-tablet' : 'fa-laptop'}}"></i> {{ $login->device }} <small class="text-primary">({{ $login->ip }})</small></p>
                     </div>

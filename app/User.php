@@ -46,6 +46,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->avatar ?? 'http://www.gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?s=300';
     }
 
+    public function getLastLoginAttribute()
+    {
+        $login = new Login();
+        $login->date = $this->updated_at;
+        return $this->logins()->latest()->first() ?? $login;
+    }
+
     public function identities()
     {
         return $this->hasMany(SocialIdentity::class);

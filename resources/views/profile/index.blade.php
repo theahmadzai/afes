@@ -18,7 +18,7 @@
                         <a href="/profile/settings/general" class="btn btn-sm btn-outline-dark ml-4">edit profile</a>
                     @endif
                 </h2>
-                {{-- <p class="text-muted ml-2">Last active {{ optional($user->logins()->latest()->first()->date)->diffForHumans() }}</p> --}}
+                <p class="text-muted ml-2">Last active {{ $user->lastLogin->date->diffForHumans() }}</p>
                 <p class="text-muted ml-2">{{ count($user->posts) }} Artices Posted</p>
             </div>
             <div class="col-md-2">
