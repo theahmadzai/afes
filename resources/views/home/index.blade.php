@@ -6,7 +6,7 @@
 
     @include('partials.carousel')
 
-    <header class="header-strip" data-aos="fade-down">
+    <header class="header-strip">
         <h1>Afghan Evaluation Society</h1>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <polygon fill="white" points="0,100 100,0 100,100"/>
@@ -23,7 +23,7 @@
 
         <div class="row p-3 p-md-5 mb-2 text-center bg-light shadow-sm" data-aos="fade-right">
             <div class="col-md-4 p-lg-4 mx-auto" style="border-right: 1px solid #eee;">
-                <img src="/img/vision.png" class="w-75" alt="Vision">
+                <img src="/img/vision.png" class="w-75" alt="Vision" data-aos="zoom-out-left">
             </div>
             <div class="col-md-4 p-lg-4 mx-auto">
                 <h1 class="display-4 font-weight-normal mb-2" style="border-bottom: 4px solid rgb(64, 64, 64);">Vision</h1>
@@ -33,7 +33,7 @@
 
         <div class="row p-3 p-md-5 my-2 text-center bg-light shadow-sm" data-aos="fade-left">
             <div class="col-md-4 p-lg-4 mx-auto" style="border-right: 1px solid #eee;">
-                <img src="/img/mission.png" class="w-75" alt="Mission">
+                <img src="/img/mission.png" class="w-75" alt="Mission" data-aos="zoom-in-right">
             </div>
             <div class="col-md-4 p-lg-4 mx-auto">
                 <h1 class="display-4 font-weight-normal mb-2" style="border-bottom: 4px solid rgb(153, 0, 0);">Mission</h1>
@@ -43,7 +43,7 @@
 
         <div class="row p-3 p-md-5 my-2 text-center bg-light shadow-sm" data-aos="fade-right">
             <div class="col-md-4 p-lg-4 mx-auto" style="border-right: 1px solid #eee;">
-                <img src="/img/values.png" class="w-75" alt="Values">
+                <img src="/img/values.png" class="w-75" alt="Values" data-aos="zoom-in-left">
             </div>
             <div class="col-md-4 p-lg-4 mx-auto">
                 <h1 class="display-4 font-weight-normal mb-2" style="border-bottom: 4px solid rgb(0, 102, 0);">Values</h1>
