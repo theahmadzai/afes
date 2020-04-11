@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use App\Observers\PostObserver;
-use App\Observers\FileObserver;
 use App\Post;
-use App\File;
 use App\Job;
 
 class AppServiceProvider extends ServiceProvider
@@ -36,7 +34,6 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         Post::observe(PostObserver::class);
-        File::observe(FileObserver::class);
 
         Blade::directive('recaptcha', function () {
             return '<input type="hidden" id="g-recaptcha-response" name="_recaptcha">';
@@ -50,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function ($view) {
             $view->with([
-                'footer_posts' => Post::published()->latest()->paginate(5),
+                'footer_posts' => Post::published()->latest()->paginate(3),
                 'footer_jobs' => Job::open()->latest()->paginate(3),
             ]);
         });
