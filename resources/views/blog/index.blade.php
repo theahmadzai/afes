@@ -21,7 +21,7 @@
                         <div class="row mb-4 app-blog-post" onclick="window.location.href = '{{ url()->current() . '/' . $post->slug }}'">
 
                             <div class="col-sm-4 p-0">
-                                <img src="{{ $post->thumbnail }}" class="img-fluid w-100"/>
+                                <img src="{{ $post->thumbnailPath }}" class="img-fluid w-100"/>
                             </div>
 
                             <div class="col-sm-8 p-3 app-blog-post-right">
@@ -66,6 +66,10 @@
 
                         <div class="form-group">
                             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email Address">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="confirm_email" name="confirm_email" class="form-control @error('confirm_email') is-invalid @enderror" value="{{ old('confirm_email') }}" placeholder="Confirm Email Address">
                         </div>
 
                         <div class="form-group m-0">
