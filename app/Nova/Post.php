@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use App\Nova\Actions\Publish;
 use App\Nova\Filters\PublishedPosts;
+use App\Nova\Filters\SlidePosts;
+use Storage;
 
 class Post extends Resource
 {
@@ -52,21 +54,25 @@ class Post extends Resource
         return [
             ID::make()->sortable(),
 
-            Avatar::make('Image', function() {
-                return 'thumbnails/' . ($this->file ? basename($this->file->filename) : 'default.png');
+            Avatar::make('Image', 'image.filename')->preview(function($filename) {
+                return Storage::disk('public')->url('images/' . $filename);
+            })->thumbnail(function($filename) {
+                return Storage::disk('public')->url('thumbnails/' . $filename);
             }),
 
             Text::make('Title')->rules('required'),
 
             Trix::make('Body'),
 
-            Boolean::make('Is Published')->exceptOnForms(),
+            Boolean::make('Slide'),
+
+            Boolean::make('Is Published'),
 
             DateTime::make('Published At')->onlyOnDetail(),
 
             BelongsTo::make('User')->hideWhenCreating()->hideWhenUpdating(),
 
-            MorphOne::make('File'),
+            MorphOne::make('Image'),
 
             MorphToMany::make('Tags'),
         ];
@@ -93,6 +99,7 @@ class Post extends Resource
     {
         return [
             new PublishedPosts,
+            new SlidePosts,
         ];
     }
 

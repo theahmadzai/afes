@@ -5,10 +5,13 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Avatar;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Image as ImageField;
+use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\MorphOne;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Intervention\Image\Facades\Image as InterventionImage;
+use Storage;
 
 class Image extends Resource
 {
@@ -24,7 +27,7 @@ class Image extends Resource
      *
      * @var string
      */
-    public static $title = 'caption';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -32,7 +35,7 @@ class Image extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'caption',
+        'id',
     ];
 
     /**
@@ -46,15 +49,29 @@ class Image extends Resource
         return [
             ID::make()->sortable(),
 
-            Avatar::make('Image', function() {
-                return 'thumbnails/' . ($this->file ? basename($this->file->filename) : 'default.png');
+            ImageField::make('Image', 'filename')->store(function(Request $request, $model) {
+
+                $filename = basename(Storage::disk('public')->putFile('images', $request->file('filename')));
+
+                $thumbnail = InterventionImage::make($request->file('filename'))->fit(200, 200, function ($constraint) {
+                    $constraint->upsize();
+                    $constraint->aspectRatio();
+                })->encode();
+
+                Storage::disk('public')->put('thumbnails/' . $filename, $thumbnail);
+
+                return [
+                    'filename' => $filename,
+                ];
+            })->preview(function($filename) {
+                return Storage::disk('public')->url('images/' . $filename);
+            })->thumbnail(function($filename) {
+                return Storage::disk('public')->url('thumbnails/' . $filename);
             }),
 
-            Text::make('Caption'),
-
-            BelongsTo::make('Category')->sortable(),
-
-            MorphOne::make('File'),
+            MorphTo::make('For', 'imageable')->types([
+                Post::class,
+            ])->searchable()->sortable(),
         ];
     }
 
