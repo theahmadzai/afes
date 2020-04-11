@@ -39,30 +39,40 @@ Auth::routes(['verify' => true]);
 /**
  * Controller Routes
  */
-Route::get('/', [HomeController::class, '__invoke']);
+Route::get('/', [HomeController::class, '__invoke'])->name('home');
 
-Route::get('contact', [ContactController::class, 'index']);
-Route::post('contact', [ContactController::class, 'mail']);
+Route::group(['as' => 'contact'], function() {
+    Route::get('contact', [ContactController::class, 'index']);
+    Route::post('contact', [ContactController::class, 'mail']);
+});
 
-Route::get('gallery', [GalleryController::class, 'index']);
+Route::get('gallery', [GalleryController::class, 'index'])->name('gallery');
 
-Route::get('blog', [PostController::class, 'index']);
-Route::get('blog/{post}', [PostController::class, 'show']);
+Route::group(['as' => 'blog'], function() {
+    Route::get('blog', [PostController::class, 'index']);
+    Route::get('blog/{post}', [PostController::class, 'show']);
+});
 
-Route::get('jobs', [JobController::class, 'index']);
-Route::get('jobs/{job}', [JobController::class, 'show']);
-Route::get('jobs/{job}/apply', [ApplicationController::class, 'create']);
-Route::post('jobs/{job}/apply', [ApplicationController::class, 'store']);
+Route::group(['as' => 'jobs'], function() {
+    Route::get('jobs', [JobController::class, 'index']);
+    Route::get('jobs/{job}', [JobController::class, 'show']);
+    Route::get('jobs/{job}/apply', [ApplicationController::class, 'create']);
+    Route::post('jobs/{job}/apply', [ApplicationController::class, 'store']);
+});
 
-Route::get('/subscribe', [SubscriberController::class, 'index']);
-Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
+Route::group(['as' => 'subscribe'], function() {
+    Route::get('/subscribe', [SubscriberController::class, 'index']);
+    Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
+});
 
-Route::get('membership', [MembershipController::class, 'index']);
-Route::post('membership', [MembershipController::class, 'subscribe']);
-Route::get('membership/success', [MembershipController::class, 'success']);
-Route::get('membership/cancel', [MembershipController::class, 'cancel']);
+Route::group(['as' => 'membership'], function() {
+    Route::get('membership', [MembershipController::class, 'index']);
+    Route::post('membership', [MembershipController::class, 'subscribe']);
+    Route::get('membership/success', [MembershipController::class, 'success']);
+    Route::get('membership/cancel', [MembershipController::class, 'cancel']);
+});
 
-Route::get('members', [MembersController::class, 'index']);
+Route::get('members', [MembersController::class, 'index'])->name('members');
 
 Route::get('login/{provider}', [SocialIdentityController::class, 'redirectToProvider']);
 Route::get('login/{provider}/callback', [SocialIdentityController::class, 'handleProviderCallback']);
@@ -84,21 +94,20 @@ Route::get('profile/settings/subscriptions', [SubscriptionsController::class, 'i
 /**
  * View Routes
  */
-Route::view('about/chairman-message', 'about.chairman-message');
-Route::view('about/organizational-strategy', 'about.organizational-strategy');
-Route::view('about/board-of-directors', 'about.board-of-directors');
-Route::view('about/statutes-and-by-laws', 'about.statutes-and-by-laws.index');
-Route::view('about/statutes-and-by-laws/general-provisions', 'about.statutes-and-by-laws.general-provisions');
-Route::view('about/statutes-and-by-laws/aim-and-objectives-of-the-organization', 'about.statutes-and-by-laws.aim-and-objectives-of-the-organization');
-Route::view('about/statutes-and-by-laws/governance-structure', 'about.statutes-and-by-laws.governance-structure');
-Route::view('about/statutes-and-by-laws/use-of-property', 'about.statutes-and-by-laws.use-of-property');
-Route::view('about/statutes-and-by-laws/staff-recruitment-wages-and-leave', 'about.statutes-and-by-laws.staff-recruitment-wages-and-leave');
-Route::view('about/statutes-and-by-laws/reporting-and-financial-operations', 'about.statutes-and-by-laws.reporting-and-financial-operations');
-Route::view('about/statutes-and-by-laws/duties-and-responsibilities-of-members', 'about.statutes-and-by-laws.duties-and-responsibilities-of-members');
-Route::view('about/statutes-and-by-laws/miscellaneous-decrees', 'about.statutes-and-by-laws.miscellaneous-decrees');
-Route::view('donate', 'donate.index');
+Route::group(['as' => 'about'], function() {
+    Route::view('about/chairman-message', 'about.chairman-message');
+    Route::view('about/organizational-strategy', 'about.organizational-strategy');
+    Route::view('about/board-of-directors', 'about.board-of-directors');
+    Route::view('about/statutes-and-by-laws', 'about.statutes-and-by-laws.index');
+    Route::view('about/statutes-and-by-laws/general-provisions', 'about.statutes-and-by-laws.general-provisions');
+    Route::view('about/statutes-and-by-laws/aim-and-objectives-of-the-organization', 'about.statutes-and-by-laws.aim-and-objectives-of-the-organization');
+    Route::view('about/statutes-and-by-laws/governance-structure', 'about.statutes-and-by-laws.governance-structure');
+    Route::view('about/statutes-and-by-laws/use-of-property', 'about.statutes-and-by-laws.use-of-property');
+    Route::view('about/statutes-and-by-laws/staff-recruitment-wages-and-leave', 'about.statutes-and-by-laws.staff-recruitment-wages-and-leave');
+    Route::view('about/statutes-and-by-laws/reporting-and-financial-operations', 'about.statutes-and-by-laws.reporting-and-financial-operations');
+    Route::view('about/statutes-and-by-laws/duties-and-responsibilities-of-members', 'about.statutes-and-by-laws.duties-and-responsibilities-of-members');
+    Route::view('about/statutes-and-by-laws/miscellaneous-decrees', 'about.statutes-and-by-laws.miscellaneous-decrees');
+    Route::redirect('about', 'about/chairman-message');
+});
 
-/**
- * Redirect Routes
- */
-Route::redirect('about', 'about/chairman-message');
+Route::view('donate', 'donate.index')->name('donate');
