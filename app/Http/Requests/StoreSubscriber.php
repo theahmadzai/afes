@@ -27,6 +27,7 @@ class StoreSubscriber extends FormRequest
             'first_name' => ['required', 'max:50'],
             'last_name' => ['required', 'max:50'],
             'email' => ['required', 'email', 'unique:subscribers'],
+            'confirm_email' => ['required_with:email', 'email', 'same:email'],
         ];
     }
 }
