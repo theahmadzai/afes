@@ -14,8 +14,7 @@ window.addEventListener('scroll', function (e) {
     progress = true;
 
     window.setTimeout(function () {
-        this.console.log(this.pageYOffset, topbar.offsetHeight, topbar.scrollHeight, this.scrollTop, this.clientHeight);
-        if (this.pageYOffset >= topbarOffsetHeight && this.scolHeight - this.scrollTop - this.clientHeight < topbarOffsetHeight) {
+        if (this.pageYOffset >= topbarOffsetHeight) {
             topbar.style.height = 0;
             logoSm.style.display = 'block';
             logo.style.display = 'none';

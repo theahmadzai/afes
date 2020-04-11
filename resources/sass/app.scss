@@ -58,19 +58,15 @@ h5 {
     font-size: 12px;
 
     h6 {
-        font-size: 16px;
+        // font-size: 16px;
     }
 
     p,a{
         color: #ddd;
     }
-    a{
-        text-decoration: underline;
-    }
-    ul{
-        color:#fff;
-        padding-left:15px;
-    }
+    // a{
+    //     text-decoration: underline;
+    // }
 }
 
 .subHeading {
@@ -187,70 +183,6 @@ h5 {
     }
 }
 
-/* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-
-    /* Hide default HTML checkbox */
-    input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-
-        &:checked + .slider {
-            background-color: #2196F3;
-        }
-
-        &:focus + .slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        &:checked + .slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
-        }
-    }
-}
-
-
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-
-    &:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    /* Rounded sliders */
-    &.round {
-        border-radius: 34px;
-
-        &:before {
-            border-radius: 50%;
-        }
-    }
-}
-
 .StripeElement {
   box-sizing: border-box;
 
@@ -296,18 +228,95 @@ h5 {
     z-index:1000;
 }
 
+.topbar {
+  background-image: repeating-linear-gradient(30deg, #fff, #f4f4f7);
+  overflow:hidden;
+  transition: height 0.2s ease-out
+}
 .navbar .nav-item {
     font-size: 1rem;
     margin-right:0.5rem;
-    border-bottom:2px solid transparent;
+    border-top:2px solid transparent;
     padding: 0.3rem 0;
 
-    &:hover {
-        background:#fafafa;
-        border-bottom:2px solid #900;
+    &:hover, &.active {
+        background:#fdfdfd;
+        border-top:2px solid #900;
     }
 
     &:last-child {
         margin-right:0;
     }
+}
+
+
+/** devices */
+.scope-devices {
+.product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -20%;
+    width: 100%;
+    height: 100px;
+    background-color: #900;
+    transform: rotate(30deg);
+  }
+
+//   .product-device::before {
+//     position: absolute;
+//     top: 10%;
+//     right: 10px;
+//     bottom: 10%;
+//     left: 10px;
+//     content: "";
+//     background-color: rgba(255, 255, 255, .1);
+//     border-radius: 5px;
+//   }
+
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+
+
+  /*
+   * Extra utilities
+   */
+
+  .flex-equal > * {
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      flex: 1;
+    }
+  }
+}
+
+.header-strip{
+    border-top:10px groove #901;
+    opacity: 0.9;
+    position: relative;
+    height: 300px;
+    background-image: linear-gradient(#901, #904);
+
+  h1 {
+    padding: 100px 0;
+    font: 44px "Arial";
+    text-align: center;
+  }
+
+  h1 {
+    color: white;
+  }
+
+  svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vw;
+  }
 }
