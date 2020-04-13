@@ -15,14 +15,24 @@ class Image extends Model
         'filename'
     ];
 
+    private function imagePathFor($type) {
+        $image = "{$type}/{$this->filename}";
+
+        if(!Storage::disk('public')->exists($image)) {
+            $image = "{$type}/default.png";
+        }
+
+        return Storage::disk('public')->url($image);
+    }
+
     public function getThumbnailPathAttribute()
     {
-        return Storage::disk('public')->url('thumbnails/' . $this->filename);
+        return $this->imagePathFor('thumbnails');
     }
 
     public function getImagePathAttribute()
     {
-        return Storage::disk('public')->url('images/' . $this->filename);
+        return $this->imagePathFor('images');
     }
 
     public function imageable()
