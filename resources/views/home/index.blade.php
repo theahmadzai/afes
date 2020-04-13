@@ -97,7 +97,7 @@
 
         <div class="row p-3 p-md-5 mb-2 text-center bg-dark shadow-sm" data-aos="flip-up">
             <div class="col-md-8 p-lg-4 mx-auto">
-                <h1 class="display-4 font-weight-normal mb-2 text-white">Membership</h1>
+                <h2 class="display-4 font-weight-normal mb-2 text-white">Membership</h2>
                 <p class="lead font-weight-normal text-light">Afghan Evaluation Society (AfES) offer memberships to development professionals, evaluators, students, and institutions. As a Member, you will benefit from AfES relationships with targeted service and support providers relevant to our work in the field of evaluation.</p>
                 <a href="/membership" type="button" class="btn-lg btn-light">BUY NOW</a>
             </div>
@@ -124,6 +124,49 @@
                 </ul>
             </div>
         </div>
+
+        <h2 class="display-4 text-center font-weight-normal my-5 text-dark">Board of Directors</h2>
+
+        <div class="row px-3">
+            <div class="col-lg-4 text-center">
+                <div class="mx-1 p-4 shadow" data-aos="fade-up">
+                    <img src="/img/bod/Samandar-Mahmodi.jpg" class="img mb-2 shadow img-thumbnail" width="100" height="100">
+                    <h3 class="m-2 border-bottom pb-2">Samandar Mahmodi</h3>
+                    <p><b>Mr. Samandar Mahmodi</b> has over ten (10) years of professional experience in social research, surveys, monitoring and evaluation, qualitative and quantitative data collection and analysis; designing, developing and managing M&E systems. Mr Mahmodi has worked with a broad range of programs and projects in...</p>
+                    <a class="btn btn-dark" href="#" role="button">Read more &raquo;</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="mx-1 p-4 shadow-lg" data-aos="fade-down">
+                    <img src="/img/bod/Qudratullah-Jahid.jpg" class="img mb-2  shadow rounded-circle" width="130" height="130">
+                    <h3 class="m-2 border-bottom pb-2">Qudratullah Jahid</h3>
+                    <p><b>Mr. Qudratullah Jahid</b> is the Secretary General and founding board member of Afghan Evaluation Society (AfES). Mr Jahid is an M&E professional and sustainable development enthusiast. He has a bachelor’s degree and four international certificates in management and M&E and has more than nine years of work experience...</p>
+                    <a class="btn btn-dark" href="#" role="button">Read more &raquo;</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="mx-1 p-4 shadow" data-aos="fade-up">
+                    <img src="/img/bod/Mansoor-Yosufzai.jpg" class="img mb-2 shadow rounded-circle" width="100" height="100">
+                    <h3 class="m-2 border-bottom pb-2">Mansoor Yosufzai</h3>
+                    <p><b>Mr. Mansoor Yosufzai</b> has a bachelor’s degree in Business Administration with over five years of experience in the fields of Monitoring and Evaluation, Research, Project Management and Reporting with various international organizations in Afghanistan and Sweden. Mr. Yosufzai is a board...</p>
+                    <a class="btn btn-dark" href="#" role="button">Read more &raquo;</a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="/img/main/2.jpg" class="featurette-image img-fluid mx-aut" width="100%" height="100%" alt="">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
 
         <div class="row pt-4 px-4">
             <div class="col-md-6 p-0">
